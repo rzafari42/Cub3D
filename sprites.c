@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:36:46 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/14 20:41:11 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/15 01:01:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,7 @@ void ft_project_sprites(t_deflibx *mlx)
               d = y * 256 - mlx->parse.Height * 128 + mlx->sprites.spriteHeight * 128;
               mlx->sprites.stripeY = ((d * textheight) / mlx->sprites.spriteHeight) / 256;
               if (mlx->sprites.img_spritedata0[mlx->sprites.stripeY % 64 * mlx->sprites.size_line + mlx->sprites.stripeX % 64 * mlx->sprites.bpp / 8] != 0)
-                ft_memcpy(mlx->img_data + 4 * mlx->parse.Width * y + 4 * mlx->sprites.stripe , &mlx->sprites.img_spritedata0[mlx->sprites.stripeY % 64 * mlx->sprites.size_line + mlx->sprites.stripeX % 64 * mlx->sprites.bpp / 8], sizeof(int));
+                ft_memcpy_cub(mlx->img_data + 4 * mlx->parse.Width * y + 4 * mlx->sprites.stripe , &mlx->sprites.img_spritedata0[mlx->sprites.stripeY % 64 * mlx->sprites.size_line + mlx->sprites.stripeX % 64 * mlx->sprites.bpp / 8], sizeof(int));
               y++;
             }
         }

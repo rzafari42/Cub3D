@@ -6,21 +6,22 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 10:10:27 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/14 21:46:34 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/15 01:02:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# define BUFFER_SIZE 2
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
 # include <stdlib.h>
 
 int			get_next_line(int fd, char **line);
-int			get_next_line1(int fd, char **line);
+//int			get_next_line1(int fd, char **line);
 int			ft_check(char *str);
-char		*ft_strnew(size_t size);
+char		*ft_strnew_gnl(size_t size);
 char		*ft_read(int fd, char *buffer, char **str);
 char		*ft_newline(char **str);
 char		*ft_strjoin_gnl(char const *s1, char const *s2);

@@ -6,36 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/15 00:35:21 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/15 01:01:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_putstr(char *s)
-{
-	int	i;
 
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-    write(1, "\n", 1);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	unsigned int i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
 
 void ft_return(char *s, t_deflibx *mlx)
 {
@@ -67,8 +44,8 @@ void ft_transform_res_in_int(t_deflibx *mlx)
     int s = 0;
     int h = 0;
 
-    mlx->parse.Width = ft_atoi(mlx->parse.Widthcatch);
-    mlx->parse.Height = ft_atoi(mlx->parse.Heightcatch);
+    mlx->parse.Width = ft_atoi_cub(mlx->parse.Widthcatch);
+    mlx->parse.Height = ft_atoi_cub(mlx->parse.Heightcatch);
     if (mlx->parse.Width < 640)
         mlx->parse.Width = 640;
     else if (mlx->parse.Width > 2560)
@@ -87,15 +64,15 @@ int    ft_line_to_resolution(char *line, int i, t_deflibx *mlx)
 
     c = 0;
     nspace = 0; 
-    while (!(ft_isdigit(line[i])))
+    while (!(ft_isdigit_cub(line[i])))
         i++;
-    j = ft_strlen(line) - i;
+    j = ft_strlen_cub(line) - i;
     if (!(mlx->parse.resolution = (char *)malloc(sizeof(char) * (j + 1))))
         ft_return("MALLOC ERROR :(", mlx);
     mlx->parse.resolutionset = 1;
     while (c < j)
     {
-        if (!(ft_isdigit(line[i])) && line[i] != '\0' && line[i] != ' ')
+        if (!(ft_isdigit_cub(line[i])) && line[i] != '\0' && line[i] != ' ')
             ft_return("Resolution Error: NOT A DIGIT", mlx);
         nspace = (line[i] == ' ') ? (++nspace) : nspace;
         if (nspace > 1)
@@ -104,7 +81,7 @@ int    ft_line_to_resolution(char *line, int i, t_deflibx *mlx)
             mlx->parse.resolution[c++] = line[i++];
     }
     mlx->parse.resolution[c] = '\0';
-    if ((c = ft_strlen(mlx->parse.resolution)) > 9 || c < 7)
+    if ((c = ft_strlen_cub(mlx->parse.resolution)) > 9 || c < 7)
         ft_return("Resolution Error: TOO BIG or TOO SMALL", mlx);
     return (i);
 }
@@ -183,31 +160,31 @@ int ft_get_Color(char *line, int i, char c, t_deflibx *mlx)
     char res[4];
 
     d = 0;
-    ft_bzero(res, 4);
+    ft_bzero_cub(res, 4);
     while(line[i] != ',' && line[i] != '\0')
     {
         if (d >= 3)
             ft_return("Color is invalid", mlx);
         if (line[i] == ' ')
             ft_return("Space in the color declaration", mlx);
-        if (ft_isdigit(line[i]))
+        if (ft_isdigit_cub(line[i]))
             res[d++] = line[i++];
         else
             ft_return("Color Invalid: not a digit", mlx);
     }
     if (c == 'r')
-        mlx->parse.red = ft_atoi(res);
+        mlx->parse.red = ft_atoi_cub(res);
     if (c == 'g')
-        mlx->parse.green = ft_atoi(res);
+        mlx->parse.green = ft_atoi_cub(res);
     if (c == 'b')
-        mlx->parse.blue = ft_atoi(res);
+        mlx->parse.blue = ft_atoi_cub(res);
     ft_check_Color(mlx);
     return (i);
 }
 
 int    ft_get_floor_color(char *line, int i, t_deflibx *mlx)
 {
-    while (!(ft_isdigit(line[i])))
+    while (!(ft_isdigit_cub(line[i])))
         i++;
     i = ft_get_Color(line, i, 'r', mlx);
     i++;
@@ -220,7 +197,7 @@ int    ft_get_floor_color(char *line, int i, t_deflibx *mlx)
 
 int    ft_get_ceil_color(char *line, int i, t_deflibx *mlx)
 {
-    while (!(ft_isdigit(line[i])))
+    while (!(ft_isdigit_cub(line[i])))
         i++;
     i = ft_get_Color(line, i, 'r', mlx);
     i++;
@@ -278,15 +255,15 @@ int     ft_check_path_set(char *line, int i, t_deflibx *mlx)
 void    ft_put_to_right_path(char *line, int i, t_deflibx *mlx)
 {
     if (line[i] == 'N' && line[i + 1] == 'O')
-        mlx->parse.northtext = ft_strdup(mlx->parse.path);
+        mlx->parse.northtext = ft_strdup_cub(mlx->parse.path);
     if (line[i] == 'S' && line[i + 1] == 'O')
-         mlx->parse.southtext = ft_strdup(mlx->parse.path);
+         mlx->parse.southtext = ft_strdup_cub(mlx->parse.path);
     if (line[i] == 'W' && line[i + 1] == 'E')
-         mlx->parse.westtext = ft_strdup(mlx->parse.path);
+         mlx->parse.westtext = ft_strdup_cub(mlx->parse.path);
     if (line[i] == 'E' && line[i + 1] == 'A')
-         mlx->parse.easttext = ft_strdup(mlx->parse.path);
+         mlx->parse.easttext = ft_strdup_cub(mlx->parse.path);
     if (line[i] == 'S' && line[i + 1] == ' ' && line[i + 1] != 'O')
-         mlx->parse.sprite = ft_strdup(mlx->parse.path);
+         mlx->parse.sprite = ft_strdup_cub(mlx->parse.path);
 }
 
 void   ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx)
@@ -308,7 +285,7 @@ void   ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx)
             l++;
         }
         if (!(mlx->parse.path = (char*)malloc(sizeof(char) * (j + 3))))
-            ft_return ("MALLOC ERROR :(", mlx);
+            ft_return("MALLOC ERROR :(", mlx);
         mlx->parse.path[z++] = '"';
         while (z < j + 1)
             mlx->parse.path[z++] = line[i++];
@@ -352,7 +329,7 @@ int ft_check_args(char *line, t_deflibx *mlx)
             i = ft_get_typecolor(line, i, mlx);
         else if (line[i] == 'R' && mlx->parse.resolutionset == 0)
             i = ft_get_Resolution(line, i, mlx);
-        else if (ft_isdigit(line[i]))
+        else if (ft_isdigit_cub(line[i]))
             return (2);
         else
             i++;
@@ -414,7 +391,7 @@ void    ft_line_map(t_deflibx *mlx)
     //linesize = 0;
     ret = 0;
     if (!(line = (char*)malloc(sizeof(char))))
-        ft_return ("MALLOC ERROR :(", mlx);
+        ft_return("MALLOC ERROR :(", mlx);
     line[0] = 1;
     if ((fd = open(mlx->parse.files, O_RDONLY)) < 0)
     {
@@ -488,7 +465,7 @@ void ft_copy_map(t_deflibx *mlx)
     if (!(line = (char*)malloc(sizeof(char))))
     {
         ft_free_map(mlx);
-        ft_return ("MALLOC ERROR :(", mlx);
+        ft_return("MALLOC ERROR :(", mlx);
     }
     line[0] = 1;
     if ((fd = open(mlx->parse.files, O_RDONLY)) < 0)
@@ -881,7 +858,7 @@ void ft_map(t_deflibx *mlx, char *line, int fd)
             free(mlx->parse.map);
             ft_return ("MALLOC ERROR :(", mlx);
         }
-        ft_bzero(mlx->parse.map[j], mlx->parse.mapbiggerline);
+        ft_bzero_cub(mlx->parse.map[j], mlx->parse.mapbiggerline);
         j++;
     }
     ft_copy_map(mlx);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rzafari <rzafari@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:37:50 by rzafari           #+#    #+#             */
-/*   Updated: 2020/03/13 01:58:23 by rzafari          ###   ########.fr       */
+/*   Updated: 2020/04/15 01:01:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_drawtexturedwall(t_deflibx *mlx, int x)
     while (y <= mlx->raycast.drawEnd)
     {
         mlx->text.y = abs((((y * 256 - mlx->parse.Height * 128 + mlx->raycast.lineHeight * 128) * 64) / mlx->raycast.lineHeight) / 256);
-        ft_memcpy(mlx->img_data + 4 * mlx->parse.Width * y + 4 * x , &mlx->text.img_textdata_utils[mlx->text.y % 64 * mlx->text.size_line + mlx->text.x % 64 * mlx->text.bpp / 8], sizeof(int));  
+        ft_memcpy_cub(mlx->img_data + 4 * mlx->parse.Width * y + 4 * x , &mlx->text.img_textdata_utils[mlx->text.y % 64 * mlx->text.size_line + mlx->text.x % 64 * mlx->text.bpp / 8], sizeof(int));  
         y++;
     }                         
 }

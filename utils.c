@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:49:25 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/14 20:52:57 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/15 01:01:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	*ft_memcpy(void *dst, const void *src, int n)
+void	*ft_memcpy_cub(void *dst, const void *src, int n)
 {
 	int					i;
 	unsigned char		*ptr_dst;
@@ -29,6 +29,94 @@ void	*ft_memcpy(void *dst, const void *src, int n)
 		i++;
 	}
 	return (ptr_dst);
+}
+
+void	ft_putstr_cub(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+    write(1, "\n", 1);
+}
+
+size_t	ft_strlen_cub(const char *s)
+{
+	unsigned int i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+int	ft_atoi_cub(const char *str)
+{
+	int sign;
+	int ans;
+
+	ans = 0;
+	sign = 1;
+	while (*str && (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r'
+				|| *str == '\v' || *str == '\f'))
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		ans = ans * 10 + (*str - 48);
+		str++;
+	}
+	return (ans * sign);
+}
+
+int	ft_isdigit_cub(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
+void	ft_bzero_cub(void *s, size_t n)
+{
+	unsigned char *p;
+
+	p = (unsigned char *)s;
+	while (n > 0)
+	{
+		*p = '\0';
+		p++;
+		n--;
+	}
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*s2;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (s1[i])
+		i++;
+	if (!(s2 = malloc(sizeof(char) * (i + 1))))
+		return (NULL);
+	while (s1[j])
+	{
+		s2[j] = s1[j];
+		j++;
+	}
+	s2[j] = '\0';
+	return (s2);
 }
 
 unsigned long convertrgbtoint(unsigned int r, unsigned int g, unsigned int b)
@@ -68,17 +156,6 @@ void    ft_free(t_deflibx *mlx)
 	if (mlx->parse.spriteset == 1)
 		free (mlx->parse.sprite);
 }
-/*
-size_t	ft_strlen(const char *s)
-{
-	unsigned int i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}*/
-
 
 int KillWindow(t_deflibx *mlx)
 {

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/14 21:20:36 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/15 01:02:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,7 +219,7 @@ typedef struct   s_deflibx
 }               t_deflibx;
 
 unsigned long   convertrgbtoint(unsigned int r, unsigned int g, unsigned int b);
-void    *ft_memcpy(void *dst, const void *src, int n);
+void    *ft_memcpy_cub(void *dst, const void *src, int n);
 void    ft_sort_sprites(int *Order, double *Distance, int num);
 void    ft_locate_sprites(t_deflibx *mlx);
 void    ft_Order_sprites(t_deflibx *mlx);
@@ -262,12 +262,13 @@ int     KillWindow(t_deflibx *mlx);
 int     key_deal(t_deflibx *mlx);
 int     ft_check_wall(char *s);
 int     raycasting(t_deflibx *mlx);
-int     ft_atoi(const char *str);
+int     ft_atoi_cub(const char *str);
 int     ft_parsing(t_deflibx *mlx);
+char	*ft_strdup_cub(const char *s1);
 //int     main(int argc, char **argv);
-size_t	ft_strlen(const char *s);
-int     ft_isdigit(int c);
-void    ft_bzero(void *s, size_t n);
+size_t	ft_strlen_cub(const char *s);
+int     ft_isdigit_cub(int c);
+void    ft_bzero_cub(void *s, size_t n);
 char	*ft_strdup_zero(const char *s1, t_deflibx *mlx);
 
 #endif

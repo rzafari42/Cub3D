@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 09:59:50 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/14 21:51:40 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/15 01:02:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char		*ft_strndup_gnl(const char *s1, size_t n)
 	return (s2);
 }
 
-char		*ft_strnew(size_t size)
+char		*ft_strnew_gnl(size_t size)
 {
 	char	*str;
 	int		i;

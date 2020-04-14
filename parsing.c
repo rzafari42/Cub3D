@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/14 21:22:24 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/15 00:35:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -373,7 +373,7 @@ int     ft_check_wall(char *s)
     return(0);
 }
 
-int ft_linesize(char *line, int linesize, t_deflibx *mlx)
+void ft_linesize(char *line, int linesize, t_deflibx *mlx)
 {
     int j;
     j = 0;
@@ -411,7 +411,7 @@ void    ft_line_map(t_deflibx *mlx)
 
     i = 1;
     mlx->parse.mapnbline = 0;
-    linesize = 0;
+    //linesize = 0;
     ret = 0;
     if (!(line = (char*)malloc(sizeof(char))))
         ft_return ("MALLOC ERROR :(", mlx);
@@ -426,11 +426,11 @@ void    ft_line_map(t_deflibx *mlx)
         free(line);
         ret = get_next_line(fd, &line);
     }
-    linesize = ft_linesize(line, linesize, mlx);
+    ft_linesize(line, linesize, mlx);
     free(line);
     while ((ret = get_next_line(fd, &line)) > -1)
     {
-        linesize = ft_linesize(line, linesize, mlx);
+        ft_linesize(line, linesize, mlx);
         free(line);
         if (ret == 0) 
             break;

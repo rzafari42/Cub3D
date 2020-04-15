@@ -846,6 +846,7 @@ void ft_map(t_deflibx *mlx, char *line, int fd)
     if (!(mlx->parse.map = (char**)malloc(sizeof(char*) * (mlx->parse.mapnbline + 1))))
         ft_return ("MALLOC ERROR :(", mlx);
     printf("nbline = %d biggerline = %d\n\n\n",mlx->parse.mapnbline, mlx->parse.mapbiggerline);
+
     while (j <= mlx->parse.mapnbline)
     {
         if (!(mlx->parse.map[j] = (char*)malloc(sizeof(char) * (mlx->parse.mapbiggerline + 1))))

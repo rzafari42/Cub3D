@@ -1,13 +1,12 @@
 R 800 825
-NO ./path_to_the_north_texture
-NO ./pathhhh
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-S ./path_to_the_sprite_texture
+NO ./files/01.xpm
+SO ./files/02.xpm
+WE ./files/03.xpm
+S ./files/barrel.xpm
 
 F 220,255,120
 
-EA ./path_to_the_east_texture
+EA ./files/04.xpm
 C 225,222,0
 
         1111111111111111111111111

@@ -68,6 +68,7 @@ int raycasting(t_deflibx *mlx)
     x = 0;
     mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->parse.Width, mlx->parse.Height);
     mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_line, &mlx->endian);
+    printf("BPP = %d\n", mlx->bpp);
     ft_launch_text(mlx);
     ft_launch_sprites(mlx);
     while (x < mlx->parse.Width)

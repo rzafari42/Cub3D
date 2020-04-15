@@ -903,6 +903,10 @@ int     ft_parsing(t_deflibx *mlx)
 
 void ft_parse_initialization(t_deflibx *mlx)
 {
+    mlx->text.width = 64;
+    mlx->text.height = 64;
+    mlx->sprites.width = 64;
+    mlx->sprites.height = 64;
     mlx->parse.Fcolorset = 0;
     mlx->parse.Ccolorset = 0;
     mlx->parse.resolutionset = 0;

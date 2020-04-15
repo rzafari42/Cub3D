@@ -21,6 +21,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <mlx.h>
 # define screenWidth 640 
 # define screenHeight 480
 # define mapWidth 24
@@ -267,6 +268,7 @@ int     ft_parsing(t_deflibx *mlx);
 char	*ft_strdup_cub(const char *s1);
 //int     main(int argc, char **argv);
 size_t	ft_strlen_cub(const char *s);
+void	ft_putstr_cub(char *s);
 int     ft_isdigit_cub(int c);
 void    ft_bzero_cub(void *s, size_t n);
 char	*ft_strdup_zero(const char *s1, t_deflibx *mlx);

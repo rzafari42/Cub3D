@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/15 01:01:28 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/15 02:07:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 void ft_return(char *s, t_deflibx *mlx)
 {
-    ft_putstr("Error");
-    ft_putstr(s);
+    ft_putstr_cub("Error");
+    ft_putstr_cub(s);
     ft_free(mlx);
     exit (0);
 }

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:49:25 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/15 01:01:20 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/15 02:06:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	ft_bzero_cub(void *s, size_t n)
 	}
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup_cub(const char *s1)
 {
 	char	*s2;
 	int		i;

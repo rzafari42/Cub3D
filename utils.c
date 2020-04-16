@@ -129,6 +129,8 @@ unsigned long convertrgbtoint(unsigned int r, unsigned int g, unsigned int b)
 
 void    ft_free(t_deflibx *mlx)
 {
+	int i;
+
 	if (mlx->sprites.Zbufferset == 1)
 		free(mlx->sprites.Zbuffer);
 	if (mlx->sprites.sprites_tabset == 1)
@@ -155,6 +157,12 @@ void    ft_free(t_deflibx *mlx)
         free (mlx->parse.easttext);
 	if (mlx->parse.spriteset == 1)
 		free (mlx->parse.sprite);
+	i = 0;
+	while (i <= 5)
+	{
+		close(mlx->parse.fd[i]);
+		i++;
+	}
 }
 
 int KillWindow(t_deflibx *mlx)

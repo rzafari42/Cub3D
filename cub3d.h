@@ -21,7 +21,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include <mlx.h>
+//# include <mlx.h>
 # define screenWidth 640 
 # define screenHeight 480
 # define mapWidth 24
@@ -70,6 +70,7 @@ typedef struct   s_parse
     char *Widthcatch;
     char *Heightcatch;
     char **map;
+    int fd[5];
     int Width;
     int Height;
 }                t_parse;

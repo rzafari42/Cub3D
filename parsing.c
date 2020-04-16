@@ -135,6 +135,8 @@ void    ft_getheight_from_resolution(t_deflibx *mlx)
 
 int    ft_get_Resolution(char *line, int i, t_deflibx *mlx)
 {
+    if (mlx->parse.resolutionset == 1)
+        ft_return("Resolution declared twice", mlx);
     i = ft_line_to_resolution(line, i, mlx);
     if (!ft_check_if_space(mlx))
         ft_return("Resolution Error: syntax error", mlx);
@@ -215,11 +217,15 @@ int    ft_get_typecolor(char *line, int i, t_deflibx *mlx)
     mlx->parse.red = 0;
     if (line[i] == 'F')
     {
+        if (mlx->parse.Fcolorset == 1)
+            ft_return("Floor color declared twice", mlx);
         i = ft_get_floor_color(line, i, mlx);
         mlx->parse.Fcolorset = 1;
     }
     else if (line[i] == 'C')
     {
+        if (mlx->parse.Ccolorset == 1)
+            ft_return("Ceil color declared twice", mlx);
         i = ft_get_ceil_color(line, i, mlx);
         mlx->parse.Ccolorset = 1;
     }
@@ -284,12 +290,12 @@ void   ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx)
             j++;
             l++;
         }
-        if (!(mlx->parse.path = (char*)malloc(sizeof(char) * (j + 3))))
+        if (line [l - 1] != 'm' && line[l - 2] != 'p' && line[l - 3] != 'x' && line[l - 4] != '.')
+            ft_return("Bad file extension: not .xpm", mlx);
+        if (!(mlx->parse.path = (char*)malloc(sizeof(char) * (j + 2))))
             ft_return("MALLOC ERROR :(", mlx);
-        mlx->parse.path[z++] = '"';
         while (z < j + 1)
             mlx->parse.path[z++] = line[i++];
-        mlx->parse.path[z++] = '"';
         mlx->parse.path[z] = '\0';
     }
 }
@@ -300,6 +306,7 @@ int    ft_get_Texturespath(char *line, int i, t_deflibx *mlx)
 
     if(ft_check_path_set(line, i, mlx) == 1)
     {
+        ft_return("Texture declared twice", mlx);
         while (line[i] != '\0')
             i++;
         return(i);
@@ -308,6 +315,8 @@ int    ft_get_Texturespath(char *line, int i, t_deflibx *mlx)
     ret = i;
     ft_get_Texturespath_two(line, i, mlx);
     ft_put_to_right_path(line, ret, mlx);
+    while (line[i] != '\0')
+        i++;
     free(mlx->parse.path);
    return (i);
 }
@@ -325,9 +334,9 @@ int ft_check_args(char *line, t_deflibx *mlx)
         || (line[i] == 'E' && line[i + 1] == 'A')
         || (line[i] == 'S' && line[i + 1] == ' ' && line[i + 1] != 'O'))  
             i = ft_get_Texturespath(line, i, mlx);     
-        else if ((line[i] == 'F' && mlx->parse.Fcolorset == 0) || (line[i] == 'C' && mlx->parse.Ccolorset == 0))
+        else if (line[i] == 'F'|| line[i] == 'C')
             i = ft_get_typecolor(line, i, mlx);
-        else if (line[i] == 'R' && mlx->parse.resolutionset == 0)
+        else if (line[i] == 'R')// && mlx->parse.resolutionset == 0)
             i = ft_get_Resolution(line, i, mlx);
         else if (ft_isdigit_cub(line[i]))
             return (2);
@@ -869,6 +878,41 @@ void ft_map(t_deflibx *mlx, char *line, int fd)
     ft_free_map(mlx);
 }
 
+void    ft_check_set(t_deflibx *mlx)
+{
+    if (mlx->parse.northset == 0)
+        ft_return("North texture not declared", mlx);
+    if (mlx->parse.southset == 0)
+        ft_return("South texture not declared", mlx);
+    if (mlx->parse.eastset == 0)
+        ft_return("East texture not declared", mlx);
+    if (mlx->parse.westset == 0)
+        ft_return("West texture not declared", mlx);
+    if (mlx->parse.resolutionset == 0)
+        ft_return("Resolution not declared", mlx);
+    if (mlx->parse.spriteset == 0)
+        ft_return("Sprite not declared", mlx);
+    if (mlx->parse.Ccolorset == 0)
+        ft_return("Ceil color not declared", mlx);
+    if (mlx->parse.Fcolorset == 0)
+        ft_return("Floor color not declared", mlx);
+} 
+
+void ft_openpath(t_deflibx *mlx)
+{
+    ft_check_set(mlx);
+    if ((mlx->parse.fd[0] = open(mlx->parse.northtext, O_RDONLY)) < 0)
+        ft_return("North text open problem", mlx);
+    if ((mlx->parse.fd[1] = open(mlx->parse.southtext, O_RDONLY)) < 0)
+        ft_return("South text open problem", mlx);
+    if ((mlx->parse.fd[2] = open(mlx->parse.easttext, O_RDONLY)) < 0)
+        ft_return("East text open problem", mlx);
+    if ((mlx->parse.fd[3] = open(mlx->parse.westtext, O_RDONLY)) < 0)
+        ft_return("West text open problem", mlx);
+    if ((mlx->parse.fd[4] = open(mlx->parse.sprite, O_RDONLY)) < 0)
+        ft_return("Sprite open problem", mlx);
+}
+
 int ft_read0(int fd, t_deflibx *mlx)
 {
     char *line;
@@ -883,6 +927,7 @@ int ft_read0(int fd, t_deflibx *mlx)
         if (ret == 0)
             break;
     }
+    ft_openpath(mlx);
     if (map == 0)
        ft_return("Map Missing", mlx);
     free(line);
@@ -927,7 +972,8 @@ void ft_parse_initialization(t_deflibx *mlx)
     mlx->parse.mapbiggerline = 0;
 }
 
-/*int main(void)
+/*
+int main(void)
 {
     t_deflibx mlx;
 

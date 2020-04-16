@@ -51,8 +51,12 @@ void ft_DDA(t_deflibx *mlx)
     if (mlx->move.mode == 1)
         ft_electro_mode(mlx);
     //Check if ray has hit a wall
-    if(mlx->parse.map[mlx->raycast.mapX][mlx->raycast.mapY] == 1)
-        mlx->raycast.hit = 1;
+ 	printf("before map \n");
+    printf("mlx->parse.map[%d][%d] = %c\n", mlx->parse.positionx, mlx->parse.positiony, mlx->parse.map[mlx->parse.positionx][mlx->parse.positiony]);
+	printf("After map\n");
+    /*if(mlx->parse.map[mlx->raycast.mapX][mlx->raycast.mapY] == 1)
+       mlx->raycast.hit = 1;*/
+   printf("after map\n");
     }
 }
 
@@ -73,6 +77,7 @@ int raycasting(t_deflibx *mlx)
     ft_launch_sprites(mlx);
     while (x < mlx->parse.Width)
     { 
+	printf("inside\n");
       Color_initializatin(mlx);
       //mlx->img_color = mlx_get_color_value(mlx->mlx_ptr, mlx->color);
       //calculate ray position and direction
@@ -82,7 +87,7 @@ int raycasting(t_deflibx *mlx)
       //which box of the map are we in ?
       mlx->raycast.mapX = (int)mlx->raycast.posX;
       mlx->raycast.mapY = (int)mlx->raycast.posY;
-
+	printf("mlx->raycast.posX = %f\n", mlx->raycast.posX);
       //length of ray from one x or y-side to the next x or y-side
       mlx->raycast.deltaDistX = fabs(1 / mlx->raycast.rayDirX);
       mlx->raycast.deltaDistY = fabs(1 / mlx->raycast.rayDirY);
@@ -111,8 +116,9 @@ int raycasting(t_deflibx *mlx)
         mlx->raycast.sideDistY = (mlx->raycast.mapY + 1.0 - mlx->raycast.posY) * mlx->raycast.deltaDistY;
       }
       //Perform DDA
+      printf("Before DDA\n"); 
       ft_DDA(mlx);
-
+	printf("After DDA\n");
       //Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)
       if(mlx->raycast.side == 0 || mlx->raycast.side == 1)
         mlx->raycast.perpWallDist = (mlx->raycast.mapX - mlx->raycast.posX + (1 - mlx->raycast.stepX) / 2) / mlx->raycast.rayDirX;
@@ -120,7 +126,6 @@ int raycasting(t_deflibx *mlx)
         mlx->raycast.perpWallDist = (mlx->raycast.mapY - mlx->raycast.posY + (1 - mlx->raycast.stepY) / 2) / mlx->raycast.rayDirY;
       //Calculate height of line to draw on screen
       mlx->raycast.lineHeight = (int)(mlx->parse.Height / mlx->raycast.perpWallDist);
-      
       //calculate lowest and highest pixel to fill in current stripe
       mlx->raycast.drawStart = -mlx->raycast.lineHeight / 2 + mlx->parse.Height / 2;
       if(mlx->raycast.drawStart < 0)
@@ -128,7 +133,7 @@ int raycasting(t_deflibx *mlx)
       mlx->raycast.drawEnd = mlx->raycast.lineHeight / 2 + mlx->parse.Height / 2;
       if(mlx->raycast.drawEnd >= mlx->parse.Height)
         mlx->raycast.drawEnd = mlx->parse.Height - 1;
-    
+    printf("before texture\n");
       //TEXTURES
       ft_draw_ceil(mlx, x);
       if (mlx->move.mode == 0)//&& worldMap[mlx->raycast.mapX][mlx->raycast.mapY] == 1)

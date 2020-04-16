@@ -14,7 +14,7 @@
 
 void North_South_initialization(t_deflibx *mlx)
 {
-    if (N == 1)
+    if (mlx->parse.position == 'N')
   {   
     /*initial direction vector*/
     mlx->raycast.dirX = -1;
@@ -23,7 +23,7 @@ void North_South_initialization(t_deflibx *mlx)
     mlx->raycast.planeX = 0;
     mlx->raycast.planeY = 0.66;
   }
-  if (S == 1)
+  if (mlx->parse.position == 'S')
   {    
     /*initial direction vector*/
     mlx->raycast.dirX = 1;
@@ -36,7 +36,7 @@ void North_South_initialization(t_deflibx *mlx)
 
 void East_West_initialization(t_deflibx *mlx)
 {
-  if (W == 1)
+  if (mlx->parse.position ==  'W')
   {    
     //initial direction vector
     mlx->raycast.dirX = 0;
@@ -45,7 +45,7 @@ void East_West_initialization(t_deflibx *mlx)
     mlx->raycast.planeX = -0.66;
     mlx->raycast.planeY = 0;
   }
-  if (E == 1)
+  if (mlx->parse.position == 'E')
   {    
     //initial direction vector
     mlx->raycast.dirX = 0;
@@ -62,5 +62,10 @@ void initialization(t_deflibx *mlx)
   North_South_initialization(mlx);
   East_West_initialization(mlx); 
   Move_initialization(mlx);
-  Window_initialization(mlx);
+	printf("Hello\n");
+    Window_initialization(mlx);
+	printf("End\n");
+	printf("mlx->parse.map[%d][%d] = %c\n", mlx->parse.positionx, mlx->parse.positiony, mlx->parse.map[mlx->parse.positionx][mlx->parse.positiony]);
+
+	printf("dirX = %f && direY = %f && planeX = %f && planeY = %f\n", mlx->raycast.dirX, mlx->raycast.dirY, mlx->raycast.planeX, mlx->raycast.planeY);
 }

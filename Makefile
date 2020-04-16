@@ -31,7 +31,7 @@ $(NAME): $(OBJ)
 clean:
 	/bin/rm -f $(OBJ)
 
-fclean:
+fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all

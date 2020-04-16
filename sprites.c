@@ -48,6 +48,7 @@ void ft_launch_sprites(t_deflibx *mlx)
     //mlx->sprites.img_spriteptr3 = mlx_xpm_file_to_image(mlx->mlx_ptr, "./04.xpm" , &mlx->text.width, &mlx->text.height);
 
     mlx->sprites.img_spritedata0 = mlx_get_data_addr(mlx->sprites.img_spriteptr0, &mlx->sprites.bpp, &mlx->sprites.size_line, &mlx->sprites.endian);
+    printf("After sprite\n");
     //mlx->sprites.img_spritedata1 = mlx_get_data_addr(mlx->sprites.img_spriteptr1, &mlx->text.bpp, &mlx->text.size_line, &mlx->text.endian);
     //mlx->sprites.img_spritedata2 = mlx_get_data_addr(mlx->sprites.img_spriteptr2, &mlx->text.bpp, &mlx->text.size_line, &mlx->text.endian);
     //mlx->sprites.img_spritedata3 = mlx_get_data_addr(mlx->sprites.img_spriteptr3, &mlx->text.bpp, &mlx->text.size_line, &mlx->text.endian);

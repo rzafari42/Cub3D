@@ -38,8 +38,8 @@ void Window_initialization(t_deflibx *mlx)
 void position_initialization(t_deflibx *mlx)
 {
   /*x and y start position*/
-  mlx->raycast.posX = 9;
-  mlx->raycast.posY = 5;
+  mlx->raycast.posX = mlx->parse.positionx;
+  mlx->raycast.posY = mlx->parse.positiony;
 }
 
 void Color_initializatin(t_deflibx *mlx)

@@ -762,7 +762,10 @@ void    ft_catch_position(t_deflibx *mlx)
                     ft_return("More than one position declared", mlx);
                     free(mlx);
                 }
-                mlx->parse.position = mlx->parse.map[i][j];
+ 		mlx->parse.positionx = i;
+		mlx->parse.positiony = j;
+	        printf("mlx->parse.map[%d][%d] = %c\n", mlx->parse.positionx, mlx->parse.positiony, mlx->parse.map[mlx->parse.positionx][mlx->parse.positiony]);
+		mlx->parse.position = mlx->parse.map[i][j];
                 mlx->parse.positionset = 1;
                 mlx->parse.directionset = 1;
             }

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:44:48 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/15 01:01:36 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/21 15:10:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ int key_deal(t_deflibx *mlx)
     move_down(mlx);
   /*move right if no wall*/
   if(mlx->move.keyRight == 1)
+  {
+    printf("im in\n");
+    exit(0);
     move_right(mlx);
+  }
   /*move left if no wall*/ 
   if(mlx->move.keyLeft == 1)
     move_left(mlx);

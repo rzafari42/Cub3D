@@ -365,7 +365,6 @@ void ft_linesize(char *line, int linesize, t_deflibx *mlx)
     j = 0;
     if (line[0] != '\0')
     { 
-        printf("lineee = %s\n", line);
         while(line[j] != '\0')
         {   
             if (line[0] != ' ' && line[0] != '1')
@@ -487,18 +486,14 @@ void ft_copy_map(t_deflibx *mlx)
     {
         free(line);
         ret = get_next_line(fd, &line);
-        printf("line = %s\n", line);
     }
     temp = mlx->parse.map[i];
     mlx->parse.map[i] = ft_strdup_zero(line, mlx);
     free(temp);
     i++;
-    printf("\n");
-    printf("line = %s\n", line);
     free(line);
     while ((ret = get_next_line(fd, &line)) > -1)
     {
-        printf("line = %s\n", line);
         if (line[0] != '\0')
         {
             temp = mlx->parse.map[i];
@@ -511,11 +506,6 @@ void ft_copy_map(t_deflibx *mlx)
             break;
     }
     i = 0;
-    while(i <= mlx->parse.mapnbline)
-    {
-        printf("map %.2d  = %s\n", i, mlx->parse.map[i]);
-        i++;
-    }
     close(fd);
 }
 
@@ -530,7 +520,6 @@ void ft_check_firstandlast_line(t_deflibx *mlx, char *s)
         {
             if (s[i] != ' ')
             {
-                printf("error is |%s|%c|%d\n", s,s[i], i);
                 ft_free_map(mlx);
                 ft_return("Map not closed: first line or last", mlx);
             }
@@ -558,9 +547,8 @@ void ft_check_line(t_deflibx *mlx, int i, int j)
             }
             if (mlx->parse.map[z][j] != '1')
             {
-                printf("line = %d error at [%d][%d]\n", i, z, j); 
                 ft_free_map(mlx);                 
-	    	ft_return("Map not closed for sure1", mlx);
+	    	    ft_return("Map not closed for sure1", mlx);
             }
             z = i + 1;
             while (z < mlx->parse.mapnbline)
@@ -572,10 +560,9 @@ void ft_check_line(t_deflibx *mlx, int i, int j)
             if (z == mlx->parse.mapnbline)
                 z = mlx->parse.mapnbline - 1;
             if (mlx->parse.map[z][j] != '1')
-            {
-                printf("line = %d error at [%d][%d]\n", i, z, j); 
+            { 
                 ft_free_map(mlx);                 
-	    	ft_return("Map not closed for sure2", mlx);
+	    	    ft_return("Map not closed for sure2", mlx);
             }
         } 
         j++;
@@ -590,19 +577,16 @@ void ft_check_line(t_deflibx *mlx, int i, int j)
                 z++;
             if (mlx->parse.map[z][j] != '1')
             {
-                printf("linefalse = %s i = %d j = %d z = %d\n", mlx->parse.map[i], i ,j, z); 
                 ft_free_map(mlx); 
-	    	ft_return("Map not closed for sure1", mlx);
+	    	    ft_return("Map not closed for sure1", mlx);
             }
             z = i + 1;
-            printf("z = %d\n",z);
             while (mlx->parse.map[z][j] != '1' && z < mlx->parse.mapnbline - 2)
                 z++;
             if (mlx->parse.map[z][j] == '\0' || mlx->parse.map[z][j] != '1')
             {
-                printf("linefalse = %s i=%d j = %d z = %d\n", mlx->parse.map[i],i, j, z); 
                 ft_free_map(mlx);
-	    	ft_return("Map not closed for sure", mlx);
+    	    	ft_return("Map not closed for sure", mlx);
             }
         }   
         j++;
@@ -621,7 +605,6 @@ void ft_fillfirstandlast_line(t_deflibx *mlx)
         if (mlx->parse.map[0][i] == ' ')
         {
             j = 1;
-            printf("firstline =%s \n",mlx->parse.map[0]);
             while(j < mlx->parse.mapnbline - 1)
             {
                 if (mlx->parse.map[j][i] == '1')
@@ -638,9 +621,7 @@ void ft_fillfirstandlast_line(t_deflibx *mlx)
         }
         i++;
     }
-    printf("firstline =%s \n",mlx->parse.map[0]);
     i = 0;
-    printf("lastline =%s \n",mlx->parse.map[mlx->parse.mapnbline - 1]);
     while(mlx->parse.map[mlx->parse.mapnbline - 1][i] != '\0')
     {
         if (mlx->parse.map[mlx->parse.mapnbline - 1][i] == ' ')
@@ -662,7 +643,6 @@ void ft_fillfirstandlast_line(t_deflibx *mlx)
         }
         i++;
     }
-    printf("lastline =%s \n",mlx->parse.map[mlx->parse.mapnbline - 1]);
 }
 
 void    ft_check_map(t_deflibx *mlx)
@@ -670,11 +650,8 @@ void    ft_check_map(t_deflibx *mlx)
     int i;
     int j;
 
-    printf("first\n");
     ft_check_firstandlast_line(mlx, mlx->parse.map[0]);
-    printf("Last\n");
     ft_check_firstandlast_line(mlx, mlx->parse.map[mlx->parse.mapnbline - 1]);
-    //ft_fillfirstandlast_line(mlx);
     i = 0;
     while (i < mlx->parse.mapnbline - 1)
     {
@@ -688,8 +665,6 @@ void    ft_check_map(t_deflibx *mlx)
             }
             j++;
         }
-        //printf("line %.2d 1 i at %d\n", i, j);
-        //ft_check_line(mlx, i, j);
         i++;
     }
     i = 0;
@@ -707,8 +682,6 @@ void    ft_check_map(t_deflibx *mlx)
             }
             j--;
         }
-        //printf("line %.2d 1 i at %d\n", i, j);
-        //ft_check_line(mlx, i, j);
         i++;
     }
     j = 0;
@@ -773,7 +746,6 @@ void    ft_catch_position(t_deflibx *mlx)
         }
         i++;
     }
-    printf("pos = %c\n", mlx->parse.position);
 }
 
 void ft_fillspace(t_deflibx *mlx)
@@ -837,12 +809,6 @@ void ft_fillspace(t_deflibx *mlx)
                 break;
             j++;
         }
-        i++;
-    }
-    i = 0;
-    while (i <= mlx->parse.mapnbline - 1)
-    {
-        printf("lineee %.2d = |%s|\n", i, mlx->parse.map[i]);
         i++;
     }
 }

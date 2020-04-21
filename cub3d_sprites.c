@@ -21,9 +21,7 @@ int main(int argc, char **argv)
   mlx.parse.files = "./map.cub";
   ft_parse_initialization(&mlx);
   ft_parsing(&mlx);
-  printf("TRY before= %c\n", mlx.parse.map[mlx.parse.positionx][mlx.parse.positiony]);
   initialization(&mlx);
-  printf("TRY = %c\n", mlx.parse.map[4][15]);
   while (1)
   {
     mlx_hook(mlx.win_ptr, 2, 1 ,keyPress, &mlx);

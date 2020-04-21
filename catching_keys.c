@@ -14,9 +14,7 @@
 
 int keyPress(int key, t_deflibx *mlx)
 {
-printf("key = %d\n", key);
-
-if (key == 122)
+  if (key == 122)
     mlx->move.keyUp = 1;
   if (key == 115)
     mlx->move.keyDown = 1;
@@ -43,8 +41,6 @@ if (key == 122)
   }
   if (key == 1)
     mlx->move.killWindow = 1;
-	printf("key = %d\n", key);
-	//exit(0);
   return (0);
 }
 

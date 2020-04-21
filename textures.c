@@ -23,7 +23,6 @@ void ft_launch_text(t_deflibx *mlx)
     mlx->text.img_textdata1 = mlx_get_data_addr(mlx->text.img_textptr1, &mlx->text.bpp, &mlx->text.size_line, &mlx->text.endian);
     mlx->text.img_textdata2 = mlx_get_data_addr(mlx->text.img_textptr2, &mlx->text.bpp, &mlx->text.size_line, &mlx->text.endian);
     mlx->text.img_textdata3 = mlx_get_data_addr(mlx->text.img_textptr3, &mlx->text.bpp, &mlx->text.size_line, &mlx->text.endian);
-    printf("After textures\n");
 }
 
 void ft_destroy_text(t_deflibx *mlx)

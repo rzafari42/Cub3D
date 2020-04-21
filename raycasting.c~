@@ -51,9 +51,13 @@ void ft_DDA(t_deflibx *mlx)
     if (mlx->move.mode == 1)
         ft_electro_mode(mlx);
     //Check if ray has hit a wall
+ 	printf("before map \n");
+   	printf("mapX = %d mapY = %d hit = %d\n", mlx->raycast.mapX, mlx->raycast.mapY, mlx->raycast.hit); 
 
+   	printf("map[%d][%d] = %c \n", mlx->raycast.mapX, mlx->raycast.mapY, mlx->parse.map[mlx->raycast.mapX][mlx->raycast.mapY]); 
      if(mlx->parse.map[mlx->raycast.mapX][mlx->raycast.mapY] == '1')
        mlx->raycast.hit = 1;
+   printf("after map\n");
     }
 }
 
@@ -74,7 +78,7 @@ int raycasting(t_deflibx *mlx)
     ft_launch_sprites(mlx);
     while (x < mlx->parse.Width)
     { 
-      printf("x = %d parse.width = %d\n", x, mlx->parse.Width);
+	printf("inside x = %d && mlx->parse.Width = %d\n", x, mlx->parse.Width);
       Color_initializatin(mlx);
       //mlx->img_color = mlx_get_color_value(mlx->mlx_ptr, mlx->color);
       //calculate ray position and direction
@@ -84,6 +88,7 @@ int raycasting(t_deflibx *mlx)
       //which box of the map are we in ?
       mlx->raycast.mapX = (int)mlx->raycast.posX;
       mlx->raycast.mapY = (int)mlx->raycast.posY;
+	printf("mlx->raycast.posX = %f\n", mlx->raycast.posX);
       //length of ray from one x or y-side to the next x or y-side
       mlx->raycast.deltaDistX = fabs(1 / mlx->raycast.rayDirX);
       mlx->raycast.deltaDistY = fabs(1 / mlx->raycast.rayDirY);
@@ -112,7 +117,9 @@ int raycasting(t_deflibx *mlx)
         mlx->raycast.sideDistY = (mlx->raycast.mapY + 1.0 - mlx->raycast.posY) * mlx->raycast.deltaDistY;
       }
       //Perform DDA
+      printf("Before DDA\n"); 
       ft_DDA(mlx);
+	printf("After DDA\n");
       //Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)
       if(mlx->raycast.side == 0 || mlx->raycast.side == 1)
         mlx->raycast.perpWallDist = (mlx->raycast.mapX - mlx->raycast.posX + (1 - mlx->raycast.stepX) / 2) / mlx->raycast.rayDirX;
@@ -121,18 +128,23 @@ int raycasting(t_deflibx *mlx)
       if (mlx->raycast.perpWallDist <= 0)
 	      mlx->raycast.perpWallDist *= -1;
       //Calculate height of line to draw on screen
+      printf("height = %d perpWallDist = %f   divide = %f\n", mlx->parse.Height, mlx->raycast.perpWallDist, (mlx->parse.Height/mlx->raycast.perpWallDist));
       mlx->raycast.lineHeight = (int)(mlx->parse.Height / mlx->raycast.perpWallDist);
       //calculate lowest and highest pixel to fill in current stripe
       mlx->raycast.drawStart = -mlx->raycast.lineHeight / 2 + mlx->parse.Height / 2;
       if(mlx->raycast.drawStart < 0)
         mlx->raycast.drawStart = 0;
       mlx->raycast.drawEnd = mlx->raycast.lineHeight / 2 + mlx->parse.Height / 2;
+      printf("drawend = %d perpWallDist= %f lineheight = %d\n", mlx->raycast.drawEnd, mlx->raycast.perpWallDist,mlx->raycast.lineHeight);
       if(mlx->raycast.drawEnd >= mlx->parse.Height)
         mlx->raycast.drawEnd = mlx->parse.Height - 1;
+    printf("before texture drwend = %d parse.height = %dn", mlx->raycast.drawEnd, mlx->parse.Height);
       //TEXTURES
       ft_draw_ceil(mlx, x);
+      printf("After texture\n");
       if (mlx->move.mode == 0)//&& worldMap[mlx->raycast.mapX][mlx->raycast.mapY] == 1)
         ft_drawtexturedwall(mlx, x);
+     	printf("after drwing wall\n");
       if (mlx->move.mode == 2 || mlx->move.mode == 1)// && worldMap[mlx->raycast.mapX][mlx->raycast.mapY] == 1)
       {
         int startMem = mlx->raycast.drawStart;
@@ -144,9 +156,11 @@ int raycasting(t_deflibx *mlx)
           startMem++;
         }
       }
+      printf("Before drawing floor\n");
       ft_draw_floor(mlx, x);
 
       //SPRITES
+    	printf("Before sprite\n");
       ft_sprites_init(mlx);
       if (!(mlx->sprites.Zbuffer = malloc(sizeof(double) * mlx->parse.Width)))
         return (0);
@@ -168,11 +182,10 @@ int raycasting(t_deflibx *mlx)
       ///////////////////
       x++;
     }
-    printf("Before printing to window\n");
     mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
     mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
     ft_destroy_text(mlx);
     ft_destroy_sprites(mlx);
-    //ft_free(mlx);
+    ft_free(mlx);
     return (0);
 }

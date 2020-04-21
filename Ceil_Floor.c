@@ -33,9 +33,9 @@ void ft_draw_floor(t_deflibx *mlx, int x)
                             
     i = mlx->raycast.drawEnd;
     while (i < mlx->parse.Height - 1)
-    {
-    pix_array = (void *)mlx->img_data;
-    *pix_array[i][x] = mlx->color.ceilcolor;  
+    { 
+	    pix_array = (void *)mlx->img_data;
+	    *pix_array[i][x] = mlx->color.ceilcolor;  
     i++;                           
     }
 }

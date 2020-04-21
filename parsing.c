@@ -558,9 +558,9 @@ void ft_check_line(t_deflibx *mlx, int i, int j)
             }
             if (mlx->parse.map[z][j] != '1')
             {
-                printf("line = %d error at [%d][%d]\n", i, z, j);
-                ft_return("Map not closed for sure1", mlx);
+                printf("line = %d error at [%d][%d]\n", i, z, j); 
                 ft_free_map(mlx);                 
+	    	ft_return("Map not closed for sure1", mlx);
             }
             z = i + 1;
             while (z < mlx->parse.mapnbline)
@@ -573,9 +573,9 @@ void ft_check_line(t_deflibx *mlx, int i, int j)
                 z = mlx->parse.mapnbline - 1;
             if (mlx->parse.map[z][j] != '1')
             {
-                printf("line = %d error at [%d][%d]\n", i, z, j);
-                ft_return("Map not closed for sure2", mlx);
+                printf("line = %d error at [%d][%d]\n", i, z, j); 
                 ft_free_map(mlx);                 
+	    	ft_return("Map not closed for sure2", mlx);
             }
         } 
         j++;
@@ -590,9 +590,9 @@ void ft_check_line(t_deflibx *mlx, int i, int j)
                 z++;
             if (mlx->parse.map[z][j] != '1')
             {
-                printf("linefalse = %s i = %d j = %d z = %d\n", mlx->parse.map[i], i ,j, z);
-                ft_return("Map not closed for sure1", mlx);
+                printf("linefalse = %s i = %d j = %d z = %d\n", mlx->parse.map[i], i ,j, z); 
                 ft_free_map(mlx); 
+	    	ft_return("Map not closed for sure1", mlx);
             }
             z = i + 1;
             printf("z = %d\n",z);
@@ -600,9 +600,9 @@ void ft_check_line(t_deflibx *mlx, int i, int j)
                 z++;
             if (mlx->parse.map[z][j] == '\0' || mlx->parse.map[z][j] != '1')
             {
-                printf("linefalse = %s i=%d j = %d z = %d\n", mlx->parse.map[i],i, j, z);
-                ft_return("Map not closed for sure", mlx);
+                printf("linefalse = %s i=%d j = %d z = %d\n", mlx->parse.map[i],i, j, z); 
                 ft_free_map(mlx);
+	    	ft_return("Map not closed for sure", mlx);
             }
         }   
         j++;
@@ -878,7 +878,7 @@ void ft_map(t_deflibx *mlx, char *line, int fd)
     ft_check_map(mlx);
     ft_fillspace(mlx);
     ft_catch_position(mlx);
-    ft_free_map(mlx);
+   // ft_free_map(mlx);
 }
 
 void    ft_check_set(t_deflibx *mlx)

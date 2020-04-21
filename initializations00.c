@@ -62,12 +62,6 @@ void initialization(t_deflibx *mlx)
   North_South_initialization(mlx);
   East_West_initialization(mlx); 
   Move_initialization(mlx);
-	printf("Hello\n");
-    
-	printf("mlx->parse.map[%d][%d] = %c\n", mlx->parse.positionx, mlx->parse.positiony, mlx->parse.map[mlx->parse.positionx][mlx->parse.positiony]);
-	Window_initialization(mlx);
-	printf("End\n");
-	printf("mlx->parse.map[%d][%d] = %c\n", mlx->parse.positionx, mlx->parse.positiony, mlx->parse.map[mlx->parse.positionx][mlx->parse.positiony]);
+  Window_initialization(mlx);
 
-	printf("dirX = %f && direY = %f && planeX = %f && planeY = %f\n", mlx->raycast.dirX, mlx->raycast.dirY, mlx->raycast.planeX, mlx->raycast.planeY);
 }

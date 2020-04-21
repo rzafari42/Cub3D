@@ -26,9 +26,9 @@ int main(int argc, char **argv)
   printf("TRY = %c\n", mlx.parse.map[4][15]);
   while (1)
   {
-    mlx_hook(mlx.win_ptr, 2, 0 ,keyPress, &mlx);
-    mlx_hook(mlx.win_ptr, 3, 0 ,keyRelease, &mlx);
-    mlx_hook(mlx.win_ptr, 17, 0, KillWindow, &mlx);
+    mlx_hook(mlx.win_ptr, 2, 1 ,keyPress, &mlx);
+    mlx_hook(mlx.win_ptr, 3, 1 ,keyRelease, &mlx);
+    mlx_hook(mlx.win_ptr, 17, 1 ,KillWindow, &mlx);
     mlx_loop_hook(mlx.mlx_ptr, key_deal, &mlx);
     mlx_loop(mlx.mlx_ptr);
   }

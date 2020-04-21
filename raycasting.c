@@ -69,12 +69,10 @@ int raycasting(t_deflibx *mlx)
     x = 0;
     mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->parse.Width, mlx->parse.Height);
     mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_line, &mlx->endian);
-    printf("BPP = %d\n", mlx->bpp);
     ft_launch_text(mlx);
     ft_launch_sprites(mlx);
     while (x < mlx->parse.Width)
     { 
-      printf("x = %d parse.width = %d\n", x, mlx->parse.Width);
       Color_initializatin(mlx);
       //mlx->img_color = mlx_get_color_value(mlx->mlx_ptr, mlx->color);
       //calculate ray position and direction
@@ -168,7 +166,6 @@ int raycasting(t_deflibx *mlx)
       ///////////////////
       x++;
     }
-    printf("Before printing to window\n");
     mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
     mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
     ft_destroy_text(mlx);

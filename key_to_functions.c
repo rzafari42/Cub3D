@@ -22,7 +22,11 @@ int key_deal(t_deflibx *mlx)
     move_down(mlx);
   /*move right if no wall*/
   if(mlx->move.keyRight == 1)
-    move_right(mlx);
+  {
+ 	printf("im in\n");
+	//exit(0);
+	move_right(mlx);
+  }
   /*move left if no wall*/ 
   if(mlx->move.keyLeft == 1)
     move_left(mlx);

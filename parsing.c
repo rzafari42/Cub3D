@@ -764,10 +764,10 @@ void    ft_catch_position(t_deflibx *mlx)
                 }
  		mlx->parse.positionx = i;
 		mlx->parse.positiony = j;
-	        printf("mlx->parse.map[%d][%d] = %c\n", mlx->parse.positionx, mlx->parse.positiony, mlx->parse.map[mlx->parse.positionx][mlx->parse.positiony]);
 		mlx->parse.position = mlx->parse.map[i][j];
                 mlx->parse.positionset = 1;
                 mlx->parse.directionset = 1;
+		mlx->parse.map[i][j] = '0';
             }
             j++;
         }

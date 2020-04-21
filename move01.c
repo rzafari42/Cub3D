@@ -42,9 +42,9 @@
 
 void move_left(t_deflibx *mlx)
 {
-  if(mlx->parse.map[(int)(mlx->raycast.posX - mlx->raycast.planeX * mlx->speed.moveSpeed)][(int)(mlx->raycast.posY)] == 0)
+  if(mlx->parse.map[(int)(mlx->raycast.posX - mlx->raycast.planeX * mlx->speed.moveSpeed)][(int)(mlx->raycast.posY)] == '0')
     mlx->raycast.posX -= mlx->raycast.planeX * mlx->speed.moveSpeed;
-  if(mlx->parse.map[(int)(mlx->raycast.posX)][(int)(mlx->raycast.posY - mlx->raycast.planeY * mlx->speed.moveSpeed)] == 0)
+  if(mlx->parse.map[(int)(mlx->raycast.posX)][(int)(mlx->raycast.posY - mlx->raycast.planeY * mlx->speed.moveSpeed)] == '0')
     mlx->raycast.posY -= mlx->raycast.planeY * mlx->speed.moveSpeed;
 }
 
@@ -57,6 +57,7 @@ void turn_right(t_deflibx *mlx)
   mlx->raycast.oldPlaneX = mlx->raycast.planeX;
   mlx->raycast.planeX = mlx->raycast.planeX * cos(-mlx->speed.rotSpeed) - mlx->raycast.planeY * sin(-mlx->speed.rotSpeed);
   mlx->raycast.planeY = mlx->raycast.oldPlaneX * sin(-mlx->speed.rotSpeed) + mlx->raycast.planeY * cos(-mlx->speed.rotSpeed);
+  mlx->raycast.oldDirX = mlx->raycast.dirX;
 }
 
 void turn_left(t_deflibx *mlx)

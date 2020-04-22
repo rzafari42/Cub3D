@@ -48,12 +48,12 @@ void ft_transform_res_in_int(t_deflibx *mlx)
     mlx->parse.Height = ft_atoi_cub(mlx->parse.Heightcatch);
     if (mlx->parse.Width < 640)
         mlx->parse.Width = 640;
-    else if (mlx->parse.Width > 2560)
-        mlx->parse.Width = 2560;
+   /* else if (mlx->parse.Width > 2560)
+        mlx->parse.Width = 2560;*/
     if (mlx->parse.Height < 480)
         mlx->parse.Height = 480;
-    else if (mlx->parse.Height > 1440)
-        mlx->parse.Height = 1440;
+    /*else if (mlx->parse.Height > 1440)
+        mlx->parse.Height = 1440;*/
 }
 
 int    ft_line_to_resolution(char *line, int i, t_deflibx *mlx)
@@ -270,6 +270,7 @@ void    ft_put_to_right_path(char *line, int i, t_deflibx *mlx)
          mlx->parse.easttext = ft_strdup_cub(mlx->parse.path);
     if (line[i] == 'S' && line[i + 1] == ' ' && line[i + 1] != 'O')
          mlx->parse.sprite = ft_strdup_cub(mlx->parse.path);
+    ft_set_path_to_one(line, i, mlx);
 }
 
 void   ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx)
@@ -311,7 +312,7 @@ int    ft_get_Texturespath(char *line, int i, t_deflibx *mlx)
             i++;
         return(i);
     }
-    ft_set_path_to_one(line, i, mlx);
+    //ft_set_path_to_one(line, i, mlx);
     ret = i;
     ft_get_Texturespath_two(line, i, mlx);
     ft_put_to_right_path(line, ret, mlx);
@@ -959,8 +960,8 @@ void ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)
     }
 }
 
-
-/*int main(int argc, char **argv)
+/*
+int main(int argc, char **argv)
 {
     t_deflibx mlx;
 
@@ -978,8 +979,13 @@ void ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)
     printf("sprite = %s\n", mlx.parse.sprite);
     printf("WIDTH = %d\n", mlx.parse.Width);
     printf("HEIGHT = %d\n", mlx.parse.Height);
+    printf("nortset = %d\n", mlx.parse.northset);
+    printf("southset = %d\n", mlx.parse.southset);
+    printf("westset = %d\n", mlx.parse.westset);
+    printf("eastset = %d\n", mlx.parse.eastset);
+    printf("spriteset = %d\n", mlx.parse.spriteset);
     ft_free(&mlx);
-}*/
-
+}
+*/
 
 

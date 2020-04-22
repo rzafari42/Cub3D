@@ -21,14 +21,14 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-//# include <mlx.h>
+# include <mlx.h>
 # define screenWidth 640 
 # define screenHeight 480
 # define mapWidth 24
 # define mapHeight 24
 # define textwidth 64
 # define textheight 64
-# define numsprites 2
+# define numsprites 3
 # define N 0
 # define S 1
 # define W 0

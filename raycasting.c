@@ -149,7 +149,7 @@ int raycasting(t_deflibx *mlx)
       if (!(mlx->sprites.Zbuffer = malloc(sizeof(double) * mlx->parse.Width)))
         return (0);
       mlx->sprites.Zbuffer[x] = mlx->raycast.perpWallDist;
-      
+    	mlx->sprites.Zbufferset = 1;  
       if (!(mlx->sprites_tab = malloc(sizeof(t_sprite) * numsprites)))
         return (0);
       mlx->sprites.sprites_tabset = 1;

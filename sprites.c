@@ -101,7 +101,7 @@ void  ft_locate_sprites(t_deflibx *mlx)
         x = 0;
         while (x < mlx->parse.mapbiggerline)
         {
-          if (mlx->parse.map[y][x] == 2)
+          if (mlx->parse.map[y][x] == '2')
           {
             mlx->sprites_tab[i].x = y + 0.5;
             mlx->sprites_tab[i].y = x + 0.5;

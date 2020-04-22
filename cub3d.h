@@ -253,6 +253,7 @@ void    Window_initialization(t_deflibx *mlx);
 void    position_initialization(t_deflibx *mlx);
 void    initialization(t_deflibx *mlx);
 void    ft_parse_initialization(t_deflibx *mlx);
+void    ft_parse_arguments(t_deflibx *mlx, int argc, char **argv);
 void    ft_free(t_deflibx *mlx);
 void    ft_free_map(t_deflibx *mlx);
 void    ft_free_malloc(t_deflibx *mlx);

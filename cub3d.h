@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/15 01:02:50 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/22 16:03:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include <mlx.h>
+//# include <mlx.h>
 # define screenWidth 640 
 # define screenHeight 480
 # define mapWidth 24
@@ -75,6 +75,7 @@ typedef struct   s_parse
     int fd[5];
     int Width;
     int Height;
+    int save;
 }                t_parse;
 
 typedef struct   s_speed
@@ -268,6 +269,7 @@ int     ft_check_wall(char *s);
 int     raycasting(t_deflibx *mlx);
 int     ft_atoi_cub(const char *str);
 int     ft_parsing(t_deflibx *mlx);
+int	ft_strncmp_cub(const char *s1, const char *s2, size_t n);
 char	*ft_strdup_cub(const char *s1);
 //int     main(int argc, char **argv);
 size_t	ft_strlen_cub(const char *s);

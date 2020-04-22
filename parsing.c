@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/15 02:07:03 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/22 18:00:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void ft_transform_res_in_int(t_deflibx *mlx)
     mlx->parse.Height = ft_atoi_cub(mlx->parse.Heightcatch);
     if (mlx->parse.Width < 640)
         mlx->parse.Width = 640;
-    /*else if (mlx->parse.Width > 2560)
-        mlx->parse.Width = 2560;*/
+    else if (mlx->parse.Width > 2560)
+        mlx->parse.Width = 2560;
     if (mlx->parse.Height < 480)
         mlx->parse.Height = 480;
-    /*else if (mlx->parse.Height > 1440)
-        mlx->parse.Height = 1440;*/
+    else if (mlx->parse.Height > 1440)
+        mlx->parse.Height = 1440;
 }
 
 int    ft_line_to_resolution(char *line, int i, t_deflibx *mlx)
@@ -907,7 +907,10 @@ int     ft_parsing(t_deflibx *mlx)
     int fd;
 
     if ((fd = open(mlx->parse.files, O_RDONLY)) < 0)
+    {
+        ft_return("File path incorect", mlx);
         return (0);
+    }
     if (!(ft_read0(fd, mlx)))
         return(0);
     close(fd);
@@ -934,18 +937,36 @@ void ft_parse_initialization(t_deflibx *mlx)
     mlx->parse.red = 0;
     mlx->parse.spriteset = 0;
     mlx->parse.positionset = 0;
+    mlx->parse.save = 0;
     /*mlx->parse.pathset = 0; UNNECESSARY*/
     mlx->parse.mapnbline = 0;
     mlx->parse.mapbiggerline = 0;
 }
 
-/*
-int main(void)
+void ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)
+{
+    if (argc < 2)
+        ft_return("Missing arguments", mlx);
+    if (argc > 3)
+        ft_return("Too many arguments", mlx);
+    mlx->parse.files = argv[1];
+    if (argc == 3)
+    {
+        if (ft_strncmp_cub("--save", argv[2], ft_strlen_cub("--save")) == 0)
+            mlx->parse.save = 1;
+        else
+            ft_return("error save", mlx);
+    }
+}
+
+
+/*int main(int argc, char **argv)
 {
     t_deflibx mlx;
 
-    mlx.parse.files = "./map.cub";
+    mlx.parse.files = "./map.cu";
     ft_parse_initialization(&mlx);
+    ft_parse_arguments(&mlx, argc, argv);
     ft_parsing(&mlx);
     printf("resolution = [%d %d]\n", mlx.parse.Width, mlx.parse.Height);
     printf("Floor color = %d\n", mlx.color.floorcolor);

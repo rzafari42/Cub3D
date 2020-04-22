@@ -26,11 +26,11 @@ int keyPress(int key, t_deflibx *mlx)
     mlx->move.keyTurnRight = 1;
   if (key == 65361)
     mlx->move.keyTurnLeft = 1;
-  if (key == 16)
+  if (key == 97)
     mlx->speed.moveSpeed = (mlx->speed.moveSpeed < 0.18) ?  (mlx->speed.moveSpeed * 1.5) : mlx->speed.moveSpeed;
-  if (key == 44)
+  if (key == 119)
     mlx->speed.moveSpeed = (mlx->speed.moveSpeed > 0.08) ?  (mlx->speed.moveSpeed / 1.5) : mlx->speed.moveSpeed; 
-  if (key == 39)
+  if (key == 101)
   {   
     if (mlx->move.mode == 0)
       mlx->move.mode = 1;
@@ -39,7 +39,7 @@ int keyPress(int key, t_deflibx *mlx)
     else
       mlx->move.mode = 0;
   }
-  if (key == 1)
+  if (key == 65307)
     mlx->move.killWindow = 1;
   return (0);
 }
@@ -47,19 +47,19 @@ int keyPress(int key, t_deflibx *mlx)
 int keyRelease(int key, t_deflibx *mlx)
 {
 
-  if (key == 17)
+  if (key == 122)
     mlx->move.keyUp = 0;
-  if (key == 31)
+  if (key == 115)
     mlx->move.keyDown = 0;
-  if (key == 32)
+  if (key == 100)
     mlx->move.keyRight = 0;
-  if (key == 30)
+  if (key == 113)
     mlx->move.keyLeft= 0;
-  if (key == 106)
+  if (key == 65363)
     mlx->move.keyTurnRight = 0;
-  if (key == 105)
+  if (key == 65361)
     mlx->move.keyTurnLeft = 0;
-  if (key == 1)
+  if (key == 65307)
     mlx->move.killWindow = 0;
   return (0);
 }

@@ -48,12 +48,12 @@ void ft_transform_res_in_int(t_deflibx *mlx)
     mlx->parse.Height = ft_atoi_cub(mlx->parse.Heightcatch);
     if (mlx->parse.Width < 640)
         mlx->parse.Width = 640;
-    else if (mlx->parse.Width > 2560)
-        mlx->parse.Width = 2560;
+    /*else if (mlx->parse.Width > 2560)
+        mlx->parse.Width = 2560;*/
     if (mlx->parse.Height < 480)
         mlx->parse.Height = 480;
-    else if (mlx->parse.Height > 1440)
-        mlx->parse.Height = 1440;
+    /*else if (mlx->parse.Height > 1440)
+        mlx->parse.Height = 1440;*/
 }
 
 int    ft_line_to_resolution(char *line, int i, t_deflibx *mlx)
@@ -823,8 +823,6 @@ void ft_map(t_deflibx *mlx, char *line, int fd)
     ft_line_map(mlx);
     if (!(mlx->parse.map = (char**)malloc(sizeof(char*) * (mlx->parse.mapnbline + 1))))
         ft_return ("MALLOC ERROR :(", mlx);
-    printf("nbline = %d biggerline = %d\n\n\n",mlx->parse.mapnbline, mlx->parse.mapbiggerline);
-
     while (j <= mlx->parse.mapnbline)
     {
         if (!(mlx->parse.map[j] = (char*)malloc(sizeof(char) * (mlx->parse.mapbiggerline + 1))))

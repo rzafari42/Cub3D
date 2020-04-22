@@ -24,9 +24,9 @@ int main(int argc, char **argv)
   initialization(&mlx);
   while (1)
   {
-    mlx_hook(mlx.win_ptr, 2, 1 ,keyPress, &mlx);
-    mlx_hook(mlx.win_ptr, 3, 1 ,keyRelease, &mlx);
-    mlx_hook(mlx.win_ptr, 17, 1 ,KillWindow, &mlx);
+    mlx_hook(mlx.win_ptr, 2, 1L << 0 ,keyPress, &mlx);
+    mlx_hook(mlx.win_ptr, 3, 1L << 1 ,keyRelease, &mlx);
+    mlx_hook(mlx.win_ptr, 17, 1L << 17 ,KillWindow, &mlx);
     mlx_loop_hook(mlx.mlx_ptr, key_deal, &mlx);
     mlx_loop(mlx.mlx_ptr);
   }

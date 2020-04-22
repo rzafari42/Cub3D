@@ -31,7 +31,15 @@ void Move_initialization(t_deflibx *mlx)
 
 void Window_initialization(t_deflibx *mlx)
 {
+  int sizex;
+  int sizey;
+
   mlx->mlx_ptr = mlx_init();
+  mlx_get_screen_size(mlx->mlx_ptr, &sizex, &sizey);
+  if (mlx->parse.Width > sizex)
+	  mlx->parse.Width = sizex;
+  if (mlx->parse.Height > sizey)
+	  mlx->parse.Height = sizey;
   mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->parse.Width, mlx->parse.Height, "cub3d");
 }
 

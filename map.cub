@@ -1,4 +1,4 @@
-R 800 825
+R 200 200
 NO ./files/01.xpm
 SO ./files/02.xpm
 WE ./files/03.xpm

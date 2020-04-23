@@ -717,7 +717,7 @@ void    ft_check_map(t_deflibx *mlx)
     }
 }
 
-void    ft_catch_position(t_deflibx *mlx)
+void    ft_catch_positionandnumsprites(t_deflibx *mlx)
 {
     int i;
     int j;
@@ -728,6 +728,8 @@ void    ft_catch_position(t_deflibx *mlx)
         j = 0;
         while (mlx->parse.map[i][j] != '\0')
         {
+            if (mlx->parse.map[i][j] == '2')
+                mlx->parse.numsprites++;
             if (mlx->parse.map[i][j] == 'N' || mlx->parse.map[i][j] == 'S' || mlx->parse.map[i][j] == 'E' || 
             mlx->parse.map[i][j] == 'W')
             {
@@ -842,7 +844,7 @@ void ft_map(t_deflibx *mlx, char *line, int fd)
     ft_copy_map(mlx);
     ft_check_map(mlx);
     ft_fillspace(mlx);
-    ft_catch_position(mlx);
+    ft_catch_positionandnumsprites(mlx);
    // ft_free_map(mlx);
 }
 
@@ -939,6 +941,7 @@ void ft_parse_initialization(t_deflibx *mlx)
     mlx->parse.spriteset = 0;
     mlx->parse.positionset = 0;
     mlx->parse.save = 0;
+    mlx->parse.numsprites = 0;
     /*mlx->parse.pathset = 0; UNNECESSARY*/
     mlx->parse.mapnbline = 0;
     mlx->parse.mapbiggerline = 0;
@@ -984,8 +987,9 @@ int main(int argc, char **argv)
     printf("westset = %d\n", mlx.parse.westset);
     printf("eastset = %d\n", mlx.parse.eastset);
     printf("spriteset = %d\n", mlx.parse.spriteset);
+    printf("numsprites = %d\n", mlx.parse.numsprites);
     ft_free(&mlx);
-}
-*/
+}*/
+
 
 

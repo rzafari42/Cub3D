@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:49:25 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/22 16:03:59 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/24 01:46:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,23 @@ void	ft_bzero_cub(void *s, size_t n)
 		p++;
 		n--;
 	}
+}
+
+void	*ft_calloc_cub(size_t count, size_t size)
+{
+	void		*str;
+	size_t		mult;
+
+	if (count == 0 || size == 0)
+	{
+		count = 1;
+		size = 1;
+	}
+	mult = count * size;
+	if (!(str = malloc(mult)))
+		return (NULL);
+	ft_bzero(str, mult);
+	return (str);
 }
 
 char	*ft_strdup_cub(const char *s1)

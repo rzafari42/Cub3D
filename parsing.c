@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/22 18:00:59 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/24 01:47:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -989,7 +989,12 @@ int main(int argc, char **argv)
     printf("spriteset = %d\n", mlx.parse.spriteset);
     printf("numsprites = %d\n", mlx.parse.numsprites);
     ft_free(&mlx);
-}*/
 
+    printf("sizeof unsined int = %ld\n", sizeof(unsigned int));
+    printf("sizeof unsigned short int = %ld\n", sizeof(unsigned short int));
+    printf("sizeof singed int = %ld\n", sizeof(int));
+    printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
+}
+*/
 
 

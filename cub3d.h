@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/22 16:03:43 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/24 01:47:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,21 @@
 # define W 0
 # define E 0
 
+typedef struct s_save
+{
+    unsigned int size;
+    unsigned int reservedid;
+    unsigned int offset;
+    unsigned int width;
+    unsigned int height;
+    unsigned int dibsizeheader;
+    unsigned int dibmpwidth;
+    unsigned int dibbmpheight;
+    unsigned int dibcolorplanes;
+    unsigned int dibbpp;
+    unsigned char diboffset[24];
+
+}               t_save;
 
 typedef struct   s_parse
 {
@@ -221,6 +236,7 @@ typedef struct   s_deflibx
     t_sprite      sprites;
     t_sprite      *sprites_tab;
     t_parse       parse;
+    t_save        bmp;
 }               t_deflibx;
 
 unsigned long   convertrgbtoint(unsigned int r, unsigned int g, unsigned int b);
@@ -259,10 +275,11 @@ void    ft_free_map(t_deflibx *mlx);
 void    ft_free_malloc(t_deflibx *mlx);
 void    ft_line_map(t_deflibx *mlx);
 void    ft_copy_map(t_deflibx *mlx);
-void    *ft_calloc(size_t count, size_t size);
+void    *ft_calloc_cub(size_t count, size_t size);
 void    ft_check_firstandlast_line(t_deflibx *mlx, char *s);
 void    ft_sprites_init(t_deflibx *mlx);
 void    ft_catch_positionandnumsprites(t_deflibx *mlx);
+void    ft_savepixelarray(t_deflibx *mlx, int fd);
 int     keyPress(int key, t_deflibx *mlx);
 int     keyRelease(int key, t_deflibx *mlx);
 int     KillWindow(t_deflibx *mlx);

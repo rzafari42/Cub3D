@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:06:43 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/22 18:01:12 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/24 01:46:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int main(int argc, char **argv)
   ft_parsing(&mlx);
   initialization(&mlx);
   if (mlx.parse.save == 1)
+  {
+    key_deal(&mlx);
     ft_savebmp(&mlx);
+  }
   else
   {
       while (1)

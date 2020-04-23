@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "mlx.h"
 #ifndef CUB3D_H
 # define CUB3D_H
 # include "get_next_line.h"
@@ -28,7 +27,7 @@
 # define mapHeight 24
 # define textwidth 64
 # define textheight 64
-# define numsprites 3
+//# define numsprites 3
 # define N 0
 # define S 1
 # define W 0
@@ -57,6 +56,7 @@ typedef struct   s_parse
     int positionset;
     int mapnbline;
     int mapbiggerline;
+    int numsprites;
     char *files;
     char *resolution;
     char *northtext;
@@ -262,6 +262,7 @@ void    ft_copy_map(t_deflibx *mlx);
 void    *ft_calloc(size_t count, size_t size);
 void    ft_check_firstandlast_line(t_deflibx *mlx, char *s);
 void    ft_sprites_init(t_deflibx *mlx);
+void    ft_catch_positionandnumsprites(t_deflibx *mlx);
 int     keyPress(int key, t_deflibx *mlx);
 int     keyRelease(int key, t_deflibx *mlx);
 int     KillWindow(t_deflibx *mlx);

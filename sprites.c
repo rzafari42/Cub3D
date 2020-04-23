@@ -118,7 +118,7 @@ void ft_Order_sprites(t_deflibx *mlx)
     int i;
 
     i = 0;
-    while (i < numsprites)
+    while (i < mlx->parse.numsprites)
     {
       mlx->sprites.spriteOrder[i] = i;
       mlx->sprites.spriteDistance[i] = ((mlx->raycast.posX - mlx->sprites_tab[i].x) * (mlx->raycast.posX - mlx->sprites_tab[i].x) + (mlx->raycast.posY - mlx->sprites_tab[i].y) * (mlx->raycast.posY - mlx->sprites_tab[i].y));
@@ -131,7 +131,7 @@ void ft_project_sprites(t_deflibx *mlx)
     int i;
 
     i = -1;
-    while (++i < numsprites)
+    while (++i < mlx->parse.numsprites)
     {
       mlx->sprites.spriteX = mlx->sprites_tab[mlx->sprites.spriteOrder[i]].x - mlx->raycast.posX;
       mlx->sprites.spriteY = mlx->sprites_tab[mlx->sprites.spriteOrder[i]].y - mlx->raycast.posY;

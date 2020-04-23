@@ -150,18 +150,18 @@ int raycasting(t_deflibx *mlx)
         return (0);
       mlx->sprites.Zbuffer[x] = mlx->raycast.perpWallDist;
     	mlx->sprites.Zbufferset = 1;  
-      if (!(mlx->sprites_tab = malloc(sizeof(t_sprite) * numsprites)))
+      if (!(mlx->sprites_tab = malloc(sizeof(t_sprite) * mlx->parse.numsprites)))
         return (0);
       mlx->sprites.sprites_tabset = 1;
-      if (!(mlx->sprites.spriteDistance = malloc(sizeof(double) * numsprites)))
+      if (!(mlx->sprites.spriteDistance = malloc(sizeof(double) * mlx->parse.numsprites)))
         return (0);
       mlx->sprites.spriteDistanceset = 1;
-      if (!(mlx->sprites.spriteOrder = malloc(sizeof(int) * numsprites)))
+      if (!(mlx->sprites.spriteOrder = malloc(sizeof(int) * mlx->parse.numsprites)))
         return (0);
       mlx->sprites.spriteOrderset = 1;
       ft_locate_sprites(mlx);
       ft_Order_sprites(mlx);
-      ft_sort_sprites(mlx->sprites.spriteOrder, mlx->sprites.spriteDistance, numsprites);
+      ft_sort_sprites(mlx->sprites.spriteOrder, mlx->sprites.spriteDistance, mlx->parse.numsprites);
       ft_project_sprites(mlx);
       ///////////////////
       x++;

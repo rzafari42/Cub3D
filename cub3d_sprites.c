@@ -23,14 +23,21 @@ int main(int argc, char **argv)
   ft_parse_arguments(&mlx, argc, argv);
   ft_parsing(&mlx);
   initialization(&mlx);
-  while (1)
+  if (mlx.parse.save == 1)
+    ft_savebmp(&mlx);
+  else
   {
-    mlx_hook(mlx.win_ptr, 2, 1L << 0 ,keyPress, &mlx);
-    mlx_hook(mlx.win_ptr, 3, 1L << 1 ,keyRelease, &mlx);
-    mlx_hook(mlx.win_ptr, 17, 1L << 17 ,KillWindow, &mlx);
-    mlx_loop_hook(mlx.mlx_ptr, key_deal, &mlx);
-    mlx_loop(mlx.mlx_ptr);
+      while (1)
+    {
+      mlx_hook(mlx.win_ptr, 2, 1L << 0 ,keyPress, &mlx);
+      mlx_hook(mlx.win_ptr, 3, 1L << 1 ,keyRelease, &mlx);
+      mlx_hook(mlx.win_ptr, 17, 1L << 17 ,KillWindow, &mlx);
+      mlx_loop_hook(mlx.mlx_ptr, key_deal, &mlx);
+      mlx_loop(mlx.mlx_ptr);
+    }
   }
+  
+  
   ft_free_map(&mlx);
   ft_free(&mlx);
   return (0);

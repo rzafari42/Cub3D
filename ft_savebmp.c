@@ -27,7 +27,7 @@ void   ft_bmpinit(t_deflibx *mlx)
 
 void ft_savebmpheader(t_deflibx *mlx, int fd)
 {
-     mlx->bmp.size = 54 + 4 * mlx->parse.Width * mlx->parse.Height;
+     mlx->bmp.size = 54 + 3 * mlx->parse.Width * mlx->parse.Height;
      mlx->bmp.reservedid = 0; 
      mlx->bmp.offset = 54;
      write(fd, "BM", 2);
@@ -42,13 +42,20 @@ void ft_savedibheader(t_deflibx *mlx, int fd)
     mlx->bmp.dibmpwidth = mlx->parse.Width;
     mlx->bmp.dibbmpheight = mlx->parse.Height;
     mlx->bmp.dibcolorplanes = 1;
-    mlx->bmp.dibbpp = 32;
+    mlx->bmp.dibbpp = 24;
     write(fd, &mlx->bmp.dibsizeheader, 4);
     write(fd, &mlx->bmp.dibmpwidth, 4);
     write(fd, &mlx->bmp.dibbmpheight, 4);
     write(fd, &mlx->bmp.dibcolorplanes, 2);
     write(fd, &mlx->bmp.dibbpp, 2);
-    write(fd, &mlx->bmp.diboffset,24);
+    
+     write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+//     write(fd, &mlx->bmp.diboffset,24);
 }
 
 void ft_savepixelarray(t_deflibx *mlx, int fd)

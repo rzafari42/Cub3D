@@ -53,7 +53,7 @@ void ft_savedibheader(t_deflibx *mlx, int fd)
 
 void ft_savepixelarray(t_deflibx *mlx, int fd)
 {
-    unsigned int    i;
+   /*unsigned int    i;
     unsigned int    x;
     unsigned int    y;
     unsigned char   *tab;
@@ -67,7 +67,7 @@ void ft_savepixelarray(t_deflibx *mlx, int fd)
         x = 0;
         while (x < mlx->parse.Width)
         {
-    	    tab[i * 3] =  mlx->img_data[x + y * mlx->parse.Width];// >> 0;
+    	    tab[i * 3] =  mlx->img_data[x + y * mlx->parse.Width] >> 0;
             tab[i * 3 + 1] = mlx->img_data[x + y * mlx->parse.Width] >> 8;
 	    tab[i * 3 + 2] = mlx->img_data[x + y * mlx->parse.Width] >> 16;
             i++;
@@ -76,7 +76,24 @@ void ft_savepixelarray(t_deflibx *mlx, int fd)
         y--;
     }
     write(fd, tab, 3 * mlx->parse.Height * mlx->parse.Width);
-    free(tab);
+    free(tab);*/
+    int		y;
+	int		x;
+	int		line;
+
+	y = 0;
+	while (y < mlx->parse.Height)
+	{
+		x = 0;
+		line = mlx->parse.Width * (mlx->parse.Height - y);
+		while (x < mlx->parse.Width)
+		{
+			write(fd, &mlx->img_data[line * 4], 4);
+			line++;
+			x++;
+		}
+		y++;
+	}
 }
 
 void    ft_savebmp(t_deflibx *mlx)

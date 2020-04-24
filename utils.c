@@ -123,7 +123,7 @@ void	*ft_calloc_cub(size_t count, size_t size)
 	mult = count * size;
 	if (!(str = malloc(mult)))
 		return (NULL);
-	ft_bzero(str, mult);
+	ft_bzero_cub(str, mult);
 	return (str);
 }
 

@@ -22,7 +22,7 @@ void   ft_bmpinit(t_deflibx *mlx)
     mlx->bmp.dibbmpheight = 0;
     mlx->bmp.dibcolorplanes = 0;
     mlx->bmp.dibbpp = 0;
-    mlx->bmp.diboffset[24] = NULL;
+   // mlx->bmp.diboffset[24] = NULL;
 }
 
 void ft_savebmpheader(t_deflibx *mlx, int fd)
@@ -58,7 +58,7 @@ void ft_savepixelarray(t_deflibx *mlx, int fd)
     unsigned int    y;
     unsigned char   *tab;
 
-    if (!(tab = ft_calloc(3 * mlx->parse.Height * mlx->parse.Height, 1)))
+    if (!(tab = ft_calloc_cub(3 * mlx->parse.Height * mlx->parse.Height, 1)))
         ft_return("Calloc error while saving in .bmp", mlx);
     i = 0;
     y = mlx->parse.Height;
@@ -67,9 +67,9 @@ void ft_savepixelarray(t_deflibx *mlx, int fd)
         x = 0;
         while (x < mlx->parse.Width)
         {
-            tab[i * 3] =  mlx->img_data[x + y * mlx->parse.Width] >> 0;
+    	    tab[i * 3] =  mlx->img_data[x + y * mlx->parse.Width];// >> 0;
             tab[i * 3 + 1] = mlx->img_data[x + y * mlx->parse.Width] >> 8;
-            tab[i * 3 + 2] = mlx->img_data[x + y * mlx->parse.Width] >> 16;
+	    tab[i * 3 + 2] = mlx->img_data[x + y * mlx->parse.Width] >> 16;
             i++;
             x++;
         }
@@ -86,9 +86,9 @@ void    ft_savebmp(t_deflibx *mlx)
     ft_bmpinit(mlx);
     if ((fd = open("bmp", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU)) < 0)
         ft_return ("Fd error while saving in .bmp", mlx);
-    ft_bmpheader(mlx, fd);
-    ft_dibheader(mlx, fd);
-    ft_savepixelarray(mlx, mlx);
+    ft_savebmpheader(mlx, fd);
+    ft_savedibheader(mlx, fd);
+    ft_savepixelarray(mlx, fd);
     KillWindow(mlx);
 }
 

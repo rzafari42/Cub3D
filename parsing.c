@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 00:09:05 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 01:09:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ int ft_check_if_space(t_deflibx *mlx)
     }
     return (0);
 }
-
-/*/////////////////////////////////////////////////////////////////
-                        R E S O L U T I O N
-/////////////////////////////////////////////////////////////////*/
+-
 void ft_transform_res_in_int(t_deflibx *mlx)
 {
     int s = 0;
@@ -139,10 +136,6 @@ int    ft_get_Resolution(char *line, int i, t_deflibx *mlx)
     ft_transform_res_in_int(mlx);
     return (i);
 }
-
-/*/////////////////////////////////////////////////////////////////
-                        C O L O R
-/////////////////////////////////////////////////////////////////*/
 
 void    ft_check_Color(t_deflibx *mlx)
 {

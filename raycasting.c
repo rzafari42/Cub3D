@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/26 18:15:11 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/26 18:53:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,20 +117,20 @@ int raycasting(t_deflibx *mlx)
       ft_draw_floor(mlx, x);
 
       //SPRITES
-      ft_sprites_init(mlx);
+      //ft_sprites_init(mlx);
       if (!(mlx->sprites.Zbuffer = malloc(sizeof(double) * mlx->parse.Width)))
         return (0);
       mlx->sprites.Zbuffer[x] = mlx->raycast.perpWallDist;
-    	mlx->sprites.Zbufferset = 1;  
+    	//mlx->sprites.Zbufferset = 1;  
       if (!(mlx->sprites_tab = malloc(sizeof(t_sprite) * mlx->parse.numsprites)))
         return (0);
-      mlx->sprites.sprites_tabset = 1;
+      //mlx->sprites.sprites_tabset = 1;
       if (!(mlx->sprites.spriteDistance = malloc(sizeof(double) * mlx->parse.numsprites)))
         return (0);
-      mlx->sprites.spriteDistanceset = 1;
+      //mlx->sprites.spriteDistanceset = 1;
       if (!(mlx->sprites.spriteOrder = malloc(sizeof(int) * mlx->parse.numsprites)))
         return (0);
-      mlx->sprites.spriteOrderset = 1;
+      //mlx->sprites.spriteOrderset = 1;
       ft_locate_sprites(mlx);
       ft_Order_sprites(mlx);
       ft_sort_sprites(mlx->sprites.spriteOrder, mlx->sprites.spriteDistance, mlx->parse.numsprites);

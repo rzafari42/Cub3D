@@ -6,15 +6,14 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/24 01:47:34 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/26 18:16:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 
-
-void ft_return(char *s, t_deflibx *mlx)
+void ft_return(char *s, t_deflibx) 
 {
     ft_putstr_cub("Error");
     ft_putstr_cub(s);
@@ -674,7 +673,7 @@ void    ft_check_map(t_deflibx *mlx)
         j = mlx->parse.mapbiggerline - 1;
         while (mlx->parse.map[i][j] == '\0')
             j--;
-        while (mlx->parse.map[i][j] != '1')// && mlx->parse.map[i][j] != '\0')
+        while (mlx->parse.map[i][j] != '1')
         {
             if (mlx->parse.map[i][j] != ' ')
             {
@@ -963,8 +962,8 @@ void ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)
     }
 }
 
-/*
-int main(int argc, char **argv)
+
+/*int main(int argc, char **argv)
 {
     t_deflibx mlx;
 
@@ -988,13 +987,13 @@ int main(int argc, char **argv)
     printf("eastset = %d\n", mlx.parse.eastset);
     printf("spriteset = %d\n", mlx.parse.spriteset);
     printf("numsprites = %d\n", mlx.parse.numsprites);
-    ft_free(&mlx);
+    ft_free(&mlx);*/
 
     printf("sizeof unsined int = %ld\n", sizeof(unsigned int));
     printf("sizeof unsigned short int = %ld\n", sizeof(unsigned short int));
     printf("sizeof singed int = %ld\n", sizeof(int));
     printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
-}
-*/
+}*/
+
 
 

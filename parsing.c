@@ -12,8 +12,7 @@
 
 #include "cub3d.h"
 
-
-void ft_return(char *s, t_deflibx) 
+void ft_return(char *s, t_deflibx *mlx) 
 {
     ft_putstr_cub("Error");
     ft_putstr_cub(s);
@@ -987,7 +986,7 @@ void ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)
     printf("eastset = %d\n", mlx.parse.eastset);
     printf("spriteset = %d\n", mlx.parse.spriteset);
     printf("numsprites = %d\n", mlx.parse.numsprites);
-    ft_free(&mlx);*/
+    ft_free(&mlx);
 
     printf("sizeof unsined int = %ld\n", sizeof(unsigned int));
     printf("sizeof unsigned short int = %ld\n", sizeof(unsigned short int));

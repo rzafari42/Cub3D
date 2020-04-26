@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:06:43 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/24 01:46:44 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/26 19:52:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 int main(int argc, char **argv)
 {
   t_deflibx mlx;
-  //mlx.parse.files = "./map.cub";
   ft_parse_initialization(&mlx);
   ft_parse_arguments(&mlx, argc, argv);
   ft_parsing(&mlx);
@@ -39,8 +38,6 @@ int main(int argc, char **argv)
       mlx_loop(mlx.mlx_ptr);
     }
   }
-  
-  
   ft_free_map(&mlx);
   ft_free(&mlx);
   return (0);

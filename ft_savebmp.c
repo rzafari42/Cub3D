@@ -107,9 +107,8 @@ void    ft_savebmp(t_deflibx *mlx)
 {
     int fd;
 
-    //ft_bmpinit(mlx);
     if ((fd = open("bmp", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU)) < 0)
-        ft_return ("Fd error while saving in .bmp", mlx);
+          ("Fd error while saving in .bmp", mlx);
     ft_savebmpheader(mlx, fd);
     ft_savedibheader(mlx, fd);
     ft_savepixelarray(mlx, fd);

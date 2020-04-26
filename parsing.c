@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/26 19:56:48 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/26 20:31:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,8 @@ int    ft_get_floor_color(char *line, int i, t_deflibx *mlx)
     i = ft_get_Color(line, i, 'g', mlx);
     i++;
     i = ft_get_Color(line, i, 'b', mlx);
-    mlx->color.floorcolor = convertrgbtoint(mlx->parse.red, mlx->parse.green, mlx->parse.blue);
+    mlx->color.floorcolor = convertrgbtoint(mlx->parse.red, mlx->parse.green,
+    mlx->parse.blue);
     return (i);
 } 
 
@@ -200,7 +201,8 @@ int    ft_get_ceil_color(char *line, int i, t_deflibx *mlx)
     i = ft_get_Color(line, i, 'g', mlx);
     i++;
     i = ft_get_Color(line, i, 'b', mlx);
-    mlx->color.ceilcolor = convertrgbtoint(mlx->parse.red, mlx->parse.green, mlx->parse.blue);
+    mlx->color.ceilcolor = convertrgbtoint(mlx->parse.red, mlx->parse.green,
+    mlx->parse.blue);
     return (i);
 }
 
@@ -246,7 +248,8 @@ int     ft_check_path_set(char *line, int i, t_deflibx *mlx)
         || (line[i] == 'S' && line[i + 1] == 'O' && mlx->parse.southset == 1)
         || (line[i] == 'W' && line[i + 1] == 'E' && mlx->parse.westset == 1)
         || (line[i] == 'E' && line[i + 1] == 'A' && mlx->parse.eastset == 1)
-        || (line[i] == 'S' && line[i + 1] == ' ' && line[i + 1] != 'O' && mlx->parse.spriteset == 1))
+        || (line[i] == 'S' && line[i + 1] == ' ' && line[i + 1] != 'O' &&
+        mlx->parse.spriteset == 1))
             return (1);
         else
             return (0);
@@ -285,7 +288,8 @@ void   ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx)
             j++;
             l++;
         }
-        if (line [l - 1] != 'm' && line[l - 2] != 'p' && line[l - 3] != 'x' && line[l - 4] != '.')
+        if (line [l - 1] != 'm' && line[l - 2] != 'p' && line[l - 3] != 'x' &&
+        line[l - 4] != '.')
             ft_return("Bad file extension: not .xpm", mlx);
         if (!(mlx->parse.path = (char*)malloc(sizeof(char) * (j + 2))))
             ft_return("MALLOC ERROR :(", mlx);
@@ -306,7 +310,6 @@ int    ft_get_Texturespath(char *line, int i, t_deflibx *mlx)
             i++;
         return(i);
     }
-//    ret = i;
     ft_get_Texturespath_two(line, i, mlx);
     ft_put_to_right_path(line, i, mlx);
     while (line[i] != '\0')
@@ -365,7 +368,8 @@ void ft_linesize(char *line, int linesize, t_deflibx *mlx)
                 ft_return("Error in Map declaration", mlx);
             if (j != 0)
             {
-                if (line[j] != ' ' && line[j] != '0' && line[j] != '1' && line[j] != '2' && line[j] != 'N'
+                if (line[j] != ' ' && line[j] != '0' && line[j] != '1' &&
+                line[j] != '2' && line[j] != 'N'
                 && line[j] != 'S' && line[j] != 'E' && line[j] != 'W')
                     ft_return("Error in Map declaration", mlx);
             }
@@ -681,7 +685,8 @@ void    ft_check_map(t_deflibx *mlx)
     while (j < mlx->parse.mapbiggerline)
     {
         i = 0;
-        while (mlx->parse.map[i][j] != '1' && i < mlx->parse.mapnbline - 1 && mlx->parse.map[i][j] != '\0')
+        while (mlx->parse.map[i][j] != '1' && i < mlx->parse.mapnbline - 1 &&
+        mlx->parse.map[i][j] != '\0')
         {
             if (mlx->parse.map[i][j] != ' ')
             {
@@ -722,8 +727,8 @@ void    ft_catch_positionandnumsprites(t_deflibx *mlx)
         {
             if (mlx->parse.map[i][j] == '2')
                 mlx->parse.numsprites++;
-            if (mlx->parse.map[i][j] == 'N' || mlx->parse.map[i][j] == 'S' || mlx->parse.map[i][j] == 'E' || 
-            mlx->parse.map[i][j] == 'W')
+            if (mlx->parse.map[i][j] == 'N' || mlx->parse.map[i][j] == 'S' ||
+            mlx->parse.map[i][j] == 'E' || mlx->parse.map[i][j] == 'W')
             {
                 if (mlx->parse.positionset == 1)
                 {
@@ -816,11 +821,13 @@ void ft_map(t_deflibx *mlx, char *line, int fd)
     j = 0;
     i = 0;
     ft_line_map(mlx);
-    if (!(mlx->parse.map = (char**)malloc(sizeof(char*) * (mlx->parse.mapnbline + 1))))
+    if (!(mlx->parse.map = (char**)malloc(sizeof(char*) *
+    (mlx->parse.mapnbline + 1))))
         ft_return ("MALLOC ERROR :(", mlx);
     while (j <= mlx->parse.mapnbline)
     {
-        if (!(mlx->parse.map[j] = (char*)malloc(sizeof(char) * (mlx->parse.mapbiggerline + 1))))
+        if (!(mlx->parse.map[j] = (char*)malloc(sizeof(char) *
+        (mlx->parse.mapbiggerline + 1))))
         {
             while (i < j)
             {

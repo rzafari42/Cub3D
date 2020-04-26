@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/26 18:16:18 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/26 19:56:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,8 @@ void ft_transform_res_in_int(t_deflibx *mlx)
     mlx->parse.Height = ft_atoi_cub(mlx->parse.Heightcatch);
     if (mlx->parse.Width < 640)
         mlx->parse.Width = 640;
-   /* else if (mlx->parse.Width > 2560)
-        mlx->parse.Width = 2560;*/
     if (mlx->parse.Height < 480)
         mlx->parse.Height = 480;
-    /*else if (mlx->parse.Height > 1440)
-        mlx->parse.Height = 1440;*/
 }
 
 int    ft_line_to_resolution(char *line, int i, t_deflibx *mlx)
@@ -310,10 +306,9 @@ int    ft_get_Texturespath(char *line, int i, t_deflibx *mlx)
             i++;
         return(i);
     }
-    //ft_set_path_to_one(line, i, mlx);
-    ret = i;
+//    ret = i;
     ft_get_Texturespath_two(line, i, mlx);
-    ft_put_to_right_path(line, ret, mlx);
+    ft_put_to_right_path(line, i, mlx);
     while (line[i] != '\0')
         i++;
     free(mlx->parse.path);
@@ -335,7 +330,7 @@ int ft_check_args(char *line, t_deflibx *mlx)
             i = ft_get_Texturespath(line, i, mlx);     
         else if (line[i] == 'F'|| line[i] == 'C')
             i = ft_get_typecolor(line, i, mlx);
-        else if (line[i] == 'R')// && mlx->parse.resolutionset == 0)
+        else if (line[i] == 'R')
             i = ft_get_Resolution(line, i, mlx);
         else if (ft_isdigit_cub(line[i]))
             return (2);
@@ -395,7 +390,6 @@ void    ft_line_map(t_deflibx *mlx)
 
     i = 1;
     mlx->parse.mapnbline = 0;
-    //linesize = 0;
     ret = 0;
     if (!(line = (char*)malloc(sizeof(char))))
         ft_return("MALLOC ERROR :(", mlx);
@@ -843,7 +837,6 @@ void ft_map(t_deflibx *mlx, char *line, int fd)
     ft_check_map(mlx);
     ft_fillspace(mlx);
     ft_catch_positionandnumsprites(mlx);
-   // ft_free_map(mlx);
 }
 
 void    ft_check_set(t_deflibx *mlx)
@@ -940,7 +933,6 @@ void ft_parse_initialization(t_deflibx *mlx)
     mlx->parse.positionset = 0;
     mlx->parse.save = 0;
     mlx->parse.numsprites = 0;
-    /*mlx->parse.pathset = 0; UNNECESSARY*/
     mlx->parse.mapnbline = 0;
     mlx->parse.mapbiggerline = 0;
 }

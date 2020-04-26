@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:36:46 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/26 23:25:38 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 00:09:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void ft_launch_sprites(t_deflibx *mlx)
 {
-    mlx->sprites.img_spriteptr0 = mlx_xpm_file_to_image(mlx->mlx_ptr,
-    mlx->parse.sprite , &mlx->sprites.width , &mlx->sprites.height);
-    mlx->sprites.img_spritedata0 = mlx_get_data_addr(mlx->sprites.img_spriteptr0,
-    &mlx->sprites.bpp, &mlx->sprites.size_line, &mlx->sprites.endian);
+  mlx->sprites.img_spriteptr0 = mlx_xpm_file_to_image(mlx->mlx_ptr,
+  mlx->parse.sprite , &mlx->sprites.width , &mlx->sprites.height);
+  mlx->sprites.img_spritedata0 = mlx_get_data_addr(mlx->sprites.img_spriteptr0,
+  &mlx->sprites.bpp, &mlx->sprites.size_line, &mlx->sprites.endian);
 }
 
 void ft_destroy_sprites(t_deflibx *mlx)
 {
-    mlx_destroy_image(mlx->mlx_ptr, mlx->sprites.img_spriteptr0);
+  mlx_destroy_image(mlx->mlx_ptr, mlx->sprites.img_spriteptr0);
 }
 
 void  ft_sort_sprites(int *Order, double *Distance, int num)
@@ -51,27 +51,27 @@ void  ft_sort_sprites(int *Order, double *Distance, int num)
 
 void  ft_locate_sprites(t_deflibx *mlx)
 {
-    int x;
-    int y;
-    int i;
-    
-    i = 0;
-    y = 0;
-    while (y < mlx->parse.mapnbline)
+  int x;
+  int y;
+  int i;
+  
+  i = 0;
+  y = 0;
+  while (y < mlx->parse.mapnbline)
+  {
+    x = 0;
+    while (x < mlx->parse.mapbiggerline)
     {
-      x = 0;
-      while (x < mlx->parse.mapbiggerline)
+      if (mlx->parse.map[y][x] == '2')
       {
-        if (mlx->parse.map[y][x] == '2')
-        {
-          mlx->sprites_tab[i].x = y + 0.5;
-          mlx->sprites_tab[i].y = x + 0.5;
-          i++;
-        }
-        x++;
+        mlx->sprites_tab[i].x = y + 0.5;
+        mlx->sprites_tab[i].y = x + 0.5;
+        i++;
       }
-      y++;
+      x++;
     }
+    y++;
+  }
 }
 
 void ft_Order_sprites(t_deflibx *mlx)
@@ -88,97 +88,4 @@ void ft_Order_sprites(t_deflibx *mlx)
     mlx->sprites_tab[i].y));
     i++;
   }
-}
-
-void  ft_spritesHeight(t_deflibx *mlx)
-{
-  mlx->sprites.spriteHeight = abs((int)(mlx->parse.Height /
-  mlx->sprites.transformY));
-  mlx->sprites.drawStart_spriteY = (-mlx->sprites.spriteHeight / 2) +
-  (mlx->parse.Height / 2);
-  if (mlx->sprites.drawStart_spriteY < 0)
-    mlx->sprites.drawStart_spriteY = 0;
-  mlx->sprites.drawEnd_spriteY = (mlx->sprites.spriteHeight / 2) +
-  (mlx->parse.Height / 2);
-  if (mlx->sprites.drawEnd_spriteY >= mlx->parse.Height)
-    mlx->sprites.drawEnd_spriteY = mlx->parse.Height - 1;
-}
-
-void  ft_spritesWidth(t_deflibx *mlx)
-{
-  mlx->sprites.spriteWidth = abs((int)(mlx->parse.Height /
-  mlx->sprites.transformY));
-  mlx->sprites.drawStart_spriteX = (-mlx->sprites.spriteWidth / 2) +
-  mlx->sprites.sprite_screen;
-  if(mlx->sprites.drawStart_spriteX < 0)
-    mlx->sprites.drawStart_spriteX = 0;
-  mlx->sprites.drawEnd_spriteX = (mlx->sprites.spriteWidth / 2) +
-  mlx->sprites.sprite_screen;
-  if(mlx->sprites.drawEnd_spriteX >= mlx->parse.Width)
-    mlx->sprites.drawEnd_spriteX = mlx->parse.Width - 1;
-}
-
-void  ft_project_spritestwo(t_deflibx *mlx)
-{
-  int y;
-  int d;
-  
-  while (mlx->sprites.stripe < mlx->sprites.drawEnd_spriteX)
-  {
-    mlx->sprites.stripeX = (int)((256 * (mlx->sprites.stripe -
-    (-mlx->sprites.spriteWidth / 2 + mlx->sprites.sprite_screen)) *
-    textwidth / mlx->sprites.spriteWidth) / 256);
-    y = mlx->sprites.drawStart_spriteY;
-    if (mlx->sprites.transformY > 0 && mlx->sprites.stripe > 0 &&
-    mlx->sprites.stripe < mlx->parse.Width &&
-    mlx->sprites.transformY < mlx->sprites.Zbuffer[mlx->sprites.stripe])
-    {           
-      while (y < mlx->sprites.drawEnd_spriteY)
-      {
-        d = y * 256 - mlx->parse.Height * 128 + mlx->sprites.spriteHeight * 128;
-        mlx->sprites.stripeY = ((d * textheight) /
-        mlx->sprites.spriteHeight) / 256;
-        if (mlx->sprites.img_spritedata0[mlx->sprites.stripeY % 64 *
-        mlx->sprites.size_line + mlx->sprites.stripeX % 64 *
-        mlx->sprites.bpp / 8] != 0)
-          ft_memcpy_cub(mlx->img_data + 4 * mlx->parse.Width * y +
-          4 * mlx->sprites.stripe ,
-          &mlx->sprites.img_spritedata0[mlx->sprites.stripeY % 64 *
-          mlx->sprites.size_line + mlx->sprites.stripeX % 64 *
-          mlx->sprites.bpp / 8], sizeof(int));
-        y++;
-      }
-    }
-    mlx->sprites.stripe++;
-  }
-}
-
-void ft_project_sprites(t_deflibx *mlx)
-{
-  int i;
-
-  i = -1;
-  while (++i < mlx->parse.numsprites)
-  {
-    mlx->sprites.spriteX = mlx->sprites_tab[mlx->sprites.spriteOrder[i]].x
-    - mlx->raycast.posX;
-    mlx->sprites.spriteY = mlx->sprites_tab[mlx->sprites.spriteOrder[i]].y
-    - mlx->raycast.posY;
-    mlx->sprites.invert = 1.0 / (mlx->raycast.planeX * mlx->raycast.dirY
-    - mlx->raycast.dirX * mlx->raycast.planeY);
-    mlx->sprites.transfomrX = mlx->sprites.invert * (mlx->raycast.dirY *
-    mlx->sprites.spriteX - mlx->raycast.dirX * mlx->sprites.spriteY);
-    mlx->sprites.transformY = mlx->sprites.invert * (-mlx->raycast.planeY *
-    mlx->sprites.spriteX + mlx->raycast.planeX * mlx->sprites.spriteY);
-    mlx->sprites.sprite_screen = (int)(mlx->parse.Width / 2) * (1 +
-    (mlx->sprites.transfomrX / mlx->sprites.transformY));
-    ft_spritesHeight(mlx);
-    ft_spritesWidth(mlx);
-    mlx->sprites.stripe = mlx->sprites.drawStart_spriteX;
-    ft_project_spritestwo(mlx);
-  }
-  free(&mlx->sprites.spriteOrder[0]);
-  free(&mlx->sprites_tab[0]);
-  free(&mlx->sprites.Zbuffer[0]);
-  free(&mlx->sprites.spriteDistance[0]);
 }

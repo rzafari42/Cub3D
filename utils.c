@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:49:25 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/26 19:20:51 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 00:09:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,109 +88,4 @@ int	ft_atoi_cub(const char *str)
 		str++;
 	}
 	return (ans * sign);
-}
-
-int	ft_isdigit_cub(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-void	ft_bzero_cub(void *s, size_t n)
-{
-	unsigned char *p;
-
-	p = (unsigned char *)s;
-	while (n > 0)
-	{
-		*p = '\0';
-		p++;
-		n--;
-	}
-}
-
-void	*ft_calloc_cub(size_t count, size_t size)
-{
-	void		*str;
-	size_t		mult;
-
-	if (count == 0 || size == 0)
-	{
-		count = 1;
-		size = 1;
-	}
-	mult = count * size;
-	if (!(str = malloc(mult)))
-		return (NULL);
-	ft_bzero_cub(str, mult);
-	return (str);
-}
-
-char	*ft_strdup_cub(const char *s1)
-{
-	char	*s2;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	if (!(s2 = malloc(sizeof(char) * (i + 1))))
-		return (NULL);
-	while (s1[j])
-	{
-		s2[j] = s1[j];
-		j++;
-	}
-	s2[j] = '\0';
-	return (s2);
-}
-
-unsigned long convertrgbtoint(unsigned int r, unsigned int g, unsigned int b)
-{
-  unsigned long color;
-
-  color = (r * pow(256,2)) + (g * 256) + b;
-  return (color);
-}
-
-void    ft_free(t_deflibx *mlx)
-{
-	int i;
-
-	i = 0;
-    if (mlx->parse.resolutionset == 1)
-	   free(mlx->parse.resolution);
-    if (mlx->parse.widthset == 1)
-        free(mlx->parse.Widthcatch);
-    if (mlx->parse.heightset == 1)
-        free(mlx->parse.Heightcatch);
-    if (mlx->parse.northset == 1)
-        free(mlx->parse.northtext);
-    if (mlx->parse.southset == 1)
-        free(mlx->parse.southtext);
-    if (mlx->parse.westset == 1)
-		free(mlx->parse.westtext);
-	if (mlx->parse.eastset == 1)
-        free (mlx->parse.easttext);
-	if (mlx->parse.spriteset == 1)
-		free (mlx->parse.sprite);
-	i = 0;
-	while (i <= 5)
-	{
-		close(mlx->parse.fd[i]);
-		i++;
-	}
-}
-
-int KillWindow(t_deflibx *mlx)
-{
-	ft_free_map(mlx);
-	ft_free(mlx);
-  //////////////////////////////////////////////////////////////////////////////
-  //FAIRE DES FREE AVANT////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////
-	exit (0);
 }

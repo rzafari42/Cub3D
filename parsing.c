@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 01:09:52 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 01:15:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,15 +237,15 @@ void    ft_set_path_to_one(char *line, int i, t_deflibx *mlx)
 
 int     ft_check_path_set(char *line, int i, t_deflibx *mlx)
 {
-        if ((line[i] == 'N' && line[i + 1] == 'O' && mlx->parse.northset == 1)
-        || (line[i] == 'S' && line[i + 1] == 'O' && mlx->parse.southset == 1)
-        || (line[i] == 'W' && line[i + 1] == 'E' && mlx->parse.westset == 1)
-        || (line[i] == 'E' && line[i + 1] == 'A' && mlx->parse.eastset == 1)
-        || (line[i] == 'S' && line[i + 1] == ' ' && line[i + 1] != 'O' &&
-        mlx->parse.spriteset == 1))
-            return (1);
-        else
-            return (0);
+    if ((line[i] == 'N' && line[i + 1] == 'O' && mlx->parse.northset == 1)
+    || (line[i] == 'S' && line[i + 1] == 'O' && mlx->parse.southset == 1)
+    || (line[i] == 'W' && line[i + 1] == 'E' && mlx->parse.westset == 1)
+    || (line[i] == 'E' && line[i + 1] == 'A' && mlx->parse.eastset == 1)
+    || (line[i] == 'S' && line[i + 1] == ' ' && line[i + 1] != 'O' &&
+    mlx->parse.spriteset == 1))
+        return (1);
+    else
+        return (0);
 }
 
 void    ft_put_to_right_path(char *line, int i, t_deflibx *mlx)

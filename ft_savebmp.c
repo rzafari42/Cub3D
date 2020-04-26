@@ -27,7 +27,7 @@ void   ft_bmpinit(t_deflibx *mlx)
 
 void ft_savebmpheader(t_deflibx *mlx, int fd)
 {
-     mlx->bmp.size = 54 + 3 * mlx->parse.Width * mlx->parse.Height;
+     mlx->bmp.size = 54 + 4 * mlx->parse.Width * mlx->parse.Height;
      mlx->bmp.reservedid = 0; 
      mlx->bmp.offset = 54;
      write(fd, "BM", 2);
@@ -107,7 +107,7 @@ void    ft_savebmp(t_deflibx *mlx)
 {
     int fd;
 
-    ft_bmpinit(mlx);
+    //ft_bmpinit(mlx);
     if ((fd = open("bmp", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU)) < 0)
         ft_return ("Fd error while saving in .bmp", mlx);
     ft_savebmpheader(mlx, fd);

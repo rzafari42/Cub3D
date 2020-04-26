@@ -160,15 +160,16 @@ void    ft_free(t_deflibx *mlx)
 {
 	int i;
 
-	if (mlx->sprites.Zbufferset == 1)
-		free(mlx->sprites.Zbuffer);
+	i = 0;
+/*	if (mlx->sprites.Zbufferset == 1)
+		free (mlx->sprites.Zbuffer);
 	if (mlx->sprites.sprites_tabset == 1)
 		free(mlx->sprites_tab);
 	if (mlx->sprites.spriteDistanceset == 1)
 		free(mlx->sprites.spriteDistance);
 	if (mlx->sprites.spriteOrderset == 1)
 		free(mlx->sprites.spriteOrder);
-    if (mlx->parse.resolutionset == 1)
+*/    if (mlx->parse.resolutionset == 1)
 	   free(mlx->parse.resolution);
 	/*if (mlx->parse.pathset == 1)
         free (mlx->parse.path);*/

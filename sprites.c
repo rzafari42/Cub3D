@@ -105,8 +105,8 @@ void  ft_locate_sprites(t_deflibx *mlx)
           {
             mlx->sprites_tab[i].x = y + 0.5;
             mlx->sprites_tab[i].y = x + 0.5;
-            i++;
-          }
+	    i++;
+	  }
           x++;
         }
         y++;
@@ -181,6 +181,10 @@ void ft_project_sprites(t_deflibx *mlx)
         mlx->sprites.stripe++;
       }
     }
+    free(&mlx->sprites.spriteOrder[0]);
+    free(&mlx->sprites_tab[0]);
+    free(&mlx->sprites.Zbuffer[0]);
+    free(&mlx->sprites.spriteDistance[0]);
 }
 
 void ft_sprites_init(t_deflibx *mlx)

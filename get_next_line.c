@@ -78,10 +78,11 @@ int			get_next_line(const int fd, char **line)
 	char		*buffer;
 	char		*end;
 
-	if (fd < 0 || fd > 1023 || (str[fd] == NULL && !(str[fd] = ft_strnew_gnl(0)))
-		|| !(buffer = ft_strnew_gnl(BUFFER_SIZE + 1)) || BUFFER_SIZE < 1
-		|| read(fd, buffer, 0) == -1 || !(*line = ft_strnew_gnl(0))
-		|| !(ft_read(fd, buffer, &str[fd])))
+	if (fd < 0 || fd > 1023 || (str[fd] == NULL &&
+	!(str[fd] = ft_strnew_gnl(0))) ||
+	!(buffer = ft_strnew_gnl(BUFFER_SIZE + 1)) || BUFFER_SIZE < 1 ||
+	read(fd, buffer, 0) == -1 || !(*line = ft_strnew_gnl(0)) ||
+	!(ft_read(fd, buffer, &str[fd])))
 		return (-1);
 	if (*str[fd])
 	{
@@ -99,31 +100,3 @@ int			get_next_line(const int fd, char **line)
 	}
 	return (0);
 }
-
-/*int			get_next_line1(const int fd, char **line)
-{
-	static char	*str1;
-	char		*buffer;
-	char		*end;
-
-	if (fd < 0 || (str1 == NULL && !(str1 = ft_strnew(0)))
-		|| !(buffer = ft_strnew(BUFFER_SIZE + 1)) || BUFFER_SIZE < 1
-		|| read(fd, buffer, 0) == -1 || !(*line = ft_strnew(0))
-		|| !(ft_read(fd, buffer, &str1)))
-		return (-1);
-	if (*str1)
-	{
-		end = ft_strchr_gnl(str1, '\n');
-		free(*line);
-		if (!(*line = ft_newline(&str1)))
-			return (-1);
-		if (!end)
-		{
-			free(str1);
-			str1 = NULL;
-			return (0);
-		}
-		return (1);
-	}
-	return (0);
-}*/

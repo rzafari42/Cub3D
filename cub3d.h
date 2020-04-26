@@ -281,6 +281,7 @@ void	ft_return(char *s, t_deflibx *mlx);
 void    ft_spritesHeight(t_deflibx *mlx);
 void    ft_spritesWidth(t_deflibx *mlx);
 void    ft_freesprites(t_deflibx *mlx);
+void	keyPresstwo(int key, t_deflibx *mlx);
 int     keyPress(int key, t_deflibx *mlx);
 int     keyRelease(int key, t_deflibx *mlx);
 int     KillWindow(t_deflibx *mlx);

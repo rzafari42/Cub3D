@@ -33,7 +33,7 @@ int ft_check_if_space(t_deflibx *mlx)
     }
     return (0);
 }
--
+
 void ft_transform_res_in_int(t_deflibx *mlx)
 {
     int s = 0;

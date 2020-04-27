@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 13:39:07 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 17:24:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,6 +269,7 @@ void    ft_free_map(t_deflibx *mlx);
 void    ft_free_malloc(t_deflibx *mlx);
 void    ft_line_map(t_deflibx *mlx);
 void    ft_copy_map(t_deflibx *mlx);
+void    ft_copy_maptwo(t_deflibx *mlx, int fd, char *line);
 void    *ft_calloc_cub(size_t count, size_t size);
 void    ft_check_firstandlast_line(t_deflibx *mlx, char *s);
 void    ft_catch_positionandnumsprites(t_deflibx *mlx);
@@ -282,11 +283,24 @@ void    ft_spritesHeight(t_deflibx *mlx);
 void    ft_spritesWidth(t_deflibx *mlx);
 void    ft_freesprites(t_deflibx *mlx);
 void	keypresstwo(int key, t_deflibx *mlx);
+void    ft_check_map(t_deflibx *mlx);
+void    ft_check_maptwo(t_deflibx *mlx);
+void    ft_cehck_mapthree(t_deflibx *mlx);
+void    ft_cehck_mapfour(t_deflibx *mlx);
+void    ft_getheight_from_resolution(t_deflibx *mlx);
+void    ft_getwidth_from_resolution(t_deflibx *mlx);
+void    ft_transform_res_in_int(t_deflibx *mlx);
+void    ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx);
+int     ft_get_Texturespath(char *line, int i, t_deflibx *mlx);
 int     keypress(int key, t_deflibx *mlx);
 int     keyrelease(int key, t_deflibx *mlx);
 int     killwindow(t_deflibx *mlx);
 int     key_deal(t_deflibx *mlx);
 int     ft_check_wall(char *s);
+int     ft_check_if_space(t_deflibx *mlx);
+int     ft_line_to_resolution(char *line, int i, t_deflibx *mlx);
+int     ft_get_Resolution(char *line, int i, t_deflibx *mlx);
+int     ft_get_typecolor(char *line, int i, t_deflibx *mlx);
 int     raycasting(t_deflibx *mlx);
 int     ft_atoi_cub(const char *str);
 int     ft_parsing(t_deflibx *mlx);

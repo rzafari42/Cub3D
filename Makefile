@@ -16,9 +16,10 @@ CC = cc
 MLXFLAGS = -L/usr/local/lib -lmlx -lm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp -lbsd
 CCFLAGS = -Wall -Wextra -Werror
 SRC = cub3d_sprites.c ft_savebmp.c catching_keys.c ceilfloor.c game_modes.c\
-	initializations00.c initializations01.c key_to_functions.c move00.c move01.c\
-	parsing.c raycasting.c sprites.c spritestwo.c textures.c utils.c utilstwo.c\
-	utilsthree.c get_next_line.c get_next_line_utils.c
+	initializations00.c initializations01.c key_to_functions.c move00.c\
+	move01.c parsing.c parsingtwo.c raycasting.c sprites.c spritestwo.c\
+	textures.c utils.c utilstwo.c utilsthree.c get_next_line.c\
+	get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 

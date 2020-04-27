@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 01:15:46 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 14:40:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -448,18 +448,42 @@ void    ft_free_map(t_deflibx *mlx)
     free(mlx->parse.map);
 }
 
-void ft_copy_map(t_deflibx *mlx)
+void    ft_copy_maptwo(t_deflibx *mlx, int fd, char *line)
+{
+    int i;
+    int ret;
+    char *temp;
+
+    i = 0;
+    temp = NULL;
+    temp = mlx->parse.map[i];
+    mlx->parse.map[i] = ft_strdup_zero(line, mlx);
+    free(temp);
+    free(line);
+    i++;
+    while ((ret = get_next_line(fd, &line)) > -1)
+    {
+        if (line[0] != '\0')
+        {
+            temp = mlx->parse.map[i];
+            mlx->parse.map[i] = ft_strdup_zero(line, mlx);
+            free (temp);
+            i++;
+        }
+        free(line);
+        if (ret == 0)
+            break;
+    }
+    close(fd);
+}
+
+void    ft_copy_map(t_deflibx *mlx)
 {
     int ret;
     int fd;
-    int i;
-    int j;
     char *line;
-    char *temp;
 
     ret = 0;
-    i = 0;
-    temp = NULL;
     if (!(line = (char*)malloc(sizeof(char))))
     {
         ft_free_map(mlx);
@@ -477,26 +501,7 @@ void ft_copy_map(t_deflibx *mlx)
         free(line);
         ret = get_next_line(fd, &line);
     }
-    temp = mlx->parse.map[i];
-    mlx->parse.map[i] = ft_strdup_zero(line, mlx);
-    free(temp);
-    i++;
-    free(line);
-    while ((ret = get_next_line(fd, &line)) > -1)
-    {
-        if (line[0] != '\0')
-        {
-            temp = mlx->parse.map[i];
-            mlx->parse.map[i] = ft_strdup_zero(line, mlx);
-            free (temp);
-            i++;
-        }
-        free(line);
-        if (ret == 0)
-            break;
-    }
-    i = 0;
-    close(fd);
+    ft_copy_maptwo(mlx, fd, line);
 }
 
 void ft_check_firstandlast_line(t_deflibx *mlx, char *s)
@@ -518,7 +523,7 @@ void ft_check_firstandlast_line(t_deflibx *mlx, char *s)
         i++;
     }    
 }
-
+/*
 void ft_check_line(t_deflibx *mlx, int i, int j)
 {
     int z;
@@ -582,8 +587,10 @@ void ft_check_line(t_deflibx *mlx, int i, int j)
         j++;
     }
 }
+*/
 
-void ft_fillfirstandlast_line(t_deflibx *mlx)
+
+/*void ft_fillfirstandlast_line(t_deflibx *mlx)
 {
     int i;
     int j;
@@ -633,7 +640,7 @@ void ft_fillfirstandlast_line(t_deflibx *mlx)
         }
         i++;
     }
-}
+}*/
 
 void    ft_check_map(t_deflibx *mlx)
 {
@@ -728,18 +735,74 @@ void    ft_catch_positionandnumsprites(t_deflibx *mlx)
                     ft_return("More than one position declared", mlx);
                     free(mlx);
                 }
- 		mlx->parse.positionx = i;
-		mlx->parse.positiony = j;
-		mlx->parse.position = mlx->parse.map[i][j];
+                mlx->parse.positionx = i;
+                mlx->parse.positiony = j;
+                mlx->parse.position = mlx->parse.map[i][j];
                 mlx->parse.positionset = 1;
                 mlx->parse.directionset = 1;
-		mlx->parse.map[i][j] = '0';
+                mlx->parse.map[i][j] = '0';
             }
             j++;
         }
         i++;
     }
 }
+
+void    ft_fillspacethree(t_deflibx *mlx)
+{
+    int i;
+    int j;
+
+    i = 1;
+    while (i < mlx->parse.mapnbline - 1)
+    {
+        j = 0;
+        while (mlx->parse.map[i][j] != '\0')
+        {
+            if (mlx->parse.map[i][j] == '1')
+            {
+                j++;
+                while(mlx->parse.map[i][j] != '\0')
+                {
+                    if (mlx->parse.map[i][j] == ' ')
+                        mlx->parse.map[i][j] = '0';
+                    j++;
+                }
+            }
+            if (mlx->parse.map[i][j] == '\0')
+                break;
+            j++;
+        }
+        i++;
+    }
+}
+
+void    ft_fillspacetwo(t_deflibx *mlx)
+{
+    int i;
+    int j;
+
+    i = mlx->parse.mapnbline - 1;
+    j = 0;
+    while(mlx->parse.map[i][j] != '\0')
+    {
+        if (mlx->parse.map[i][j] == '1')
+        {
+            j++;
+            while(mlx->parse.map[i][j] != '\0')
+                {
+                    if (mlx->parse.map[i][j] == ' ')
+                        mlx->parse.map[i][j] = '1';
+                    j++;
+                }
+        }
+        if (mlx->parse.map[i][j] == '\0')
+                break;
+        j++;
+    }
+    ft_fillspacethree(mlx);
+}
+
 
 void ft_fillspace(t_deflibx *mlx)
 {
@@ -764,46 +827,7 @@ void ft_fillspace(t_deflibx *mlx)
                 break;
         j++;
     }
-    i = mlx->parse.mapnbline - 1;
-    j = 0;
-    while(mlx->parse.map[i][j] != '\0')
-    {
-        if (mlx->parse.map[i][j] == '1')
-        {
-            j++;
-            while(mlx->parse.map[i][j] != '\0')
-                {
-                    if (mlx->parse.map[i][j] == ' ')
-                        mlx->parse.map[i][j] = '1';
-                    j++;
-                }
-        }
-        if (mlx->parse.map[i][j] == '\0')
-                break;
-        j++;
-    }
-    i = 1;
-    while (i < mlx->parse.mapnbline - 1)
-    {
-        j = 0;
-        while (mlx->parse.map[i][j] != '\0')
-        {
-            if (mlx->parse.map[i][j] == '1')
-            {
-                j++;
-                while(mlx->parse.map[i][j] != '\0')
-                {
-                    if (mlx->parse.map[i][j] == ' ')
-                        mlx->parse.map[i][j] = '0';
-                    j++;
-                }
-            }
-            if (mlx->parse.map[i][j] == '\0')
-                break;
-            j++;
-        }
-        i++;
-    }
+    ft_fillspacetwo(mlx);
 }
 
 void ft_map(t_deflibx *mlx, char *line, int fd)
@@ -896,21 +920,6 @@ int ft_read0(int fd, t_deflibx *mlx)
     return (1);
 }
 
-int     ft_parsing(t_deflibx *mlx)
-{
-    int fd;
-
-    if ((fd = open(mlx->parse.files, O_RDONLY)) < 0)
-    {
-        ft_return("File path incorect", mlx);
-        return (0);
-    }
-    if (!(ft_read0(fd, mlx)))
-        return(0);
-    close(fd);
-    return (1);
-}
-
 void ft_parse_initialization(t_deflibx *mlx)
 {
     mlx->text.width = 64;
@@ -953,6 +962,20 @@ void ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)
     }
 }
 
+int     ft_parsing(t_deflibx *mlx)
+{
+    int fd;
+
+    if ((fd = open(mlx->parse.files, O_RDONLY)) < 0)
+    {
+        ft_return("File path incorect", mlx);
+        return (0);
+    }
+    if (!(ft_read0(fd, mlx)))
+        return(0);
+    close(fd);
+    return (1);
+}
 
 /*int main(int argc, char **argv)
 {
@@ -984,7 +1007,7 @@ void ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)
     printf("sizeof unsigned short int = %ld\n", sizeof(unsigned short int));
     printf("sizeof singed int = %ld\n", sizeof(int));
     printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
-}*/
-
+}
+*/
 
 

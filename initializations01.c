@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:47:48 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 02:08:00 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 02:35:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	Move_initialization(t_deflibx *mlx)
+void	move_initialization(t_deflibx *mlx)
 {
 	mlx->move.mode = 0;
 	mlx->move.keyDown = 0;
@@ -26,7 +26,7 @@ void	Move_initialization(t_deflibx *mlx)
 	mlx->speed.rotSpeed = 0.02;
 }
 
-void	Window_initialization(t_deflibx *mlx)
+void	window_initialization(t_deflibx *mlx)
 {
 	int	sizex;
 	int	sizey;
@@ -47,7 +47,7 @@ void	position_initialization(t_deflibx *mlx)
 	mlx->raycast.posY = mlx->parse.positiony + 0.5;
 }
 
-void	Color_initializatin(t_deflibx *mlx)
+void	color_initializatin(t_deflibx *mlx)
 {
 	mlx->color.r = 255;
 	mlx->color.g = 0;

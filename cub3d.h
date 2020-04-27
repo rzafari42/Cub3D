@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 02:30:53 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 02:32:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,7 +249,7 @@ void    ft_launch_text(t_deflibx *mlx);
 void    ft_destroy_text(t_deflibx *mlx);
 void    ft_launch_sprites(t_deflibx *mlx);
 void    ft_destroy_sprites(t_deflibx *mlx);
-void    Color_initializatin(t_deflibx *mlx);
+void    color_initializatin(t_deflibx *mlx);
 void    move_up(t_deflibx *mlx);
 void    move_down(t_deflibx *mlx);
 void    move_right(t_deflibx *mlx);

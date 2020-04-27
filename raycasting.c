@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 00:08:54 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 02:33:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int raycasting(t_deflibx *mlx)
     ft_launch_sprites(mlx);
     while (x < mlx->parse.Width)
     { 
-      Color_initializatin(mlx);
+      color_initializatin(mlx);
       //mlx->img_color = mlx_get_color_value(mlx->mlx_ptr, mlx->color);
       //calculate ray position and direction
       mlx->raycast.cameraX = 2 * x / (double)mlx->parse.Width - 1; //x-coordinate in camera space

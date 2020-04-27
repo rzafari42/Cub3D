@@ -15,11 +15,12 @@ HEADER= cub3d.h get_next_line.h
 CC = cc
 MLXFLAGS = -L/usr/local/lib -lmlx -lm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp -lbsd
 CCFLAGS = -Wall -Wextra -Werror
-SRC = cub3d_sprites.c ft_savebmp.c catching_keys.c ceilfloor.c game_modes.c\
-	initializations00.c initializations01.c key_to_functions.c move00.c\
-	move01.c parsing.c parsingtwo.c raycasting.c sprites.c spritestwo.c\
-	path.c resolution.c textures.c textures.c utils.c utilstwo.c utilsthree.c\
-	utilsfour.c get_next_line.c get_next_line_utils.c
+SRC = cub3d_sprites.c parse_initialization.c ft_savebmp.c catching_keys.c\
+	ceilfloor.c game_modes.c initializations00.c initializations01.c\
+	key_to_functions.c move00.c move01.c parsing.c parsingtwo.c raycasting.c\
+	sprites.c spritestwo.c path.c pathtwo.c resolution.c textures.c textures.c\
+	utils.c utilstwo.c utilsthree.c utilsfour.c copy_map.c check_map.c color.c\ 
+	mapfillspace.c get_next_line.c get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 19:26:21 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 19:50:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-//# include <mlx.h>
+# include <mlx.h>
 # define screenWidth 640 
 # define screenHeight 480
 # define mapWidth 24

@@ -127,7 +127,7 @@ int raycasting(t_deflibx *mlx)
       if (!(mlx->sprites.spriteOrder = malloc(sizeof(int) * mlx->parse.numsprites)))
         return (0);
       ft_locate_sprites(mlx);
-      ft_Order_sprites(mlx);
+      ft_order_sprites(mlx);
       ft_sort_sprites(mlx->sprites.spriteOrder, mlx->sprites.spriteDistance, mlx->parse.numsprites);
       ft_project_sprites(mlx);
       x++;

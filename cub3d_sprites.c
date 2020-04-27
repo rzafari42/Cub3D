@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:06:43 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 00:09:09 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 02:08:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	main(int argc, char **argv)
 	{
 		while (1)
 		{
-			mlx_hook(mlx.win_ptr, 2, 1L << 0, keyPress, &mlx);
-			mlx_hook(mlx.win_ptr, 3, 1L << 1, keyRelease, &mlx);
-			mlx_hook(mlx.win_ptr, 17, 1L << 17, KillWindow, &mlx);
+			mlx_hook(mlx.win_ptr, 2, 1L << 0, keypress, &mlx);
+			mlx_hook(mlx.win_ptr, 3, 1L << 1, keyrelease, &mlx);
+			mlx_hook(mlx.win_ptr, 17, 1L << 17, killwindow, &mlx);
 			mlx_loop_hook(mlx.mlx_ptr, key_deal, &mlx);
 			mlx_loop(mlx.mlx_ptr);
 		}

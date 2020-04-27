@@ -40,7 +40,7 @@ void    ft_free(t_deflibx *mlx)
 	}
 }
 
-int KillWindow(t_deflibx *mlx)
+int killwindow(t_deflibx *mlx)
 {
 	ft_free_map(mlx);
 	ft_free(mlx);

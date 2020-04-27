@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 00:08:32 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 02:08:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ typedef struct   s_keymove
     int keyLeft;
     int keyTurnRight;
     int keyTurnLeft;
-    int killWindow;
+    int killwindow;
 }                t_keymove;
 
 typedef struct   s_raycastvar
@@ -281,10 +281,10 @@ void	ft_return(char *s, t_deflibx *mlx);
 void    ft_spritesHeight(t_deflibx *mlx);
 void    ft_spritesWidth(t_deflibx *mlx);
 void    ft_freesprites(t_deflibx *mlx);
-void	keyPresstwo(int key, t_deflibx *mlx);
-int     keyPress(int key, t_deflibx *mlx);
-int     keyRelease(int key, t_deflibx *mlx);
-int     KillWindow(t_deflibx *mlx);
+void	keypresstwo(int key, t_deflibx *mlx);
+int     keypress(int key, t_deflibx *mlx);
+int     keyrelease(int key, t_deflibx *mlx);
+int     killwindow(t_deflibx *mlx);
 int     key_deal(t_deflibx *mlx);
 int     ft_check_wall(char *s);
 int     raycasting(t_deflibx *mlx);

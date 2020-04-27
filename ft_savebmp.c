@@ -112,6 +112,6 @@ void    ft_savebmp(t_deflibx *mlx)
     ft_savebmpheader(mlx, fd);
     ft_savedibheader(mlx, fd);
     ft_savepixelarray(mlx, fd);
-    KillWindow(mlx);
+    killwindow(mlx);
 }
 

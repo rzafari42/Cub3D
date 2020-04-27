@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:47:48 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/15 01:01:39 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 02:08:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void Move_initialization(t_deflibx *mlx)
   mlx->move.keyLeft = 0;
   mlx->move.keyTurnLeft = 0;
   mlx->move.keyTurnRight = 0;
-  mlx->move.killWindow = 0;
+  mlx->move.killwindow = 0;
   /*speed modifiers*/
   mlx->speed.moveSpeed = 0.08;
   mlx->speed.rotSpeed = 0.02;

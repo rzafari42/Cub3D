@@ -14,8 +14,7 @@
 
 void ft_normal_mode(t_deflibx *mlx)
 {
-    //jump to next map square, OR in x-direction, OR in y-direction
-    if(mlx->raycast.sideDistX < mlx->raycast.sideDistY)
+ if(mlx->raycast.sideDistX < mlx->raycast.sideDistY)
     {
     mlx->raycast.sideDistX += mlx->raycast.deltaDistX;
     mlx->raycast.mapX += mlx->raycast.stepX;

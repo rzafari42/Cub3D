@@ -27,7 +27,7 @@ void	keypresstwo(int key, t_deflibx *mlx)
 		mlx->move.killwindow = 1;
 }
 
-int	keypress(int key, t_deflibx *mlx)
+int		keypress(int key, t_deflibx *mlx)
 {
 	if (key == 122)
 		mlx->move.keyUp = 1;
@@ -55,7 +55,7 @@ int	keypress(int key, t_deflibx *mlx)
 	return (0);
 }
 
-int	keyrelease(int key, t_deflibx *mlx)
+int		keyrelease(int key, t_deflibx *mlx)
 {
 	if (key == 122)
 		mlx->move.keyUp = 0;

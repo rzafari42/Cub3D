@@ -12,13 +12,13 @@
 
 #include "cub3d.h"
 
-void	ft_check_Color(t_deflibx *mlx)
+void	ft_check_color(t_deflibx *mlx)
 {
 	if (mlx->parse.red > 255 || mlx->parse.blue > 255 || mlx->parse.green > 255)
 		ft_return("Color is over than 255", mlx);
 }
 
-int	ft_get_Color(char *line, int i, char c, t_deflibx *mlx)
+int	ft_get_color(char *line, int i, char c, t_deflibx *mlx)
 {
 	int d;
 	char res[4];
@@ -42,7 +42,7 @@ int	ft_get_Color(char *line, int i, char c, t_deflibx *mlx)
 		mlx->parse.green = ft_atoi_cub(res);
 	if (c == 'b')
 		mlx->parse.blue = ft_atoi_cub(res);
-	ft_check_Color(mlx);
+	ft_check_color(mlx);
 	return (i);
 }
 
@@ -50,11 +50,11 @@ int		ft_get_floor_color(char *line, int i, t_deflibx *mlx)
 {
 	while (!(ft_isdigit_cub(line[i])))
 		i++;
-	i = ft_get_Color(line, i, 'r', mlx);
+	i = ft_get_color(line, i, 'r', mlx);
 	i++;
-	i = ft_get_Color(line, i, 'g', mlx);
+	i = ft_get_color(line, i, 'g', mlx);
 	i++;
-	i = ft_get_Color(line, i, 'b', mlx);
+	i = ft_get_color(line, i, 'b', mlx);
 	mlx->color.floorcolor = convertrgbtoint(mlx->parse.red,
 			mlx->parse.green, mlx->parse.blue);
 	return (i);
@@ -64,11 +64,11 @@ int		ft_get_ceil_color(char *line, int i, t_deflibx *mlx)
 {
 	while (!(ft_isdigit_cub(line[i])))
 		i++;
-	i = ft_get_Color(line, i, 'r', mlx);
+	i = ft_get_color(line, i, 'r', mlx);
 	i++;
-	i = ft_get_Color(line, i, 'g', mlx);
+	i = ft_get_color(line, i, 'g', mlx);
 	i++;
-	i = ft_get_Color(line, i, 'b', mlx);
+	i = ft_get_color(line, i, 'b', mlx);
 	mlx->color.ceilcolor = convertrgbtoint(mlx->parse.red,
 			mlx->parse.green, mlx->parse.blue);
 	return (i);

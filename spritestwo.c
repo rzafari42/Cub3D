@@ -6,7 +6,7 @@
 /*   By: marvin <rzafaristudent.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 03:29:01 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 03:29:01 by rzafari          ###   ########.fr       */
+/*   Updated: 2020/04/28 00:18:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_project_spritestwo(t_deflibx *mlx)
 	{
 		mlx->sprites.stripeX = (int)((256 * (mlx->sprites.stripe -
 			(-mlx->sprites.spriteWidth / 2 +
-			 mlx->sprites.sprite_screen)) * textwidth /
+			mlx->sprites.sprite_screen)) * textwidth /
 			mlx->sprites.spriteWidth) / 256);
 		y = mlx->sprites.drawStart_spriteY;
 		if (mlx->sprites.transformY > 0 && mlx->sprites.stripe > 0 &&
@@ -73,7 +73,7 @@ void	ft_project_spritestwo(t_deflibx *mlx)
 				if (mlx->sprites.img_spritedata0[
 				mlx->sprites.stripeY % 64 * mlx->sprites.size_line +
 				mlx->sprites.stripeX % 64 * mlx->sprites.bpp / 8] != 0)
-				ft_memcpy_cub(mlx->img_data + 4 * mlx->parse.Width * y +
+					ft_memcpy_cub(mlx->img_data + 4 * mlx->parse.Width * y +
 				4 * mlx->sprites.stripe, &mlx->sprites.img_spritedata0[
 				mlx->sprites.stripeY % 64 * mlx->sprites.size_line +
 				mlx->sprites.stripeX % 64 * mlx->sprites.bpp / 8],

@@ -6,39 +6,37 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 02:33:02 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 00:04:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void ft_DDA(t_deflibx *mlx)
+void	ft_DDA(t_deflibx *mlx)
 {
-    mlx->color.color = convertrgbtoint(mlx->color.r, mlx->color.g, mlx->color.b);
-    while (mlx->raycast.hit == 0)
-    {
-    //3 differents modes: 0 = texture, 1 = electron, 2 = color walls
-    if (mlx->move.mode == 0 || mlx->move.mode == 2)
-        ft_normal_mode(mlx);
-    if (mlx->move.mode == 1)
-        ft_electro_mode(mlx);
-    //Check if ray has hit a wall
-
-     if(mlx->parse.map[mlx->raycast.mapX][mlx->raycast.mapY] == '1')
-       mlx->raycast.hit = 1;
-    }
+	mlx->color.color = convertrgbtoint(mlx->color.r, mlx->color.g, mlx->color.b);
+	while (mlx->raycast.hit == 0)
+	{
+		//3 differents modes: 0 = texture, 1 = electron, 2 = color walls
+		if (mlx->move.mode == 0 || mlx->move.mode == 2)
+			ft_normal_mode(mlx);
+		if (mlx->move.mode == 1)
+			ft_electro_mode(mlx);
+		//Check if ray has hit a wall
+		if(mlx->parse.map[mlx->raycast.mapX][mlx->raycast.mapY] == '1')
+			mlx->raycast.hit = 1;
+	}
 }
 
-int raycasting(t_deflibx *mlx)
+int		raycasting(t_deflibx *mlx)
 {
-    int x;
+	int x; 
+	int (*pix_array)[mlx->parse.Width][1];
+	int width;
+	int height;
+	unsigned int  color;
     
-    int (*pix_array)[mlx->parse.Width][1];
-    int width;
-    int height;
-    unsigned int  color;
-    
-    x = 0;
+	x = 0;
     mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->parse.Width, mlx->parse.Height);
     mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_line, &mlx->endian);
     ft_launch_text(mlx);

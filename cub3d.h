@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 00:20:20 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 01:20:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,10 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <mlx.h>
-# define screenWidth 640 
-# define screenHeight 480
 # define mapWidth 24
 # define mapHeight 24
 # define textwidth 64
 # define textheight 64
-//# define numsprites 3
-# define N 0
-# define S 1
-# define W 0
-# define E 0
 
 typedef struct s_save
 {

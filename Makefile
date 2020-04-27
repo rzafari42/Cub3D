@@ -6,7 +6,7 @@
 #    By: rzafari <rzafari@student.42.fr>              +#+  +:+       +#+       #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/14 13:25:21 by rzafari            #+#    #+#             #
-#    Updated: 2020/04/14 13:25:21 by rzafari           ###   ########.fr       #
+#    Updated: 2020/04/27 20:04:22 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ SRC = cub3d_sprites.c parse_initialization.c ft_savebmp.c catching_keys.c\
 	ceilfloor.c game_modes.c initializations00.c initializations01.c\
 	key_to_functions.c move00.c move01.c parsing.c parsingtwo.c raycasting.c\
 	sprites.c spritestwo.c path.c pathtwo.c resolution.c textures.c textures.c\
-	utils.c utilstwo.c utilsthree.c utilsfour.c copy_map.c check_map.c color.c\ 
-	mapfillspace.c get_next_line.c get_next_line_utils.c
+	utils.c utilstwo.c utilsthree.c utilsfour.c copy_map.c check_map.c color.c\
+	mapfillspace.c get_next_line.c get_next_line_utils.c\
 
 OBJ = $(SRC:.c=.o)
 

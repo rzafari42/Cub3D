@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 18:30:32 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/27 20:25:59 by rzafari          ###   ########.fr       */
+/*   Updated: 2020/04/27 22:42:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_copy_maptwo(t_deflibx *mlx, int fd, char *line)
 {
-	int i;
-	int ret;
-	char *temp;
+	int		i;
+	int		ret;
+	char	*temp;
 
 	i = 0;
 	temp = NULL;
@@ -31,21 +31,21 @@ void	ft_copy_maptwo(t_deflibx *mlx, int fd, char *line)
 		{
 			temp = mlx->parse.map[i];
 			mlx->parse.map[i] = ft_strdup_zero(line, mlx);
-			free (temp);
+			free(temp);
 			i++;
 		}
 		free(line);
 		if (ret == 0)
-			break;
+			break ;
 	}
 	close(fd);
 }
 
 void	ft_copy_map(t_deflibx *mlx)
 {
-	int ret;
-	int fd;
-	char *line;
+	int		ret;
+	int		fd;
+	char	*line;
 
 	ret = 0;
 	if (!(line = (char*)malloc(sizeof(char))))

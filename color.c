@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/27 18:00:01 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/27 20:22:32 by rzafari          ###   ########.fr       */
+/*   Created: 2020/03/09 11:48:54 by rzafari           #+#    #+#             */
+/*   Updated: 2020/04/27 22:54:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_get_Color(char *line, int i, char c, t_deflibx *mlx)
 
 	d = 0;
 	ft_bzero_cub(res, 4);
-	while(line[i] != ',' && line[i] != '\0')
+	while (line[i] != ',' && line[i] != '\0')
 	{
 		if (d >= 3)
 			ft_return("Color is invalid", mlx);

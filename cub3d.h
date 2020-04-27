@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 02:08:14 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 02:30:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,10 +256,10 @@ void    move_right(t_deflibx *mlx);
 void    move_left(t_deflibx *mlx);
 void    turn_right(t_deflibx *mlx);
 void    turn_left(t_deflibx *mlx);
-void    North_South_initialization(t_deflibx *mlx);
-void    East_West_initialization(t_deflibx *mlx);
-void    Move_initialization(t_deflibx *mlx);
-void    Window_initialization(t_deflibx *mlx);
+void    north_south_initialization(t_deflibx *mlx);
+void    east_west_initialization(t_deflibx *mlx);
+void    move_initialization(t_deflibx *mlx);
+void    window_initialization(t_deflibx *mlx);
 void    position_initialization(t_deflibx *mlx);
 void    initialization(t_deflibx *mlx);
 void    ft_parse_initialization(t_deflibx *mlx);

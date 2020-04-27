@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:46:08 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/15 01:02:39 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 02:30:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	North_South_initialization(t_deflibx *mlx)
+void	north_south_initialization(t_deflibx *mlx)
 {
 	if (mlx->parse.position == 'N')
 	{
@@ -30,7 +30,7 @@ void	North_South_initialization(t_deflibx *mlx)
 	}
 }
 
-void	East_West_initialization(t_deflibx *mlx)
+void	east_west_initialization(t_deflibx *mlx)
 {
 	if (mlx->parse.position == 'W')
 	{
@@ -51,8 +51,8 @@ void	East_West_initialization(t_deflibx *mlx)
 void	initialization(t_deflibx *mlx)
 {
 	position_initialization(mlx);
-	North_South_initialization(mlx);
-	East_West_initialization(mlx);
-	Move_initialization(mlx);
-	Window_initialization(mlx);
+	north_south_initialization(mlx);
+	east_west_initialization(mlx);
+	move_initialization(mlx);
+	window_initialization(mlx);
 }

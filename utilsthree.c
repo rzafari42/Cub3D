@@ -46,3 +46,46 @@ int killwindow(t_deflibx *mlx)
 	ft_free(mlx);
 	exit (0);
 }
+
+char	*ft_strdup_zero(const char *s1, t_deflibx *mlx)
+{
+	char	*s2;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+
+	if (!(s2 = (char*)malloc(sizeof(char) * (mlx->parse.mapbiggerline + 1))))
+		ft_return ("MALLOC ERROR :(", mlx);
+	while (s1[j] != '\0')
+	{
+		s2[j] = s1[j];
+		j++;
+	}
+	s2[j] = '\0';
+    while (j <= mlx->parse.mapbiggerline)
+        s2[j++] = '\0';
+	return (s2);
+}
+
+void ft_return(char *s, t_deflibx *mlx) 
+{
+    ft_putstr_cub("Error");
+    ft_putstr_cub(s);
+    ft_free(mlx);
+    exit (0);
+}
+
+void    ft_free_map(t_deflibx *mlx)
+{
+    int i;
+
+    i = 0;
+    while(i <= mlx->parse.mapnbline)
+    {
+        free(mlx->parse.map[i]);
+        i++;
+    }
+    free(mlx->parse.map);
+}

@@ -77,3 +77,4 @@ unsigned long convertrgbtoint(unsigned int r, unsigned int g, unsigned int b)
   color = (r * pow(256,2)) + (g * 256) + b;
   return (color);
 }
+

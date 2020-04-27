@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 17:24:09 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 19:26:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,6 +274,7 @@ void    *ft_calloc_cub(size_t count, size_t size);
 void    ft_check_firstandlast_line(t_deflibx *mlx, char *s);
 void    ft_catch_positionandnumsprites(t_deflibx *mlx);
 void	ft_savebmp(t_deflibx *mlx);
+void    ft_linesize(char *line, t_deflibx *mlx);
 void	ft_bmpinit(t_deflibx *mlx);
 void	ft_savebmpheader(t_deflibx *mlx, int fd);
 void	ft_savedibheader(t_deflibx *mlx, int fd);
@@ -291,6 +292,8 @@ void    ft_getheight_from_resolution(t_deflibx *mlx);
 void    ft_getwidth_from_resolution(t_deflibx *mlx);
 void    ft_transform_res_in_int(t_deflibx *mlx);
 void    ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx);
+void    ft_fillspace(t_deflibx *mlx);
+void    ft_openpath(t_deflibx *mlx);
 int     ft_get_Texturespath(char *line, int i, t_deflibx *mlx);
 int     keypress(int key, t_deflibx *mlx);
 int     keyrelease(int key, t_deflibx *mlx);
@@ -304,7 +307,8 @@ int     ft_get_typecolor(char *line, int i, t_deflibx *mlx);
 int     raycasting(t_deflibx *mlx);
 int     ft_atoi_cub(const char *str);
 int     ft_parsing(t_deflibx *mlx);
-int	ft_strncmp_cub(const char *s1, const char *s2, size_t n);
+int     ft_check_args(char *line, t_deflibx *mlx);
+int     ft_strncmp_cub(const char *s1, const char *s2, size_t n);
 char	*ft_strdup_cub(const char *s1);
 //int     main(int argc, char **argv);
 size_t	ft_strlen_cub(const char *s);

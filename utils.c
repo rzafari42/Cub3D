@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:49:25 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 17:57:22 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 00:28:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_strncmp_cub(const char *s1, const char *s2, size_t n)
+int		ft_strncmp_cub(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
@@ -55,7 +55,7 @@ void	ft_putstr_cub(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
-    write(1, "\n", 1);
+	write(1, "\n", 1);
 }
 
 size_t	ft_strlen_cub(const char *s)
@@ -68,7 +68,7 @@ size_t	ft_strlen_cub(const char *s)
 	return (i);
 }
 
-int	ft_atoi_cub(const char *str)
+int		ft_atoi_cub(const char *str)
 {
 	int sign;
 	int ans;

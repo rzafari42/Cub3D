@@ -6,20 +6,20 @@
 /*   By: rzafari <rzafari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 23:57:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/26 23:57:38 by rzafari          ###   ########.fr       */
+/*   Updated: 2020/04/28 00:34:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int ft_isdigit_cub(int c)
+int			ft_isdigit_cub(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-void    ft_bzero_cub(void *s, size_t n)
+void	ft_bzero_cub(void *s, size_t n)
 {
 	unsigned char *p;
 
@@ -32,7 +32,7 @@ void    ft_bzero_cub(void *s, size_t n)
 	}
 }
 
-void    *ft_calloc_cub(size_t count, size_t size)
+void	*ft_calloc_cub(size_t count, size_t size)
 {
 	void		*str;
 	size_t		mult;
@@ -49,9 +49,9 @@ void    *ft_calloc_cub(size_t count, size_t size)
 	return (str);
 }
 
-char	*ft_strdup_cub(const char *s1)
+char		*ft_strdup_cub(const char *s1)
 {
-    char	*s2;
+	char	*s2;
 	int		i;
 	int		j;
 
@@ -70,11 +70,10 @@ char	*ft_strdup_cub(const char *s1)
 	return (s2);
 }
 
-unsigned long convertrgbtoint(unsigned int r, unsigned int g, unsigned int b)
+unsigned long		convertrgbtoint(unsigned int r, unsigned int g, unsigned int b)
 {
-  unsigned long color;
+	unsigned long color;
 
-  color = (r * pow(256,2)) + (g * 256) + b;
-  return (color);
+	color = (r * pow(256, 2)) + (g * 256) + b;
+	return (color);
 }
-

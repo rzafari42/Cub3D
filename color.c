@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:48:54 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 22:54:40 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/27 23:05:39 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	ft_check_color(t_deflibx *mlx)
 {
-	if (mlx->parse.red > 255 || mlx->parse.blue > 255 || mlx->parse.green > 255)
+	if (mlx->parse.red > 255 || mlx->parse.blue > 255 ||
+	mlx->parse.green > 255)
 		ft_return("Color is over than 255", mlx);
 }
 
 int	ft_get_color(char *line, int i, char c, t_deflibx *mlx)
 {
-	int d;
-	char res[4];
+	int		d;
+	char	res[4];
 
 	d = 0;
 	ft_bzero_cub(res, 4);

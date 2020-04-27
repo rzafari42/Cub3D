@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 23:03:14 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 23:55:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,10 +292,10 @@ void    ft_cehck_mapfour(t_deflibx *mlx);
 void    ft_getheight_from_resolution(t_deflibx *mlx);
 void    ft_getwidth_from_resolution(t_deflibx *mlx);
 void    ft_transform_res_in_int(t_deflibx *mlx);
-void    ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx);
+void    ft_get_texturespath_two(char *line, int i, t_deflibx *mlx);
 void    ft_fillspace(t_deflibx *mlx);
 void    ft_openpath(t_deflibx *mlx);
-int     ft_get_Texturespath(char *line, int i, t_deflibx *mlx);
+int     ft_get_texturespath(char *line, int i, t_deflibx *mlx);
 int     keypress(int key, t_deflibx *mlx);
 int     keyrelease(int key, t_deflibx *mlx);
 int     killwindow(t_deflibx *mlx);
@@ -304,7 +304,7 @@ int     ft_check_wall(char *s);
 int     ft_get_color(char *line, int i, char c, t_deflibx *mlx);
 int     ft_check_if_space(t_deflibx *mlx);
 int     ft_line_to_resolution(char *line, int i, t_deflibx *mlx);
-int     ft_get_Resolution(char *line, int i, t_deflibx *mlx);
+int     ft_get_resolution(char *line, int i, t_deflibx *mlx);
 int     ft_get_typecolor(char *line, int i, t_deflibx *mlx);
 int     raycasting(t_deflibx *mlx);
 int     ft_atoi_cub(const char *str);

@@ -54,7 +54,7 @@ void	ft_put_to_right_path(char *line, int i, t_deflibx *mlx)
 	ft_set_path_to_one(line, i, mlx);
 }
 
-void	ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx)
+void	ft_get_texturespath_two(char *line, int i, t_deflibx *mlx)
 {
 	int j;
 	int z;
@@ -83,7 +83,7 @@ void	ft_get_Texturespath_two(char *line, int i, t_deflibx *mlx)
 	}
 }
 
-int		ft_get_Texturespath(char *line, int i, t_deflibx *mlx)
+int		ft_get_texturespath(char *line, int i, t_deflibx *mlx)
 {
 	int ret;
 
@@ -94,7 +94,7 @@ int		ft_get_Texturespath(char *line, int i, t_deflibx *mlx)
 			i++;
 		return (i);
 	}
-	ft_get_Texturespath_two(line, i, mlx);
+	ft_get_texturespath_two(line, i, mlx);
 	ft_put_to_right_path(line, i, mlx);
 	while (line[i] != '\0')
 		i++;

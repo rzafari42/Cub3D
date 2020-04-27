@@ -118,11 +118,11 @@ int		ft_check_args(char *line, t_deflibx *mlx)
 				|| (line[i] == 'E' && line[i + 1] == 'A')
 				|| (line[i] == 'S' && line[i + 1] == ' '
 				&& line[i + 1] != 'O'))
-			i = ft_get_Texturespath(line, i, mlx);
+			i = ft_get_texturespath(line, i, mlx);
 		else if (line[i] == 'F' || line[i] == 'C')
 			i = ft_get_typecolor(line, i, mlx);
 		else if (line[i] == 'R')
-			i = ft_get_Resolution(line, i, mlx);
+			i = ft_get_resolution(line, i, mlx);
 		else if (ft_isdigit_cub(line[i]))
 			return (2);
 		else

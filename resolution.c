@@ -102,7 +102,7 @@ void    ft_getheight_from_resolution(t_deflibx *mlx)
     mlx->parse.Heightcatch[l] = '\0';
 }
 
-int    ft_get_Resolution(char *line, int i, t_deflibx *mlx)
+int    ft_get_resolution(char *line, int i, t_deflibx *mlx)
 {
     if (mlx->parse.resolutionset == 1)
         ft_return("Resolution declared twice", mlx);

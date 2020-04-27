@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 14:40:41 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 15:23:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -349,7 +349,7 @@ int     ft_check_wall(char *s)
     return(0);
 }
 
-void ft_linesize(char *line, int linesize, t_deflibx *mlx)
+void ft_linesize(char *line, t_deflibx *mlx)
 {
     int j;
     j = 0;
@@ -368,26 +368,43 @@ void ft_linesize(char *line, int linesize, t_deflibx *mlx)
             }
             j++;
         }
-        if (j > linesize)
-            linesize = j;
-        if (linesize > mlx->parse.mapbiggerline)
-            mlx->parse.mapbiggerline = linesize; 
+        if (j > mlx->parse.mapbiggerline)
+            mlx->parse.mapbiggerline = j; 
         mlx->parse.mapnbline++;
     }
+}
+
+void    ft_line_maptwo(t_deflibx *mlx, int fd, char *line)
+{
+    int ret;
+
+    ret = 0;
+    while (!ft_check_wall(line))
+    {
+        free(line);
+        ret = get_next_line(fd, &line);
+    }
+    ft_linesize(line, mlx);
+    free(line);
+    while ((ret = get_next_line(fd, &line)) > -1)
+    {
+        ft_linesize(line, mlx);
+        free(line);
+        if (ret == 0) 
+            break;
+    }
+    close(fd);
 }
 
 void    ft_line_map(t_deflibx *mlx)
 {
     int i;
     int j;
-    int linesize;
-    int ret;
     int fd;
     char *line;
 
     i = 1;
     mlx->parse.mapnbline = 0;
-    ret = 0;
     if (!(line = (char*)malloc(sizeof(char))))
         ft_return("MALLOC ERROR :(", mlx);
     line[0] = 1;
@@ -396,21 +413,7 @@ void    ft_line_map(t_deflibx *mlx)
         free(line);
         ft_return("fd error in ft_line_map", mlx);
     }
-    while (!ft_check_wall(line))
-    {
-        free(line);
-        ret = get_next_line(fd, &line);
-    }
-    ft_linesize(line, linesize, mlx);
-    free(line);
-    while ((ret = get_next_line(fd, &line)) > -1)
-    {
-        ft_linesize(line, linesize, mlx);
-        free(line);
-        if (ret == 0) 
-            break;
-    }
-    close(fd);
+    ft_line_maptwo(mlx, fd, line);
 }
 
 char	*ft_strdup_zero(const char *s1, t_deflibx *mlx)
@@ -977,7 +980,7 @@ int     ft_parsing(t_deflibx *mlx)
     return (1);
 }
 
-/*int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     t_deflibx mlx;
 
@@ -1001,6 +1004,7 @@ int     ft_parsing(t_deflibx *mlx)
     printf("eastset = %d\n", mlx.parse.eastset);
     printf("spriteset = %d\n", mlx.parse.spriteset);
     printf("numsprites = %d\n", mlx.parse.numsprites);
+    printf("biggerline = %d\n", mlx.parse.mapbiggerline);
     ft_free(&mlx);
 
     printf("sizeof unsined int = %ld\n", sizeof(unsigned int));
@@ -1008,6 +1012,6 @@ int     ft_parsing(t_deflibx *mlx)
     printf("sizeof singed int = %ld\n", sizeof(int));
     printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
 }
-*/
+
 
 

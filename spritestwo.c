@@ -1,5 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   spritestwo.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <rzafaristudent.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 03:29:01 by rzafari           #+#    #+#             */
+/*   Updated: 2020/04/27 03:29:01 by rzafari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	ft_freesprites(t_deflibx *mlx)
+{
+	free(&mlx->sprites.spriteOrder[0]);
+	free(&mlx->sprites_tab[0]);
+	free(&mlx->sprites.Zbuffer[0]);
+	free(&mlx->sprites.spriteDistance[0]);
+}
 
 void	ft_spritesHeight(t_deflibx *mlx)
 {
@@ -64,14 +83,6 @@ void	ft_project_spritestwo(t_deflibx *mlx)
 		}
 		mlx->sprites.stripe++;
 	}
-}
-
-void	ft_freesprites(t_deflibx *mlx)
-{
-	free(&mlx->sprites.spriteOrder[0]);
-	free(&mlx->sprites_tab[0]);
-	free(&mlx->sprites.Zbuffer[0]);
-	free(&mlx->sprites.spriteDistance[0]);
 }
 
 void	ft_project_sprites(t_deflibx *mlx)

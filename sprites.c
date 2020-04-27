@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:36:46 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 00:09:02 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 03:02:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_destroy_sprites(t_deflibx *mlx)
 	mlx_destroy_image(mlx->mlx_ptr, mlx->sprites.img_spriteptr0);
 }
 
-void	ft_sort_sprites(int *Order, double *Distance, int num)
+void	ft_sort_sprites(int *order, double *distance, int num)
 {
 	int		i;
 	int		tmp;
@@ -35,14 +35,14 @@ void	ft_sort_sprites(int *Order, double *Distance, int num)
 	i = 0;
 	while (i < num - 1)
 	{
-		if (Distance[i] < Distance[i + 1])
+		if (distance[i] < distance[i + 1])
 		{
-			tmp2 = Distance[i + 1];
-			Distance[i + 1] = Distance[i];
-			Distance[i] = tmp2;
-			tmp = Order[i + 1];
-			Order[i + 1] = Order[i];
-			Order[i] = tmp;
+			tmp2 = distance[i + 1];
+			distance[i + 1] = distance[i];
+			distance[i] = tmp2;
+			tmp = order[i + 1];
+			order[i + 1] = order[i];
+			order[i] = tmp;
 			i = 0;
 		}
 		else
@@ -75,7 +75,7 @@ void	ft_locate_sprites(t_deflibx *mlx)
 	}
 }
 
-void	ft_Order_sprites(t_deflibx *mlx)
+void	ft_order_sprites(t_deflibx *mlx)
 {
 	int i;
 

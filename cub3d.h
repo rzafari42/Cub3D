@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 02:32:55 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/27 03:02:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,9 +235,9 @@ typedef struct   s_deflibx
 
 unsigned long   convertrgbtoint(unsigned int r, unsigned int g, unsigned int b);
 void    *ft_memcpy_cub(void *dst, const void *src, int n);
-void    ft_sort_sprites(int *Order, double *Distance, int num);
+void    ft_sort_sprites(int *order, double *distance, int num);
 void    ft_locate_sprites(t_deflibx *mlx);
-void    ft_Order_sprites(t_deflibx *mlx);
+void    ft_order_sprites(t_deflibx *mlx);
 void    ft_project_sprites(t_deflibx *mlx);
 void    ft_normal_mode(t_deflibx *mlx);
 void    ft_electro_mode(t_deflibx *mlx);

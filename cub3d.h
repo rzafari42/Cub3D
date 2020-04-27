@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 23:55:40 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 00:20:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,8 +281,8 @@ void	ft_savebmpheader(t_deflibx *mlx, int fd);
 void	ft_savedibheader(t_deflibx *mlx, int fd);
 void    ft_savepixelarray(t_deflibx *mlx, int fd);
 void	ft_return(char *s, t_deflibx *mlx);
-void    ft_spritesHeight(t_deflibx *mlx);
-void    ft_spritesWidth(t_deflibx *mlx);
+void    ft_spritesheight(t_deflibx *mlx);
+void    ft_spriteswidth(t_deflibx *mlx);
 void    ft_freesprites(t_deflibx *mlx);
 void	keypresstwo(int key, t_deflibx *mlx);
 void    ft_check_map(t_deflibx *mlx);

@@ -20,7 +20,7 @@ void	ft_freesprites(t_deflibx *mlx)
 	free(&mlx->sprites.spriteDistance[0]);
 }
 
-void	ft_spritesHeight(t_deflibx *mlx)
+void	ft_spritesheight(t_deflibx *mlx)
 {
 	mlx->sprites.spriteHeight = abs((int)(mlx->parse.Height /
 				mlx->sprites.transformY));
@@ -34,7 +34,7 @@ void	ft_spritesHeight(t_deflibx *mlx)
 		mlx->sprites.drawEnd_spriteY = mlx->parse.Height - 1;
 }
 
-void	ft_spritesWidth(t_deflibx *mlx)
+void	ft_spriteswidth(t_deflibx *mlx)
 {
 	mlx->sprites.spriteWidth = abs((int)(mlx->parse.Height /
 				mlx->sprites.transformY));
@@ -104,8 +104,8 @@ void	ft_project_sprites(t_deflibx *mlx)
 			mlx->sprites.spriteX + mlx->raycast.planeX * mlx->sprites.spriteY);
 		mlx->sprites.sprite_screen = (int)(mlx->parse.Width / 2) * (1 +
 				(mlx->sprites.transfomrX / mlx->sprites.transformY));
-		ft_spritesHeight(mlx);
-		ft_spritesWidth(mlx);
+		ft_spritesheight(mlx);
+		ft_spriteswidth(mlx);
 		mlx->sprites.stripe = mlx->sprites.drawStart_spriteX;
 		ft_project_spritestwo(mlx);
 	}

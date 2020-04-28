@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilsthree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rzafari <rzafari@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 00:03:06 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 01:59:51 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/29 00:24:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_free(t_deflibx *mlx)
 	if (mlx->parse.resolutionset == 1)
 		free(mlx->parse.resolution);
 	if (mlx->parse.widthset == 1)
-		free(mlx->parse.Widthcatch);
+		free(mlx->parse.widthcatch);
 	if (mlx->parse.heightset == 1)
-		free(mlx->parse.Heightcatch);
+		free(mlx->parse.heightcatch);
 	if (mlx->parse.northset == 1)
 		free(mlx->parse.northtext);
 	if (mlx->parse.southset == 1)

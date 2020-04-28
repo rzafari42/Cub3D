@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycastingtwo.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rzafari42 <marvin@42.fr>                   +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:02:42 by rzafari42         #+#    #+#             */
-/*   Updated: 2020/04/28 19:13:08 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/29 00:19:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	raycastingtextures(t_deflibx *mlx, int x)
 {
-	int	(*pix_array)[mlx->parse.Width][1];
+	int	(*pix_array)[mlx->parse.width][1];
 	int	startmem;
 	int	xmem;
 
@@ -35,7 +35,7 @@ void	raycastingtextures(t_deflibx *mlx, int x)
 
 int		raycastingsprites(t_deflibx *mlx, int x)
 {
-	if (!(mlx->sprites.Zbuffer = malloc(sizeof(double) * mlx->parse.Width)))
+	if (!(mlx->sprites.Zbuffer = malloc(sizeof(double) * mlx->parse.width)))
 		return (0);
 	mlx->sprites.Zbuffer[x] = mlx->raycast.perpWallDist;
 	if (!(mlx->sprites_tab = malloc(sizeof(t_sprite) * mlx->parse.numsprites)))

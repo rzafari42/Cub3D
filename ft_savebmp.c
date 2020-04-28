@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_savebmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rzafari <rzafari@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/23 14:42:04 by rzafari          ###   ########.fr       */
+/*   Updated: 2020/04/29 00:21:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void   ft_bmpinit(t_deflibx *mlx)
 
 void ft_savebmpheader(t_deflibx *mlx, int fd)
 {
-     mlx->bmp.size = 54 + 4 * mlx->parse.Width * mlx->parse.Height;
+     mlx->bmp.size = 54 + 4 * mlx->parse.width * mlx->parse.height;
      mlx->bmp.reservedid = 0; 
      mlx->bmp.offset = 54;
      write(fd, "BM", 2);
@@ -39,8 +39,8 @@ void ft_savebmpheader(t_deflibx *mlx, int fd)
 void ft_savedibheader(t_deflibx *mlx, int fd)
 {
     mlx->bmp.dibsizeheader = 40;
-    mlx->bmp.dibmpwidth = mlx->parse.Width;
-    mlx->bmp.dibbmpheight = mlx->parse.Height;
+    mlx->bmp.dibmpwidth = mlx->parse.width;
+    mlx->bmp.dibbmpheight = mlx->parse.height;
     mlx->bmp.dibcolorplanes = 1;
     mlx->bmp.dibbpp = 24;
     write(fd, &mlx->bmp.dibsizeheader, 4);
@@ -89,11 +89,11 @@ void ft_savepixelarray(t_deflibx *mlx, int fd)
 	int		line;
 
 	y = 0;
-	while (y < mlx->parse.Height)
+	while (y < mlx->parse.height)
 	{
 		x = 0;
-		line = mlx->parse.Width * (mlx->parse.Height - y);
-		while (x < mlx->parse.Width)
+		line = mlx->parse.width * (mlx->parse.height - y);
+		while (x < mlx->parse.width)
 		{
 			write(fd, &mlx->img_data[line * 4], 4);
 			line++;

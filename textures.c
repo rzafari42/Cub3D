@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:37:50 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 21:57:30 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/29 00:40:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,20 @@ void	ft_drawtexturedwall(t_deflibx *mlx, int x)
 
 	y = mlx->raycast.drawStart;
 	if (mlx->raycast.side <= 1)
-		mlx->text.wallx = mlx->raycast.posY + mlx->raycast.perpWallDist *
+		mlx->text.wallx = mlx->raycast.posy + mlx->raycast.perpWallDist *
 			mlx->raycast.rayDirY;
 	else
-		mlx->text.wallx = mlx->raycast.posX + mlx->raycast.perpWallDist *
+		mlx->text.wallx = mlx->raycast.posx + mlx->raycast.perpWallDist *
 			mlx->raycast.rayDirX;
-	mlx->text.x = (int)(mlx->text.wallx * (double)(textwidth));
-	mlx->text.x = textwidth - mlx->text.x - 1;
+	mlx->text.x = (int)(mlx->text.wallx * (double)(TEXTWIDTH));
+	mlx->text.x = TEXTWIDTH - mlx->text.x - 1;
 	mlx->text.x = abs(mlx->text.x);
 	while (y <= mlx->raycast.drawEnd)
 	{
-		mlx->text.y = abs((((y * 256 - mlx->parse.Height * 128 +
+		mlx->text.y = abs((((y * 256 - mlx->parse.height * 128 +
 			mlx->raycast.lineHeight * 128) * 64) /
 			mlx->raycast.lineHeight) / 256);
-		ft_memcpy_cub(mlx->img_data + 4 * mlx->parse.Width * y + 4 * x,
+		ft_memcpy_cub(mlx->img_data + 4 * mlx->parse.width * y + 4 * x,
 			&mlx->text.img_textdata_utils[mlx->text.y % 64 *
 			mlx->text.size_line + mlx->text.x % 64 *
 			mlx->text.bpp / 8], sizeof(int));

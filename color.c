@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:48:54 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 02:02:44 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/29 00:12:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,17 @@ int		ft_get_typecolor(char *line, int i, t_deflibx *mlx)
 	mlx->parse.red = 0;
 	if (line[i] == 'F')
 	{
-		if (mlx->parse.Fcolorset == 1)
+		if (mlx->parse.fcolorset == 1)
 			ft_return("Floor color declared twice", mlx);
 		i = ft_get_floor_color(line, i, mlx);
-		mlx->parse.Fcolorset = 1;
+		mlx->parse.fcolorset = 1;
 	}
 	else if (line[i] == 'C')
 	{
-		if (mlx->parse.Ccolorset == 1)
+		if (mlx->parse.ccolorset == 1)
 			ft_return("Ceil color declared twice", mlx);
 		i = ft_get_ceil_color(line, i, mlx);
-		mlx->parse.Ccolorset = 1;
+		mlx->parse.ccolorset = 1;
 	}
 	return (i);
 }

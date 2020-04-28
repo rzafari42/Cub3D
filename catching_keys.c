@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:43:23 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 02:08:11 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 00:33:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,26 @@ void	keypresstwo(int key, t_deflibx *mlx)
 int		keypress(int key, t_deflibx *mlx)
 {
 	if (key == 122)
-		mlx->move.keyUp = 1;
+		mlx->move.keyup = 1;
 	if (key == 115)
-		mlx->move.keyDown = 1;
+		mlx->move.keydown = 1;
 	if (key == 100)
-		mlx->move.keyRight = 1;
+		mlx->move.keyright = 1;
 	if (key == 113)
-		mlx->move.keyLeft = 1;
+		mlx->move.keyleft = 1;
 	if (key == 65363)
-		mlx->move.keyTurnRight = 1;
+		mlx->move.keyturnright = 1;
 	if (key == 65361)
-		mlx->move.keyTurnLeft = 1;
+		mlx->move.keyturnleft = 1;
 	if (key == 97)
 	{
-		mlx->speed.moveSpeed = (mlx->speed.moveSpeed < 0.18) ?
-			(mlx->speed.moveSpeed * 1.5) : mlx->speed.moveSpeed;
+		mlx->speed.movespeed = (mlx->speed.movespeed < 0.18) ?
+			(mlx->speed.movespeed * 1.5) : mlx->speed.movespeed;
 	}
 	if (key == 119)
 	{
-		mlx->speed.moveSpeed = (mlx->speed.moveSpeed > 0.08) ?
-			(mlx->speed.moveSpeed / 1.5) : mlx->speed.moveSpeed;
+		mlx->speed.movespeed = (mlx->speed.movespeed > 0.08) ?
+			(mlx->speed.movespeed / 1.5) : mlx->speed.movespeed;
 	}
 	keypresstwo(key, mlx);
 	return (0);
@@ -58,17 +58,17 @@ int		keypress(int key, t_deflibx *mlx)
 int		keyrelease(int key, t_deflibx *mlx)
 {
 	if (key == 122)
-		mlx->move.keyUp = 0;
+		mlx->move.keyup = 0;
 	if (key == 115)
-		mlx->move.keyDown = 0;
+		mlx->move.keydown = 0;
 	if (key == 100)
-		mlx->move.keyRight = 0;
+		mlx->move.keyright = 0;
 	if (key == 113)
-		mlx->move.keyLeft = 0;
+		mlx->move.keyleft = 0;
 	if (key == 65363)
-		mlx->move.keyTurnRight = 0;
+		mlx->move.keyturnright = 0;
 	if (key == 65361)
-		mlx->move.keyTurnLeft = 0;
+		mlx->move.keyturnleft = 0;
 	if (key == 65307)
 		mlx->move.killwindow = 0;
 	return (0);

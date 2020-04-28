@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 00:03:41 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/29 00:40:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <mlx.h>
-# define mapWidth 24
-# define mapHeight 24
-# define textwidth 64
-# define textheight 64
+# define TEXTWIDTH 64
+# define TEXTHEIGHT 64
 
 typedef struct	s_save
 {
@@ -43,13 +41,13 @@ typedef struct	s_save
 
 typedef struct		s_parse
 {
-	unsigned long	Fcolor;
-	unsigned long	Ccolor;
+	unsigned long	fcolor;
+	unsigned long	ccolor;
 	unsigned int	red;
 	unsigned int	blue;
 	unsigned int	green;
-	int	Fcolorset;
-	int	Ccolorset;
+	int	fcolorset;
+	int	ccolorset;
 	int	resolutionset;
 	int	widthset;
 	int	heightset;
@@ -76,19 +74,19 @@ typedef struct		s_parse
 	int	positionx;
 	int	positiony;
 	char	direction;
-	char	*Widthcatch;
-	char	*Heightcatch;
+	char	*widthcatch;
+	char	*heightcatch;
 	char	**map;
 	int	fd[5];
-	int	Width;
-	int	Height;
+	int	width;
+	int	height;
 	int	save;
 }		t_parse;
 
 typedef struct   s_speed
 {
-	double	moveSpeed;
-	double	rotSpeed;
+	double	movespeed;
+	double	rotspeed;
 }		t_speed;
 
 typedef struct   s_color
@@ -104,20 +102,20 @@ typedef struct   s_color
 typedef struct	s_keymove
 {
 	int	mode;
-	int	keyUp;
-	int	keyDown;
-	int	keyRight;
-	int	keyLeft;
-	int	keyTurnRight;
-	int	keyTurnLeft;
+	int	keyup;
+	int	keydown;
+	int	keyright;
+	int	keyleft;
+	int	keyturnright;
+	int	keyturnleft;
 	int	killwindow;
 }		t_keymove;
 
 typedef struct	s_raycastvar
 {
-	double	posX;
-	double	posY;
-	double	dirX;
+	double  posX;
+	double	posy;
+	double	dirx;
 	double	dirY;
 	double	planeX;
 	double	planeY;
@@ -200,7 +198,6 @@ typedef struct	s_texture
 	int	x;
 	int	y;
 	double	wallx;
-	double	texPos;
 	double	step;
 	unsigned int	color;
 }	t_texture;
@@ -263,9 +260,9 @@ void	ft_free_malloc(t_deflibx *mlx);
 void	ft_line_map(t_deflibx *mlx);
 void	ft_copy_map(t_deflibx *mlx);
 void	ft_copy_maptwo(t_deflibx *mlx, int fd, char *line);
-void	*ft_calloc_cub(size_t count, size_t size);
+void    *ft_calloc_cub(size_t count, size_t size);
 void	ft_check_firstandlast_line(t_deflibx *mlx, char *s);
-void	ft_catch_positionandnumsprites(t_deflibx *mlx);
+void    ft_catch_positionandnumsprites(t_deflibx *mlx);
 void	ft_catch_positionandnumspritestwo(t_deflibx *mlx, int i, int j);
 void	ft_check_color(t_deflibx *mlx);
 void	ft_savebmp(t_deflibx *mlx);
@@ -306,7 +303,7 @@ int	ft_get_resolution(char *line, int i, t_deflibx *mlx);
 int	ft_get_typecolor(char *line, int i, t_deflibx *mlx);
 int	raycasting(t_deflibx *mlx);
 int	ft_atoi_cub(const char *str);
-int	ft_parsing(t_deflibx *mlx);
+int ft_parsing(t_deflibx *mlx);
 int	ft_check_args(char *line, t_deflibx *mlx);
 int	ft_strncmp_cub(const char *s1, const char *s2, size_t n);
 char	*ft_strdup_cub(const char *s1);

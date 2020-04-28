@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 18:33:51 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 02:07:23 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/29 00:13:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	ft_check_set(t_deflibx *mlx)
 		ft_return("Resolution not declared", mlx);
 	if (mlx->parse.spriteset == 0)
 		ft_return("Sprite not declared", mlx);
-	if (mlx->parse.Ccolorset == 0)
+	if (mlx->parse.ccolorset == 0)
 		ft_return("Ceil color not declared", mlx);
-	if (mlx->parse.Fcolorset == 0)
+	if (mlx->parse.fcolorset == 0)
 		ft_return("Floor color not declared", mlx);
 }
 

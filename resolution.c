@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:46:14 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 22:30:43 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/29 00:23:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_transform_res_in_int(t_deflibx *mlx)
 {
-	mlx->parse.Width = ft_atoi_cub(mlx->parse.Widthcatch);
-	mlx->parse.Height = ft_atoi_cub(mlx->parse.Heightcatch);
-	if (mlx->parse.Width < 640)
-		mlx->parse.Width = 640;
-	if (mlx->parse.Height < 480)
-		mlx->parse.Height = 480;
+	mlx->parse.width = ft_atoi_cub(mlx->parse.widthcatch);
+	mlx->parse.height = ft_atoi_cub(mlx->parse.heightcatch);
+	if (mlx->parse.width < 640)
+		mlx->parse.width = 640;
+	if (mlx->parse.height < 480)
+		mlx->parse.height = 480;
 }
 
 int		ft_line_to_resolution(char *line, int i, int j, t_deflibx *mlx)
@@ -57,16 +57,16 @@ void	ft_getwidth_from_resolution(t_deflibx *mlx)
 	c = 0;
 	while (mlx->parse.resolution[j] != ' ')
 		j++;
-	if (!(mlx->parse.Widthcatch = (char *)malloc(sizeof(char) * (j + 1))))
+	if (!(mlx->parse.widthcatch = (char *)malloc(sizeof(char) * (j + 1))))
 		ft_return("MALLOC ERROR :(", mlx);
 	mlx->parse.widthset = 1;
 	j = 0;
 	while (mlx->parse.resolution[j] != ' ')
 	{
-		mlx->parse.Widthcatch[j] = mlx->parse.resolution[j];
+		mlx->parse.widthcatch[j] = mlx->parse.resolution[j];
 		j++;
 	}
-	mlx->parse.Widthcatch[j] = '\0';
+	mlx->parse.widthcatch[j] = '\0';
 }
 
 void	ft_getheight_from_resolution(t_deflibx *mlx)
@@ -86,13 +86,13 @@ void	ft_getheight_from_resolution(t_deflibx *mlx)
 		l++;
 		j++;
 	}
-	if (!(mlx->parse.Heightcatch = (char *)malloc(sizeof(char) * (l + 1))))
+	if (!(mlx->parse.heightcatch = (char *)malloc(sizeof(char) * (l + 1))))
 		ft_return("MALLOC ERROR :(", mlx);
 	mlx->parse.heightset = 1;
 	l = 0;
 	while (mlx->parse.resolution[c] != '\0')
-		mlx->parse.Heightcatch[l++] = mlx->parse.resolution[c++];
-	mlx->parse.Heightcatch[l] = '\0';
+		mlx->parse.heightcatch[l++] = mlx->parse.resolution[c++];
+	mlx->parse.heightcatch[l] = '\0';
 }
 
 int		ft_get_resolution(char *line, int i, t_deflibx *mlx)

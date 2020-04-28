@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:54:28 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/27 23:09:53 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/29 00:13:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_parse_initialization(t_deflibx *mlx)
 	mlx->text.height = 64;
 	mlx->sprites.width = 64;
 	mlx->sprites.height = 64;
-	mlx->parse.Fcolorset = 0;
-	mlx->parse.Ccolorset = 0;
+	mlx->parse.fcolorset = 0;
+	mlx->parse.ccolorset = 0;
 	mlx->parse.resolutionset = 0;
 	mlx->parse.widthset = 0;
 	mlx->parse.heightset = 0;

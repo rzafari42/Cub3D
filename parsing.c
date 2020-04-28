@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 19:10:56 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/29 00:22:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ int		ft_parsing(t_deflibx *mlx)
 **    ft_parse_initialization(&mlx);
 **    ft_parse_arguments(&mlx, argc, argv);
 **    ft_parsing(&mlx);
-**    printf("resolution = [%d %d]\n", mlx.parse.Width, mlx.parse.Height);
+**    printf("resolution = [%d %d]\n", mlx.parse.width, mlx.parse.height);
 **    printf("Floor color = %d\n", mlx.color.floorcolor);
 **    printf("Ceil color = %d\n", mlx.color.ceilcolor);
 **    printf("north = %s\n", mlx.parse.northtext);
@@ -146,8 +146,8 @@ int		ft_parsing(t_deflibx *mlx)
 **    printf("east = %s\n", mlx.parse.easttext);
 **    printf("west = %s\n", mlx.parse.westtext);
 **    printf("sprite = %s\n", mlx.parse.sprite);
-**    printf("WIDTH = %d\n", mlx.parse.Width);
-**    printf("HEIGHT = %d\n", mlx.parse.Height);
+**    printf("WIDTH = %d\n", mlx.parse.width);
+**    printf("HEIGHT = %d\n", mlx.parse.height);
 **    printf("nortset = %d\n", mlx.parse.northset);
 **    printf("southset = %d\n", mlx.parse.southset);
 **    printf("westset = %d\n", mlx.parse.westset);

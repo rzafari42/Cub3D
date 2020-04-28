@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:36:46 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 20:13:39 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 00:39:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	ft_order_sprites(t_deflibx *mlx)
 	while (i < mlx->parse.numsprites)
 	{
 		mlx->sprites.spriteOrder[i] = i;
-		mlx->sprites.spriteDistance[i] = ((mlx->raycast.posX -
-			mlx->sprites_tab[i].x) * (mlx->raycast.posX -
-			mlx->sprites_tab[i].x) + (mlx->raycast.posY -
-			mlx->sprites_tab[i].y) * (mlx->raycast.posY -
+		mlx->sprites.spriteDistance[i] = ((mlx->raycast.posx -
+			mlx->sprites_tab[i].x) * (mlx->raycast.posx -
+			mlx->sprites_tab[i].x) + (mlx->raycast.posy -
+			mlx->sprites_tab[i].y) * (mlx->raycast.posy -
 			mlx->sprites_tab[i].y));
 		i++;
 	}

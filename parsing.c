@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 16:37:11 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 17:31:06 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_check_firstandlast_line(t_deflibx *mlx, char *s)
 			{
 				ft_free_map(mlx);
 				ft_return("Map not closed: first line or last", mlx);
-			}	
+			}
 			i++;
 		}
 		i++;
@@ -129,7 +129,7 @@ int		ft_parsing(t_deflibx *mlx)
 	close(fd);
 	return (1);
 }
-
+/*
 int main(int argc, char **argv)
 {
     t_deflibx mlx;
@@ -161,4 +161,4 @@ int main(int argc, char **argv)
     printf("sizeof unsigned short int = %ld\n", sizeof(unsigned short int));
     printf("sizeof singed int = %ld\n", sizeof(int));
     printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
-}
+}*/

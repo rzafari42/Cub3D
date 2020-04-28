@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 17:35:54 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 17:40:13 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-//# include <mlx.h>
+# include <mlx.h>
 # define mapWidth 24
 # define mapHeight 24
 # define textwidth 64
@@ -289,7 +289,7 @@ void    ft_get_texturespath_two(char *line, int i, t_deflibx *mlx);
 void    ft_fillspace(t_deflibx *mlx);
 void    ft_openpath(t_deflibx *mlx);
 void    raycastingprojectcalcul(t_deflibx *mlx);
-void    raycastingsprites(t_deflibx *mlx, int x);
+int	raycastingsprites(t_deflibx *mlx, int x);
 void    raycastingtextures(t_deflibx *mlx, int x);
 void    raycastingrayandstepcalcul(t_deflibx *mlx, int x);
 int     ft_get_texturespath(char *line, int i, t_deflibx *mlx);

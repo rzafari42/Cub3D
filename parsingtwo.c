@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 19:17:11 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 20:35:16 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 20:38:01 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	ft_catch_positionandnumspritestwo(t_deflibx *mlx, int i, int j)
 {
-    if (mlx->parse.positionset == 1)
-    {
-        ft_return("More than one position declared", mlx);
-        free(mlx);
-    }
-    mlx->parse.positionx = i;
-    mlx->parse.positiony = j;
-    mlx->parse.position = mlx->parse.map[i][j];
-    mlx->parse.positionset = 1;
-    mlx->parse.map[i][j] = '0';
+	if (mlx->parse.positionset == 1)
+	{
+		ft_return("More than one position declared", mlx);
+		free(mlx);
+	}
+	mlx->parse.positionx = i;
+	mlx->parse.positiony = j;
+	mlx->parse.position = mlx->parse.map[i][j];
+	mlx->parse.positionset = 1;
+	mlx->parse.map[i][j] = '0';
 }
 
 void	ft_catch_positionandnumsprites(t_deflibx *mlx)
@@ -106,5 +106,3 @@ void	ft_line_map(t_deflibx *mlx)
 	}
 	ft_line_maptwo(mlx, fd, line);
 }
-
-

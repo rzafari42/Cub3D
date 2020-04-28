@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 02:18:43 by user42            #+#    #+#             */
-/*   Updated: 2020/04/28 20:19:33 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 21:54:54 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	ft_spriteswidth(t_deflibx *mlx)
 
 void	ft_project_spritesthree(t_deflibx *mlx, int y)
 {
+	int d;
+
 	while (y < mlx->sprites.drawEnd_spriteY)
 	{
 		d = y * 256 - mlx->parse.Height * 128 +
@@ -63,7 +65,6 @@ void	ft_project_spritesthree(t_deflibx *mlx, int y)
 void	ft_project_spritestwo(t_deflibx *mlx)
 {
 	int y;
-	int d;
 
 	while (mlx->sprites.stripe < mlx->sprites.drawEnd_spriteX)
 	{

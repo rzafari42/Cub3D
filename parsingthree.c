@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 20:29:50 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 20:29:50 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 20:38:48 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_check_args(char *line, t_deflibx *mlx)
+int	ft_check_args(char *line, t_deflibx *mlx)
 {
 	int i;
 

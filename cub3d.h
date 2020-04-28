@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 22:27:08 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 22:30:08 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,7 +241,7 @@ void    ft_drawtexturedwall(t_deflibx *mlx, int x);
 void    ft_draw_ceil(t_deflibx *mlx, int x);
 void    ft_draw_floor(t_deflibx *mlx, int x);
 void    ft_launch_text(t_deflibx *mlx);
-void    ft_destroy_textanssprites(t_deflibx *mlx);
+void    ft_destroy_textandsprites(t_deflibx *mlx);
 void    ft_launch_sprites(t_deflibx *mlx);
 void    color_initializatin(t_deflibx *mlx);
 void    move_up(t_deflibx *mlx);

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:46:14 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 22:27:14 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 22:30:43 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,10 @@ void	ft_transform_res_in_int(t_deflibx *mlx)
 int		ft_line_to_resolution(char *line, int i, int j, t_deflibx *mlx)
 {
 	int c;
-	int j;
 	int nspace;
 
 	c = 0;
 	nspace = 0;
-	/*while (!(ft_isdigit_cub(line[i])))
-		i++;
-	j = ft_strlen_cub(line) - i;*/
 	if (!(mlx->parse.resolution = (char *)malloc(sizeof(char) * (j + 1))))
 		ft_return("MALLOC ERROR :(", mlx);
 	mlx->parse.resolutionset = 1;

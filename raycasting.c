@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 20:11:05 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 22:07:50 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,14 @@ int		raycasting(t_deflibx *mlx)
 {
 	int	x;
 
-	x = 0;
+	x = -1;
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->parse.Width,
 			mlx->parse.Height);
 	mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_line,
 			&mlx->endian);
 	ft_launch_text(mlx);
 	ft_launch_sprites(mlx);
-	while (x < mlx->parse.Width)
+	while (++x < mlx->parse.Width)
 	{
 		color_initializatin(mlx);
 		raycastingrayandstepcalcul(mlx, x);
@@ -117,10 +117,9 @@ int		raycasting(t_deflibx *mlx)
 		ft_draw_floor(mlx, x);
 		if (!raycastingsprites(mlx, x))
 			return (0);
-		x++;
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
-	ft_destroy_text(mlx);
+	ft_destroy_textandsprites(mlx);
 	return (0);
 }

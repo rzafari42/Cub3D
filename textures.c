@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:37:50 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 20:10:44 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 21:57:30 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_launch_text(t_deflibx *mlx)
 			&mlx->text.bpp, &mlx->text.size_line, &mlx->text.endian);
 }
 
-void	ft_destroy_textanssprites(t_deflibx *mlx)
+void	ft_destroy_textandsprites(t_deflibx *mlx)
 {
 	mlx_destroy_image(mlx->mlx_ptr, mlx->text.img_textptr0);
 	mlx_destroy_image(mlx->mlx_ptr, mlx->text.img_textptr1);

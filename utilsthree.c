@@ -6,7 +6,7 @@
 /*   By: rzafari <rzafari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 00:03:06 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 00:39:42 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/28 01:59:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ char	*ft_strdup_zero(const char *s1, t_deflibx *mlx)
 
 	i = 0;
 	j = 0;
-
 	if (!(s2 = (char*)malloc(sizeof(char) * (mlx->parse.mapbiggerline + 1))))
 		ft_return("MALLOC ERROR :(", mlx);
 	while (s1[j] != '\0')
@@ -69,7 +68,7 @@ char	*ft_strdup_zero(const char *s1, t_deflibx *mlx)
 	return (s2);
 }
 
-void	ft_return(char *s, t_deflibx *mlx) 
+void	ft_return(char *s, t_deflibx *mlx)
 {
 	ft_putstr_cub("Error");
 	ft_putstr_cub(s);

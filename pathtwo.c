@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 18:33:51 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 00:00:38 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/28 02:07:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_check_set(t_deflibx *mlx)
 		ft_return("Ceil color not declared", mlx);
 	if (mlx->parse.Fcolorset == 0)
 		ft_return("Floor color not declared", mlx);
-} 
+}
 
 void	ft_openpath(t_deflibx *mlx)
 {

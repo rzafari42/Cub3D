@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:46:14 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 00:12:53 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/28 02:08:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_line_to_resolution(char *line, int i, t_deflibx *mlx)
 	int nspace;
 
 	c = 0;
-	nspace = 0; 
+	nspace = 0;
 	while (!(ft_isdigit_cub(line[i])))
 		i++;
 	j = ft_strlen_cub(line) - i;
@@ -91,7 +91,7 @@ void	ft_getheight_from_resolution(t_deflibx *mlx)
 		j++;
 	}
 	if (!(mlx->parse.Heightcatch = (char *)malloc(sizeof(char) * (l + 1))))
-		ft_return("MALLOC ERROR :(", mlx); 
+		ft_return("MALLOC ERROR :(", mlx);
 	mlx->parse.heightset = 1;
 	l = 0;
 	while (mlx->parse.resolution[c] != '\0')

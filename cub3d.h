@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 15:05:43 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 16:15:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -264,7 +264,7 @@ void    ft_line_map(t_deflibx *mlx);
 void    ft_copy_map(t_deflibx *mlx);
 void    ft_copy_maptwo(t_deflibx *mlx, int fd, char *line);
 void    *ft_calloc_cub(size_t count, size_t size);
-void    ft_check_firstandlast_line(t_deflibx *mlx, char *s);
+void    ft_check_firstandlast_line(t_deflibx *mlx, char *sn int j);
 void    ft_catch_positionandnumsprites(t_deflibx *mlx);
 void	ft_check_color(t_deflibx *mlx);
 void	ft_savebmp(t_deflibx *mlx);

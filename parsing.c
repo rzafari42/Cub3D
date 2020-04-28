@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 23:25:30 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/28 16:15:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_linesize(char *line, t_deflibx *mlx)
 	}
 }
 
-void	ft_check_firstandlast_line(t_deflibx *mlx, char *s)
+void	ft_check_firstandlast_line(t_deflibx *mlx, char *s, int j)
 {
 	int i;
 
@@ -48,11 +48,22 @@ void	ft_check_firstandlast_line(t_deflibx *mlx, char *s)
 	{
 		while (s[i] != '1' && s[i] != '\0')
 		{
-			if (s[i] != ' ')
+			if (j == 0)
 			{
-				ft_free_map(mlx);
-				ft_return("Map not closed: first line or last", mlx);
+				if (s[i] != ' ' && mlx->parse.map[1][i] == '0')
+				{
+					ft_free_map(mlx);
+					ft_return("Map not closed: first line or last", mlx);
+				}
 			}
+			if (j == 1)
+			{
+				if (s[i] != ' ' && mlx->parse.map[mlx->parse.mapnbline - 2][i] == '0')
+				{
+					ft_free_map(mlx);
+					ft_return("Map not closed: first line or last", mlx);
+				}
+			}	
 			i++;
 		}
 		i++;

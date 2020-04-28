@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 20:33:07 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 22:27:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -302,7 +302,7 @@ int     key_deal(t_deflibx *mlx);
 int     ft_check_wall(char *s);
 int     ft_get_color(char *line, int i, char c, t_deflibx *mlx);
 int     ft_check_if_space(t_deflibx *mlx);
-int     ft_line_to_resolution(char *line, int i, t_deflibx *mlx);
+int     ft_line_to_resolution(char *line, int i, int j, t_deflibx *mlx);
 int     ft_get_resolution(char *line, int i, t_deflibx *mlx);
 int     ft_get_typecolor(char *line, int i, t_deflibx *mlx);
 int     raycasting(t_deflibx *mlx);

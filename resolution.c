@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:46:14 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 02:08:38 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/28 22:27:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_transform_res_in_int(t_deflibx *mlx)
 		mlx->parse.Height = 480;
 }
 
-int		ft_line_to_resolution(char *line, int i, t_deflibx *mlx)
+int		ft_line_to_resolution(char *line, int i, int j, t_deflibx *mlx)
 {
 	int c;
 	int j;
@@ -30,9 +30,9 @@ int		ft_line_to_resolution(char *line, int i, t_deflibx *mlx)
 
 	c = 0;
 	nspace = 0;
-	while (!(ft_isdigit_cub(line[i])))
+	/*while (!(ft_isdigit_cub(line[i])))
 		i++;
-	j = ft_strlen_cub(line) - i;
+	j = ft_strlen_cub(line) - i;*/
 	if (!(mlx->parse.resolution = (char *)malloc(sizeof(char) * (j + 1))))
 		ft_return("MALLOC ERROR :(", mlx);
 	mlx->parse.resolutionset = 1;
@@ -101,9 +101,15 @@ void	ft_getheight_from_resolution(t_deflibx *mlx)
 
 int		ft_get_resolution(char *line, int i, t_deflibx *mlx)
 {
+	int j;
+
+	j = 0;
 	if (mlx->parse.resolutionset == 1)
 		ft_return("Resolution declared twice", mlx);
-	i = ft_line_to_resolution(line, i, mlx);
+	while (!(ft_isdigit_cub(line[i])))
+		i++;
+	j = ft_strlen_cub(line) - i;
+	i = ft_line_to_resolution(line, i, j, mlx);
 	if (!ft_check_if_space(mlx))
 		ft_return("Resolution Error: syntax error", mlx);
 	ft_getwidth_from_resolution(mlx);

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 01:20:12 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 15:05:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -288,6 +288,10 @@ void    ft_transform_res_in_int(t_deflibx *mlx);
 void    ft_get_texturespath_two(char *line, int i, t_deflibx *mlx);
 void    ft_fillspace(t_deflibx *mlx);
 void    ft_openpath(t_deflibx *mlx);
+void    raycastingprojectcalcul(t_deflibx *mlx);
+void    raycastingsprites(t_deflibx *mlx);
+void    raycastingtextures(t_deflibx *mlx, int x);
+void    raycastingrayandstepcalcul(t_deflibx *mlx, int x);
 int     ft_get_texturespath(char *line, int i, t_deflibx *mlx);
 int     keypress(int key, t_deflibx *mlx);
 int     keyrelease(int key, t_deflibx *mlx);

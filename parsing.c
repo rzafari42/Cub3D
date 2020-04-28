@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 16:15:02 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 16:37:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_linesize(char *line, t_deflibx *mlx)
 	}
 }
 
-void	ft_check_firstandlast_line(t_deflibx *mlx, char *s, int j)
+void	ft_check_firstandlast_line(t_deflibx *mlx, char *s)
 {
 	int i;
 
@@ -48,21 +48,10 @@ void	ft_check_firstandlast_line(t_deflibx *mlx, char *s, int j)
 	{
 		while (s[i] != '1' && s[i] != '\0')
 		{
-			if (j == 0)
+			if (s[i] != ' ')
 			{
-				if (s[i] != ' ' && mlx->parse.map[1][i] == '0')
-				{
-					ft_free_map(mlx);
-					ft_return("Map not closed: first line or last", mlx);
-				}
-			}
-			if (j == 1)
-			{
-				if (s[i] != ' ' && mlx->parse.map[mlx->parse.mapnbline - 2][i] == '0')
-				{
-					ft_free_map(mlx);
-					ft_return("Map not closed: first line or last", mlx);
-				}
+				ft_free_map(mlx);
+				ft_return("Map not closed: first line or last", mlx);
 			}	
 			i++;
 		}
@@ -141,7 +130,7 @@ int		ft_parsing(t_deflibx *mlx)
 	return (1);
 }
 
-/*int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     t_deflibx mlx;
 
@@ -172,4 +161,4 @@ int		ft_parsing(t_deflibx *mlx)
     printf("sizeof unsigned short int = %ld\n", sizeof(unsigned short int));
     printf("sizeof singed int = %ld\n", sizeof(int));
     printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
-}*/
+}

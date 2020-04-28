@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 15:32:31 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 16:37:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_check_mapthree(t_deflibx *mlx)
 			if (mlx->parse.map[i][j] != ' ')
 			{
 				ft_free_map(mlx);
-				ft_return("Map not closeds", mlx);
+				ft_return("Map not closed", mlx);
 			}
 			i++;
 		}
@@ -88,8 +88,8 @@ void	ft_check_map(t_deflibx *mlx)
 	int i;
 	int j;
 
-	ft_check_firstandlast_line(mlx, mlx->parse.map[0], 0);
-	ft_check_firstandlast_line(mlx, mlx->parse.map[mlx->parse.mapnbline - 1], 1);
+	ft_check_firstandlast_line(mlx, mlx->parse.map[0]);
+	ft_check_firstandlast_line(mlx, mlx->parse.map[mlx->parse.mapnbline - 1]);
 	i = 0;
 	while (i < mlx->parse.mapnbline - 1)
 	{

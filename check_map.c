@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/28 16:37:27 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 17:21:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_check_mapfour(t_deflibx *mlx)
 			mlx->parse.map[i][j] != '\0')
 			{
 				ft_free_map(mlx);
-				ft_return("Map not closed", mlx);
+				ft_return("Map not closed 4", mlx);
 			}
 			i--;
 		}
@@ -51,7 +51,7 @@ void	ft_check_mapthree(t_deflibx *mlx)
 			if (mlx->parse.map[i][j] != ' ')
 			{
 				ft_free_map(mlx);
-				ft_return("Map not closed", mlx);
+				ft_return("Map not closed 3", mlx);
 			}
 			i++;
 		}
@@ -75,7 +75,7 @@ void	ft_check_maptwo(t_deflibx *mlx)
 			if (mlx->parse.map[i][j] != ' ')
 			{
 				ft_free_map(mlx);
-				ft_return("Map not closed", mlx);
+				ft_return("Map not closed 2", mlx);
 			}
 			j--;
 		}
@@ -90,18 +90,19 @@ void	ft_check_map(t_deflibx *mlx)
 
 	ft_check_firstandlast_line(mlx, mlx->parse.map[0]);
 	ft_check_firstandlast_line(mlx, mlx->parse.map[mlx->parse.mapnbline - 1]);
-	i = 0;
+	i = 1;
 	while (i < mlx->parse.mapnbline - 1)
 	{
 		j = 0;
 		while (mlx->parse.map[i][j] != '1' &&
 		mlx->parse.map[i][j] != '\0')
 		{
-			if (mlx->parse.map[i][j] != ' ' &&
-			mlx->parse.map[i][j] != '\0')
+			if ((mlx->parse.map[i][j] != ' ' &&
+			mlx->parse.map[i][j] != '\0') ||(mlx->parse.map[i - 1][j] == '0' ||
+			mlx->parse.map[i + 1][j] == '0'))
 			{
 				ft_free_map(mlx);
-				ft_return("Map not closed", mlx);
+				ft_return("Map not closed 1", mlx);
 			}
 			j++;
 		}

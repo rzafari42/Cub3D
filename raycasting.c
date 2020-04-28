@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 18:04:18 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/28 18:24:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** 3 differents modes: 0 = texture, 1 = electron, 2 = color walls
 */
 
-void	ft_DDA(t_deflibx *mlx)
+void	ft_dda(t_deflibx *mlx)
 {
 	mlx->color.color = convertrgbtoint(mlx->color.r, mlx->color.g,
 			mlx->color.b);
@@ -98,20 +98,20 @@ void	raycastingrayandstepcalcul(t_deflibx *mlx, int x)
 void	raycastingtextures(t_deflibx *mlx, int x)
 {
 	int	(*pix_array)[mlx->parse.Width][1];
-	int	startMem;
-	int	xMem;
+	int	startmem;
+	int	xmem;
 
-	xMem = x;
-	startMem = mlx->raycast.drawStart;
+	xmem = x;
+	startmem = mlx->raycast.drawStart;
 	if (mlx->move.mode == 0)
 		ft_drawtexturedwall(mlx, x);
 	if (mlx->move.mode == 2 || mlx->move.mode == 1)
 	{
-		while (startMem < mlx->raycast.drawEnd)
+		while (startmem < mlx->raycast.drawEnd)
 		{
 			pix_array = (void *)mlx->img_data;
-			*pix_array[startMem][xMem] = mlx->color.color;
-			startMem++;
+			*pix_array[startmem][xmem] = mlx->color.color;
+			startmem++;
 		}
 	}
 }
@@ -152,7 +152,7 @@ int		raycasting(t_deflibx *mlx)
 	{
 		color_initializatin(mlx);
 		raycastingrayandstepcalcul(mlx, x);
-		ft_DDA(mlx);
+		ft_dda(mlx);
 		raycastingprojectcalcul(mlx);
 		ft_draw_ceil(mlx, x);
 		raycastingtextures(mlx, x);

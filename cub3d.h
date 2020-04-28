@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 17:40:13 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/28 18:23:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,7 +234,7 @@ void    ft_order_sprites(t_deflibx *mlx);
 void    ft_project_sprites(t_deflibx *mlx);
 void    ft_normal_mode(t_deflibx *mlx);
 void    ft_electro_mode(t_deflibx *mlx);
-void    ft_DDA(t_deflibx *mlx);
+void    ft_dda(t_deflibx *mlx);
 void    ft_drawtexturedwall(t_deflibx *mlx, int x);
 void    ft_draw_ceil(t_deflibx *mlx, int x);
 void    ft_draw_floor(t_deflibx *mlx, int x);

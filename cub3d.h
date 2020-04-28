@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 01:13:16 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 01:17:37 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ typedef struct	s_keymove
 
 typedef struct	s_raycastvar
 {
-	double  posX;
+	double  posx;
 	double	posy;
 	double	dirx;
 	double	diry;
@@ -134,7 +134,7 @@ typedef struct	s_raycastvar
 	int	hit;
 	int	side;
 	int	lineheight;
-	int	drawstart
+	int	drawstart;
 	int	drawend;
 	int	mapx;
 	int	mapy;
@@ -191,7 +191,7 @@ typedef struct	s_texture
 	int	bpp;
 	int	endian;
 	int	lineheight;
-	int	drawstart
+	int	drawstart;
 	int	drawend;
 	int	width;
 	int	height;

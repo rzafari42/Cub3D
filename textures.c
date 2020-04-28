@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:37:50 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 01:12:15 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 01:19:53 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_drawtexturedwall(t_deflibx *mlx, int x)
 {
 	int y;
 
-	y = mlx->raycast.drawstart
+	y = mlx->raycast.drawstart;
 	if (mlx->raycast.side <= 1)
 		mlx->text.wallx = mlx->raycast.posy + mlx->raycast.perpwalldist *
 			mlx->raycast.raydiry;

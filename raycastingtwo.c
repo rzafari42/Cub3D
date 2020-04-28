@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:02:42 by rzafari42         #+#    #+#             */
-/*   Updated: 2020/04/29 01:10:58 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 01:19:08 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	raycastingtextures(t_deflibx *mlx, int x)
 	int	xmem;
 
 	xmem = x;
-	startmem = mlx->raycast.drawstart
+	startmem = mlx->raycast.drawstart;
 	if (mlx->move.mode == 0)
 		ft_drawtexturedwall(mlx, x);
 	if (mlx->move.mode == 2 || mlx->move.mode == 1)

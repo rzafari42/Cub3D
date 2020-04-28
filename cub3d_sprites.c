@@ -6,15 +6,19 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:06:43 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 18:48:55 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 19:09:17 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 /*
-cc -I /usr/local/include cub3d.c -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
-cc -lmlx -framework OpenGL -framework AppKit cub3d_sprites.c utils.c cub3d.h catching_keys.c initializations0*.c key_to_functions.c move0*.c raycasting.c sprites.c textures.c Ceil_Floor.c game_modes.c parsing.c get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=2 libft.a
+** cc -I /usr/local/include cub3d.c -L /usr/local/lib -lmlx -framework OpenGL
+** -framework AppKit
+** cc -lmlx -framework OpenGL -framework AppKit cub3d_sprites.c utils.c cub3d.h
+** catching_keys.c initializations0*.c key_to_functions.c move0*.c raycasting.c
+** sprites.c textures.c Ceil_Floor.c game_modes.c parsing.c get_next_line.c
+** get_next_line_utils.c -D BUFFER_SIZE=2 libft.a
 */
 
 int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 17:32:35 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 17:37:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void  raycastingtextures(t_deflibx *mlx, int x)
   }
 }
 
-void  raycastingsprites(t_deflibx *mlx)
+int  raycastingsprites(t_deflibx *mlx, int x)
 {
   //SPRITES
   if (!(mlx->sprites.Zbuffer = malloc(sizeof(double) * mlx->parse.Width)))
@@ -125,6 +125,7 @@ void  raycastingsprites(t_deflibx *mlx)
   ft_order_sprites(mlx);
   ft_sort_sprites(mlx->sprites.spriteOrder, mlx->sprites.spriteDistance, mlx->parse.numsprites);
   ft_project_sprites(mlx);
+  return (1);
 }
 
 int raycasting(t_deflibx *mlx)
@@ -145,7 +146,8 @@ int raycasting(t_deflibx *mlx)
     ft_draw_ceil(mlx, x);
     raycastingtextures(mlx, x);
     ft_draw_floor(mlx, x);
-    raycastingsprites(mlx);
+    if (!raycastingsprites(mlx, x))
+      return(0);
     x++;
   }
   mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);

@@ -6,11 +6,25 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 19:17:11 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/27 23:44:41 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/28 20:35:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	ft_catch_positionandnumspritestwo(t_deflibx *mlx, int i, int j)
+{
+    if (mlx->parse.positionset == 1)
+    {
+        ft_return("More than one position declared", mlx);
+        free(mlx);
+    }
+    mlx->parse.positionx = i;
+    mlx->parse.positiony = j;
+    mlx->parse.position = mlx->parse.map[i][j];
+    mlx->parse.positionset = 1;
+    mlx->parse.map[i][j] = '0';
+}
 
 void	ft_catch_positionandnumsprites(t_deflibx *mlx)
 {
@@ -27,19 +41,7 @@ void	ft_catch_positionandnumsprites(t_deflibx *mlx)
 				mlx->parse.numsprites++;
 			if (mlx->parse.map[i][j] == 'N' || mlx->parse.map[i][j] == 'S' ||
 			mlx->parse.map[i][j] == 'E' || mlx->parse.map[i][j] == 'W')
-			{
-				if (mlx->parse.positionset == 1)
-				{
-					ft_return("More than one position declared", mlx);
-					free(mlx);
-				}
-				mlx->parse.positionx = i;
-				mlx->parse.positiony = j;
-				mlx->parse.position = mlx->parse.map[i][j];
-				mlx->parse.positionset = 1;
-				mlx->parse.directionset = 1;
-				mlx->parse.map[i][j] = '0';
-			}
+				ft_catch_positionandnumspritestwo(mlx, i, j);
 			j++;
 		}
 		i++;
@@ -105,28 +107,4 @@ void	ft_line_map(t_deflibx *mlx)
 	ft_line_maptwo(mlx, fd, line);
 }
 
-int		ft_check_args(char *line, t_deflibx *mlx)
-{
-	int i;
 
-	i = 0;
-	while (line[i] != '\0')
-	{
-		if ((line[i] == 'N' && line[i + 1] == 'O')
-				|| (line[i] == 'S' && line[i + 1] == 'O')
-				|| (line[i] == 'W' && line[i + 1] == 'E')
-				|| (line[i] == 'E' && line[i + 1] == 'A')
-				|| (line[i] == 'S' && line[i + 1] == ' '
-				&& line[i + 1] != 'O'))
-			i = ft_get_texturespath(line, i, mlx);
-		else if (line[i] == 'F' || line[i] == 'C')
-			i = ft_get_typecolor(line, i, mlx);
-		else if (line[i] == 'R')
-			i = ft_get_resolution(line, i, mlx);
-		else if (ft_isdigit_cub(line[i]))
-			return (2);
-		else
-			i++;
-	}
-	return (1);
-}

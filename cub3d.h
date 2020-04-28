@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 18:52:49 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 20:33:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,6 +232,8 @@ void    ft_sort_sprites(int *order, double *distance, int num);
 void    ft_locate_sprites(t_deflibx *mlx);
 void    ft_order_sprites(t_deflibx *mlx);
 void    ft_project_sprites(t_deflibx *mlx);
+void	ft_project_spritestwo(t_deflibx *mlx);
+void	ft_project_spritesthree(t_deflibx *mlx, int y);
 void    ft_normal_mode(t_deflibx *mlx);
 void    ft_electro_mode(t_deflibx *mlx);
 void    ft_dda(t_deflibx *mlx);
@@ -239,9 +241,8 @@ void    ft_drawtexturedwall(t_deflibx *mlx, int x);
 void    ft_draw_ceil(t_deflibx *mlx, int x);
 void    ft_draw_floor(t_deflibx *mlx, int x);
 void    ft_launch_text(t_deflibx *mlx);
-void    ft_destroy_text(t_deflibx *mlx);
+void    ft_destroy_textanssprites(t_deflibx *mlx);
 void    ft_launch_sprites(t_deflibx *mlx);
-void    ft_destroy_sprites(t_deflibx *mlx);
 void    color_initializatin(t_deflibx *mlx);
 void    move_up(t_deflibx *mlx);
 void    move_down(t_deflibx *mlx);
@@ -266,6 +267,7 @@ void    ft_copy_maptwo(t_deflibx *mlx, int fd, char *line);
 void    *ft_calloc_cub(size_t count, size_t size);
 void    ft_check_firstandlast_line(t_deflibx *mlx, char *s);
 void    ft_catch_positionandnumsprites(t_deflibx *mlx);
+void	ft_catch_positionandnumspritestwo(t_deflibx *mlx, int i, int j);
 void	ft_check_color(t_deflibx *mlx);
 void	ft_savebmp(t_deflibx *mlx);
 void    ft_linesize(char *line, t_deflibx *mlx);

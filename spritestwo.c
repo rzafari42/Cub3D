@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   spritestwo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <rzafari@student.42.fr>             +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 02:18:43 by user42            #+#    #+#             */
-/*   Updated: 2020/04/28 02:18:47 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/28 20:19:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	ft_freesprites(t_deflibx *mlx)
-{
-	free(&mlx->sprites.spriteOrder[0]);
-	free(&mlx->sprites_tab[0]);
-	free(&mlx->sprites.Zbuffer[0]);
-	free(&mlx->sprites.spriteDistance[0]);
-}
 
 void	ft_spritesheight(t_deflibx *mlx)
 {
@@ -48,6 +40,26 @@ void	ft_spriteswidth(t_deflibx *mlx)
 		mlx->sprites.drawEnd_spriteX = mlx->parse.Width - 1;
 }
 
+void	ft_project_spritesthree(t_deflibx *mlx, int y)
+{
+	while (y < mlx->sprites.drawEnd_spriteY)
+	{
+		d = y * 256 - mlx->parse.Height * 128 +
+			mlx->sprites.spriteHeight * 128;
+		mlx->sprites.stripeY = ((d * textheight) /
+		mlx->sprites.spriteHeight) / 256;
+		if (mlx->sprites.img_spritedata0[
+		mlx->sprites.stripeY % 64 * mlx->sprites.size_line +
+		mlx->sprites.stripeX % 64 * mlx->sprites.bpp / 8] != 0)
+			ft_memcpy_cub(mlx->img_data + 4 * mlx->parse.Width * y +
+		4 * mlx->sprites.stripe, &mlx->sprites.img_spritedata0[
+		mlx->sprites.stripeY % 64 * mlx->sprites.size_line +
+		mlx->sprites.stripeX % 64 * mlx->sprites.bpp / 8],
+		sizeof(int));
+		y++;
+	}
+}
+
 void	ft_project_spritestwo(t_deflibx *mlx)
 {
 	int y;
@@ -63,24 +75,7 @@ void	ft_project_spritestwo(t_deflibx *mlx)
 		if (mlx->sprites.transformY > 0 && mlx->sprites.stripe > 0 &&
 		mlx->sprites.stripe < mlx->parse.Width && mlx->sprites.transformY
 		< mlx->sprites.Zbuffer[mlx->sprites.stripe])
-		{
-			while (y < mlx->sprites.drawEnd_spriteY)
-			{
-				d = y * 256 - mlx->parse.Height * 128 +
-					mlx->sprites.spriteHeight * 128;
-				mlx->sprites.stripeY = ((d * textheight) /
-				mlx->sprites.spriteHeight) / 256;
-				if (mlx->sprites.img_spritedata0[
-				mlx->sprites.stripeY % 64 * mlx->sprites.size_line +
-				mlx->sprites.stripeX % 64 * mlx->sprites.bpp / 8] != 0)
-					ft_memcpy_cub(mlx->img_data + 4 * mlx->parse.Width * y +
-				4 * mlx->sprites.stripe, &mlx->sprites.img_spritedata0[
-				mlx->sprites.stripeY % 64 * mlx->sprites.size_line +
-				mlx->sprites.stripeX % 64 * mlx->sprites.bpp / 8],
-				sizeof(int));
-				y++;
-			}
-		}
+			ft_project_spritesthree(mlx, y);
 		mlx->sprites.stripe++;
 	}
 }

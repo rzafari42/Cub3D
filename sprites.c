@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:36:46 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 03:02:18 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/28 20:13:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ void	ft_launch_sprites(t_deflibx *mlx)
 	mlx->sprites.img_spritedata0 =
 		mlx_get_data_addr(mlx->sprites.img_spriteptr0, &mlx->sprites.bpp,
 		&mlx->sprites.size_line, &mlx->sprites.endian);
-}
-
-void	ft_destroy_sprites(t_deflibx *mlx)
-{
-	mlx_destroy_image(mlx->mlx_ptr, mlx->sprites.img_spriteptr0);
 }
 
 void	ft_sort_sprites(int *order, double *distance, int num)
@@ -90,4 +85,12 @@ void	ft_order_sprites(t_deflibx *mlx)
 			mlx->sprites_tab[i].y));
 		i++;
 	}
+}
+
+void	ft_freesprites(t_deflibx *mlx)
+{
+	free(&mlx->sprites.spriteOrder[0]);
+	free(&mlx->sprites_tab[0]);
+	free(&mlx->sprites.Zbuffer[0]);
+	free(&mlx->sprites.spriteDistance[0]);
 }

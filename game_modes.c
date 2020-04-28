@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:47:42 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/27 21:39:05 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/29 01:12:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,18 @@ void	ft_normal_modenext(t_deflibx *mlx)
 
 void	ft_normal_mode(t_deflibx *mlx)
 {
-	if (mlx->raycast.sideDistX < mlx->raycast.sideDistY)
+	if (mlx->raycast.sidedistx < mlx->raycast.sidedisty)
 	{
-		mlx->raycast.sideDistX += mlx->raycast.deltaDistX;
-		mlx->raycast.mapX += mlx->raycast.stepX;
-		mlx->raycast.side = (mlx->raycast.rayDirX < 0) ?
+		mlx->raycast.sidedistx += mlx->raycast.deltadistx;
+		mlx->raycast.mapx += mlx->raycast.stepx;
+		mlx->raycast.side = (mlx->raycast.raydirx < 0) ?
 			0 : 1;
 	}
 	else
 	{
-		mlx->raycast.sideDistY += mlx->raycast.deltaDistY;
-		mlx->raycast.mapY += mlx->raycast.stepY;
-		mlx->raycast.side = (mlx->raycast.rayDirY < 0) ?
+		mlx->raycast.sidedisty += mlx->raycast.deltadisty;
+		mlx->raycast.mapy += mlx->raycast.stepy;
+		mlx->raycast.side = (mlx->raycast.raydiry < 0) ?
 			2 : 3;
 	}
 	if (mlx->raycast.side == 0)
@@ -67,14 +67,14 @@ void	ft_normal_mode(t_deflibx *mlx)
 
 void	ft_electro_modenext(t_deflibx *mlx)
 {
-	mlx->raycast.sideDistY += mlx->raycast.deltaDistY;
-	mlx->raycast.mapY += mlx->raycast.stepY;
-	if (mlx->raycast.rayDirY < 0)
+	mlx->raycast.sidedisty += mlx->raycast.deltadisty;
+	mlx->raycast.mapy += mlx->raycast.stepy;
+	if (mlx->raycast.raydiry < 0)
 	{
 		mlx->raycast.side = 2;
 		mlx->color.color = mlx->color.color / 4;
 	}
-	if (mlx->raycast.rayDirY > 0)
+	if (mlx->raycast.raydiry > 0)
 	{
 		mlx->raycast.side = 3;
 		mlx->color.color = mlx->color.color / 5;
@@ -83,16 +83,16 @@ void	ft_electro_modenext(t_deflibx *mlx)
 
 void	ft_electro_mode(t_deflibx *mlx)
 {
-	if (mlx->raycast.sideDistX < mlx->raycast.sideDistY)
+	if (mlx->raycast.sidedistx < mlx->raycast.sidedisty)
 	{
-		mlx->raycast.sideDistX += mlx->raycast.deltaDistX;
-		mlx->raycast.mapX += mlx->raycast.stepX;
-		if (mlx->raycast.rayDirX < 0)
+		mlx->raycast.sidedistx += mlx->raycast.deltadistx;
+		mlx->raycast.mapx += mlx->raycast.stepx;
+		if (mlx->raycast.raydirx < 0)
 		{
 			mlx->raycast.side = 0;
 			mlx->color.color = mlx->color.color / 2;
 		}
-		if (mlx->raycast.rayDirX > 0)
+		if (mlx->raycast.raydirx > 0)
 		{
 			mlx->raycast.side = 1;
 			mlx->color.color = mlx->color.color / 3;

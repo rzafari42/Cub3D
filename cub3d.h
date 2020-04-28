@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 00:40:37 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 01:13:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,28 +116,28 @@ typedef struct	s_raycastvar
 	double  posX;
 	double	posy;
 	double	dirx;
-	double	dirY;
-	double	planeX;
-	double	planeY;
-	double	oldDirX;
-	double	oldPlaneX;
-	double	sideDistX;
-	double	sideDistY;
-	double	cameraX;
-	double	rayDirX;
-	double	rayDirY;
-	double	deltaDistX;
-	double	deltaDistY;
-	double	perpWallDist;
-	int	stepX;
-	int	stepY;
+	double	diry;
+	double	planex;
+	double	planey;
+	double	olddirx;
+	double	oldplanex;
+	double	sidedistx;
+	double	sidedisty;
+	double	camerax;
+	double	raydirx;
+	double	raydiry;
+	double	deltadistx;
+	double	deltadisty;
+	double	perpwalldist;
+	int	stepx;
+	int	stepy;
 	int	hit;
 	int	side;
-	int	lineHeight;
-	int	drawStart;
-	int	drawEnd;
-	int	mapX;
-	int	mapY;
+	int	lineheight;
+	int	drawstart
+	int	drawend;
+	int	mapx;
+	int	mapy;
 }               t_raycastvar;
 
 typedef struct  s_sprite
@@ -147,33 +147,33 @@ typedef struct  s_sprite
 	char	*img_spritedata_utils;
 	double	x;
 	double	y;
-	double	*Zbuffer;
-	double	*spriteDistance;
-	double	spriteX;
-	double	spriteY;
+	double	*zbuffer;
+	double	*spritedistance;
+	double	spritex;
+	double	spritey;
 	double	invert;
-	double	transfomrX;
-	double	transformY;
+	double	transformx;
+	double	transformy;
 	int	size_line;
 	int	bpp;
 	int	endian;
 	int	width;
 	int	height;
-	int	*spriteOrder;
+	int	*spriteorder;
 	int	sprite_screen;
-	int	spriteHeight;
-	int	spriteWidth;
-	int	drawStart_spriteY;
-	int	drawEnd_spriteY;
-	int	drawStart_spriteX;
-	int	drawEnd_spriteX;
+	int	spriteheight;
+	int	spritewidth;
+	int	drawstart_spritey;
+	int	drawend_spritey;
+	int	drawstart_spritex;
+	int	drawend_spritex;
 	int	stripe;
-	int	stripeX;
-	int	stripeY;
+	int	stripex;
+	int	stripey;
 	int	sprites_tabset;
-	int	spriteDistanceset;
-	int	spriteOrderset;
-	int	Zbufferset;
+	int	spritedistanceset;
+	int	spriteorderset;
+	int	zbufferset;
 }               t_sprite;
 
 typedef struct	s_texture
@@ -190,9 +190,9 @@ typedef struct	s_texture
 	int	size_line;
 	int	bpp;
 	int	endian;
-	int	lineHeight;
-	int	drawStart;
-	int	drawEnd;
+	int	lineheight;
+	int	drawstart
+	int	drawend;
 	int	width;
 	int	height;
 	int	x;

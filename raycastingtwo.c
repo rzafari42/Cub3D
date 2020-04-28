@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:02:42 by rzafari42         #+#    #+#             */
-/*   Updated: 2020/04/29 00:19:17 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 01:10:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	raycastingtextures(t_deflibx *mlx, int x)
 	int	xmem;
 
 	xmem = x;
-	startmem = mlx->raycast.drawStart;
+	startmem = mlx->raycast.drawstart
 	if (mlx->move.mode == 0)
 		ft_drawtexturedwall(mlx, x);
 	if (mlx->move.mode == 2 || mlx->move.mode == 1)
 	{
-		while (startmem < mlx->raycast.drawEnd)
+		while (startmem < mlx->raycast.drawend)
 		{
 			pix_array = (void *)mlx->img_data;
 			*pix_array[startmem][xmem] = mlx->color.color;
@@ -35,20 +35,20 @@ void	raycastingtextures(t_deflibx *mlx, int x)
 
 int		raycastingsprites(t_deflibx *mlx, int x)
 {
-	if (!(mlx->sprites.Zbuffer = malloc(sizeof(double) * mlx->parse.width)))
+	if (!(mlx->sprites.zbuffer = malloc(sizeof(double) * mlx->parse.width)))
 		return (0);
-	mlx->sprites.Zbuffer[x] = mlx->raycast.perpWallDist;
+	mlx->sprites.zbuffer[x] = mlx->raycast.perpwalldist;
 	if (!(mlx->sprites_tab = malloc(sizeof(t_sprite) * mlx->parse.numsprites)))
 		return (0);
-	if (!(mlx->sprites.spriteDistance = malloc(sizeof(double) *
+	if (!(mlx->sprites.spritedistance = malloc(sizeof(double) *
 					mlx->parse.numsprites)))
 		return (0);
-	if (!(mlx->sprites.spriteOrder = malloc(sizeof(int) *
+	if (!(mlx->sprites.spriteorder = malloc(sizeof(int) *
 					mlx->parse.numsprites)))
 		return (0);
 	ft_locate_sprites(mlx);
 	ft_order_sprites(mlx);
-	ft_sort_sprites(mlx->sprites.spriteOrder, mlx->sprites.spriteDistance,
+	ft_sort_sprites(mlx->sprites.spriteorder, mlx->sprites.spritedistance,
 			mlx->parse.numsprites);
 	ft_project_sprites(mlx);
 	return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilstwo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rzafari <rzafari@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 23:57:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/28 00:34:36 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/29 14:54:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ char		*ft_strdup_cub(const char *s1)
 	return (s2);
 }
 
-unsigned long		convertrgbtoint(unsigned int r, unsigned int g, unsigned int b)
+unsigned long		convertrgbtoint(unsigned int r, unsigned int g,
+					unsigned int b)
 {
 	unsigned long color;
 

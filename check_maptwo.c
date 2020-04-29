@@ -1,7 +1,7 @@
 
 #include "cub3d.h"
 
-void	ft_check_mapfournext(t_deflibx *mlx, int j)
+void	ft_check_mapfournext(t_deflibx *mlx, int i, int j)
 {
     while (mlx->parse.map[i][j] != '1')
     {
@@ -35,7 +35,7 @@ void	ft_check_mapfour(t_deflibx *mlx)
 			}
 			j--;
 		}
-		ft_check_mapfournext(mlx, j)
+		ft_check_mapfournext(mlx, i, j)
 		i++;
 	}
 }

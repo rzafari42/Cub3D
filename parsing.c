@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 15:54:03 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 17:34:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,8 @@ int		ft_parsing(t_deflibx *mlx)
 	return (1);
 }
 
- int main(int argc, char **argv)
+/*
+int main(int argc, char **argv)
  {
     t_deflibx mlx;
 
@@ -163,4 +164,4 @@ int		ft_parsing(t_deflibx *mlx)
     printf("sizeof singed int = %ld\n", sizeof(int));
     printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
 }
-
+*/

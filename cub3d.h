@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 04:13:24 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/29 17:30:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include <mlx.h>
+//# include <mlx.h>
 # define TEXTWIDTH 64
 # define TEXTHEIGHT 64
 
@@ -277,6 +277,7 @@ void			ft_spriteswidth(t_deflibx *mlx);
 void			ft_freesprites(t_deflibx *mlx);
 void			keypresstwo(int key, t_deflibx *mlx);
 void			ft_check_map(t_deflibx *mlx);
+void            ft_check_mapone(t_deflibx *mlx);
 void			ft_check_maptwo(t_deflibx *mlx);
 void			ft_cehck_mapthree(t_deflibx *mlx);
 void			ft_cehck_mapfour(t_deflibx *mlx);

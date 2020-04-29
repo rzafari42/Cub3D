@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 01:12:20 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 15:54:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_check_firstandlast_line(t_deflibx *mlx, char *s)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		while (s[i] != '1' && s[i] != '\0')
+		while (s[i] != '1' && i < mlx->parse.mapbiggerline)
 		{
 			if (s[i] != ' ')
 			{
@@ -129,37 +129,38 @@ int		ft_parsing(t_deflibx *mlx)
 	close(fd);
 	return (1);
 }
-/*
-** int main(int argc, char **argv)
-** {
-**    t_deflibx mlx;
-**
-**    mlx.parse.files = "./map.cu";
-**    ft_parse_initialization(&mlx);
-**    ft_parse_arguments(&mlx, argc, argv);
-**    ft_parsing(&mlx);
-**    printf("resolution = [%d %d]\n", mlx.parse.width, mlx.parse.height);
-**    printf("Floor color = %d\n", mlx.color.floorcolor);
-**    printf("Ceil color = %d\n", mlx.color.ceilcolor);
-**    printf("north = %s\n", mlx.parse.northtext);
-**    printf("south = %s\n", mlx.parse.southtext);
-**    printf("east = %s\n", mlx.parse.easttext);
-**    printf("west = %s\n", mlx.parse.westtext);
-**    printf("sprite = %s\n", mlx.parse.sprite);
-**    printf("WIDTH = %d\n", mlx.parse.width);
-**    printf("HEIGHT = %d\n", mlx.parse.height);
-**    printf("nortset = %d\n", mlx.parse.northset);
-**    printf("southset = %d\n", mlx.parse.southset);
-**    printf("westset = %d\n", mlx.parse.westset);
-**    printf("eastset = %d\n", mlx.parse.eastset);
-**    printf("spriteset = %d\n", mlx.parse.spriteset);
-**    printf("numsprites = %d\n", mlx.parse.numsprites);
-**    printf("biggerline = %d\n", mlx.parse.mapbiggerline);
-**    ft_free(&mlx);
-**
-**    printf("sizeof unsined int = %ld\n", sizeof(unsigned int));
-**    printf("sizeof unsigned short int = %ld\n", sizeof(unsigned short int));
-**    printf("sizeof singed int = %ld\n", sizeof(int));
-**    printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
-** }
-*/
+
+ int main(int argc, char **argv)
+ {
+    t_deflibx mlx;
+
+    mlx.parse.files = "./map.cu";
+    ft_parse_initialization(&mlx);
+    ft_parse_arguments(&mlx, argc, argv);
+    ft_parsing(&mlx);
+    printf("resolution = [%d %d]\n", mlx.parse.width, mlx.parse.height);
+    printf("Floor color = %d\n", mlx.color.floorcolor);
+    printf("Ceil color = %d\n", mlx.color.ceilcolor);
+    printf("north = %s\n", mlx.parse.northtext);
+    printf("south = %s\n", mlx.parse.southtext);
+    printf("east = %s\n", mlx.parse.easttext);
+    printf("west = %s\n", mlx.parse.westtext);
+    printf("sprite = %s\n", mlx.parse.sprite);
+    printf("WIDTH = %d\n", mlx.parse.width);
+    printf("HEIGHT = %d\n", mlx.parse.height);
+    printf("nortset = %d\n", mlx.parse.northset);
+    printf("southset = %d\n", mlx.parse.southset);
+    printf("westset = %d\n", mlx.parse.westset);
+    printf("eastset = %d\n", mlx.parse.eastset);
+    printf("spriteset = %d\n", mlx.parse.spriteset);
+    printf("numsprites = %d\n", mlx.parse.numsprites);
+    printf("biggerline = %d\n", mlx.parse.mapbiggerline);
+	printf("nbline = %d\n", mlx.parse.mapnbline);
+    ft_free(&mlx);
+
+    printf("sizeof unsined int = %ld\n", sizeof(unsigned int));
+    printf("sizeof unsigned short int = %ld\n", sizeof(unsigned short int));
+    printf("sizeof singed int = %ld\n", sizeof(int));
+    printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
+}
+

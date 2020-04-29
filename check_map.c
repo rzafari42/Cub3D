@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/29 17:48:27 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/29 17:57:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,64 +58,6 @@ void	ft_check_maptwo(t_deflibx *mlx)
 			i--;
 		}
 		j++;
-	}
-}
-
-void	ft_check_mapthree(t_deflibx *mlx)
-{
-	int i;
-	int j;
-
-	i = 1;
-	while (i < mlx->parse.mapnbline - 1)
-	{
-		j = 0;
-		while (mlx->parse.map[i][j] != '1' && mlx->parse.map[i][j] != '\0')
-		{
-			if ((mlx->parse.map[i][j] != ' ' &&
-			mlx->parse.map[i][j] != '\0') || (mlx->parse.map[i - 1][j] == '0' ||
-			mlx->parse.map[i + 1][j] == '0'))
-			{
-				ft_free_map(mlx);
-				ft_return("Map not closed", mlx);
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-void	ft_check_mapfour(t_deflibx *mlx)
-{
-	int i;
-	int j;
-
-	i = 1;
-	while (i < mlx->parse.mapnbline - 1)
-	{
-		j = mlx->parse.mapbiggerline - 1;
-		while (mlx->parse.map[i][j] == '\0')
-		{
-			if (mlx->parse.map[i - 1][j] == '0' ||
-			mlx->parse.map[i + 1][j] == '0')
-			{
-				ft_free_map(mlx);
-				ft_return("Map not closed", mlx);
-			}
-			j--;
-		}
-		while (mlx->parse.map[i][j] != '1')
-		{
-			if ((mlx->parse.map[i][j] != ' ') ||
-			(mlx->parse.map[i - 1][j] == '0' ||
-			mlx->parse.map[i + 1][j] == '0'))
-			{
-				ft_free_map(mlx);
-				ft_return("Map not closed", mlx);
-			}
-			j--;
-		}
-		i++;
 	}
 }
 

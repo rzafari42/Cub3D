@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 17:34:13 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 17:55:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,6 +281,7 @@ void            ft_check_mapone(t_deflibx *mlx);
 void			ft_check_maptwo(t_deflibx *mlx);
 void			ft_cehck_mapthree(t_deflibx *mlx);
 void			ft_cehck_mapfour(t_deflibx *mlx);
+void            ft_check_mapfournext(t_deflibx *mlx, int j);
 void			ft_getheight_from_resolution(t_deflibx *mlx);
 void			ft_getwidth_from_resolution(t_deflibx *mlx);
 void			ft_transform_res_in_int(t_deflibx *mlx);

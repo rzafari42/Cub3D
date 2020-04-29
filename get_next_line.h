@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 10:10:27 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 01:12:55 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 01:21:49 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdlib.h>
 
 int			get_next_line(int fd, char **line);
-//int			get_next_line1(int fd, char **line);
 int			ft_check(char *str);
 char		*ft_strnew_gnl(size_t size);
 char		*ft_read(int fd, char *buffer, char **str);

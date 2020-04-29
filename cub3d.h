@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 18:04:38 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/29 18:12:35 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,11 +277,11 @@ void			ft_spriteswidth(t_deflibx *mlx);
 void			ft_freesprites(t_deflibx *mlx);
 void			keypresstwo(int key, t_deflibx *mlx);
 void			ft_check_map(t_deflibx *mlx);
-void            	ft_check_mapone(t_deflibx *mlx);
+void			ft_check_mapone(t_deflibx *mlx);
 void			ft_check_maptwo(t_deflibx *mlx);
 void			ft_check_mapthree(t_deflibx *mlx);
 void			ft_check_mapfour(t_deflibx *mlx);
-void            	ft_check_mapfournext(t_deflibx *mlx, int i, int j);
+void			ft_check_mapfournext(t_deflibx *mlx, int i, int j);
 void			ft_getheight_from_resolution(t_deflibx *mlx);
 void			ft_getwidth_from_resolution(t_deflibx *mlx);
 void			ft_transform_res_in_int(t_deflibx *mlx);

@@ -6,20 +6,20 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 23:57:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 14:54:21 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/29 18:14:10 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			ft_isdigit_cub(int c)
+int				ft_isdigit_cub(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-void	ft_bzero_cub(void *s, size_t n)
+void			ft_bzero_cub(void *s, size_t n)
 {
 	unsigned char *p;
 
@@ -32,7 +32,7 @@ void	ft_bzero_cub(void *s, size_t n)
 	}
 }
 
-void	*ft_calloc_cub(size_t count, size_t size)
+void			*ft_calloc_cub(size_t count, size_t size)
 {
 	void		*str;
 	size_t		mult;
@@ -49,7 +49,7 @@ void	*ft_calloc_cub(size_t count, size_t size)
 	return (str);
 }
 
-char		*ft_strdup_cub(const char *s1)
+char			*ft_strdup_cub(const char *s1)
 {
 	char	*s2;
 	int		i;
@@ -70,7 +70,7 @@ char		*ft_strdup_cub(const char *s1)
 	return (s2);
 }
 
-unsigned long		convertrgbtoint(unsigned int r, unsigned int g,
+unsigned long	convertrgbtoint(unsigned int r, unsigned int g,
 					unsigned int b)
 {
 	unsigned long color;

@@ -12,7 +12,7 @@
 
 NAME = cub3d.a
 HEADER= cub3d.h get_next_line.h
-CC = cc
+CC = gcc
 MLXFLAGS = -L/usr/local/lib -lmlx -lm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp -lbsd
 CCFLAGS = -Wall -Wextra -Werror
 SRC = cub3d_sprites.c parse_initialization.c ft_savebmp.c catching_keys.c\
@@ -26,9 +26,8 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	gcc $(SRC)
-	$(CC) -o $(NAME) $(MLXFLAGS) $(CCFLAGS) -c $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
+	$(CC) $(CCFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME) 
 
 clean:
 	/bin/rm -f $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:06:43 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 01:12:43 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/01 00:32:24 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	main(int argc, char **argv)
 	ft_parse_arguments(&mlx, argc, argv);
 	ft_parsing(&mlx);
 	initialization(&mlx);
-	if (mlx.parse.save == 1)
+	/*if (mlx.parse.save == 1)
 	{
 		key_deal(&mlx);
 		ft_savebmp(&mlx);
 	}
 	else
-	{
+	{*/
 		while (1)
 		{
 			mlx_hook(mlx.win_ptr, 2, 1L << 0, keypress, &mlx);
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 			mlx_loop_hook(mlx.mlx_ptr, key_deal, &mlx);
 			mlx_loop(mlx.mlx_ptr);
 		}
-	}
+	//}
 	ft_free_map(&mlx);
 	ft_free(&mlx);
 	return (0);

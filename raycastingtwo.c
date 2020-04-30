@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:02:42 by rzafari42         #+#    #+#             */
-/*   Updated: 2020/04/29 01:19:08 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 17:14:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,24 @@ int		raycastingsprites(t_deflibx *mlx, int x)
 			mlx->parse.numsprites);
 	ft_project_sprites(mlx);
 	return (1);
+}
+
+void	ft_helpingbox(t_deflibx *mlx)
+{
+	if (mlx->raycast.help == 0)
+	{
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 10, 0x0901F9, "Press 'h' to display the helping box");
+	}
+	if (mlx->raycast.help == 1)
+	{
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 10, 0x0901F9, "Up = Z");
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 20.5, 0x0901F9, "Down = S");
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 30.5, 0x0901F9, "Left = Q");
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 40.5, 0x0901F9, "Rotate Right = Right Arrow");
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 50.5, 0x0901F9, "Rotate Left = Left Arrow");
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 60.5, 0x0901F9, "Change mode = E");
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 70.5, 0x0901F9, "Accelerate = A");
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 80.5, 0x0901F9, "Decelerate = W");
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 90.5, 0x0901F9, "Quit = h");
+	}
 }

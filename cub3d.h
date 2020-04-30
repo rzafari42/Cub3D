@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 15:56:14 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 17:10:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,22 @@
 
 typedef struct	s_save
 {
-	unsigned short int	signature;
-	unsigned int		size;
-	unsigned int		reservedid;
-	unsigned int		offset;
+	unsigned short int  signature;
+    unsigned int        size;
+	unsigned int        reservedid;
+	unsigned int	    offset;
 }				t_save;
 
-typedef struct	s_dibheader
+typedef struct s_dibheader
 {
-	unsigned int		dibsizeheader;
-	unsigned int		dibmpwidth;
-	unsigned int		dibbmpheight;
-	unsigned short int	dibcolorplanes;
-	unsigned short int	dibbpp;
-	unsigned char		diboffset[24];
-}				t_dibheader;
+	unsigned int	    dibsizeheader;
+	unsigned int	    dibmpwidth;
+	unsigned int	    dibbmpheight;
+	unsigned short int  dibcolorplanes;
+	unsigned short int  dibbpp;
+	unsigned char	    diboffset[24];
+}               t_dibheader;
+
 
 typedef struct	s_parse
 {
@@ -101,7 +102,6 @@ typedef struct	s_color
 	unsigned int	ceilcolor;
 	unsigned int	effectccolor;
 	unsigned int	floorcolor;
-	unsigned int	effectfcolor;
 }				t_color;
 
 typedef struct	s_keymove
@@ -143,6 +143,7 @@ typedef struct	s_raycastvar
 	int		drawend;
 	int		mapx;
 	int		mapy;
+	int		help;
 }				t_raycastvar;
 
 typedef struct	s_sprite
@@ -225,7 +226,7 @@ typedef struct	s_deflibx
 	t_sprite		*sprites_tab;
 	t_parse			parse;
 	t_save			bmp;
-	t_dibheader		bmpdib;
+    t_dibheader     bmpdib;
 }				t_deflibx;
 
 unsigned long	convertrgbtoint(unsigned int r, unsigned int g, unsigned int b);
@@ -298,6 +299,7 @@ void			raycastingprojectcalcul(t_deflibx *mlx);
 int				raycastingsprites(t_deflibx *mlx, int x);
 void			raycastingtextures(t_deflibx *mlx, int x);
 void			raycastingrayandstepcalcul(t_deflibx *mlx, int x);
+void			ft_helpingbox(t_deflibx *mlx);
 int				ft_get_texturespath(char *line, int i, t_deflibx *mlx);
 int				keypress(int key, t_deflibx *mlx);
 int				keyrelease(int key, t_deflibx *mlx);

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:43:23 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 17:17:47 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 17:27:56 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 void	keypresstwo(int key, t_deflibx *mlx)
 {
+	if (key == 104)
+	{
+		if (mlx->raycast.help == 0)
+			mlx->raycast.help = 1;
+		else
+			mlx->raycast.help = 0;
+	}
 	if (key == 101)
 	{
 		if (mlx->move.mode == 0)
@@ -41,8 +48,6 @@ int		keypress(int key, t_deflibx *mlx)
 		mlx->move.keyturnright = 1;
 	if (key == 65361)
 		mlx->move.keyturnleft = 1;
-	if (key == 104)
-		mlx->raycast.help = 1;
 	if (key == 97)
 	{
 		mlx->speed.movespeed = (mlx->speed.movespeed < 0.18) ?
@@ -73,7 +78,5 @@ int		keyrelease(int key, t_deflibx *mlx)
 		mlx->move.keyturnleft = 0;
 	if (key == 65307)
 		mlx->move.killwindow = 0;
-	if (key == 104)
-		mlx->raycast.help = 0;
 	return (0);
 }

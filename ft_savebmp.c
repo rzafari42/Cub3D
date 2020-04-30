@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 03:36:35 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/30 05:15:27 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void   ft_bmpinit(t_deflibx *mlx)
 void ft_savebmpheader(t_deflibx *mlx, int fd)
 {
      mlx->bmp.signature = 19778;
-     mlx->bmp.size = 54 + 3 * mlx->parse.width * mlx->parse.height;
+     mlx->bmp.size = 54 + 4 * mlx->parse.width * mlx->parse.height;
      mlx->bmp.reservedid = 0;
      mlx->bmp.offset = 54;
      write(fd, &mlx->bmp.signature, 2);
@@ -50,7 +50,17 @@ void ft_savedibheader(t_deflibx *mlx, int fd)
     write(fd, &mlx->bmpdib.dibbmpheight, 4);
     write(fd, &mlx->bmpdib.dibcolorplanes, 2);
     write(fd, &mlx->bmpdib.dibbpp, 2);
-    write(fd, &mlx->bmp.diboffset,24);
+    write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+    write(fd, &mlx->bmp.reservedid, 4);
+    //write(fd, &mlx->bmpdib.diboffset,24);
+    //write(fd, &mlx->bmpdib.diboffset,24);
+    //write(fd, &mlx->bmpdib.diboffset,24);
+    //write(fd, &mlx->bmpdib.diboffset,24);
+    //write(fd, &mlx->bmpdib.diboffset,24);
 }
 
 void ft_savepixelarray(t_deflibx *mlx, int fd)
@@ -102,7 +112,7 @@ void    ft_savebmp(t_deflibx *mlx)
 {
     int fd;
 
-    if ((fd = open("bmp", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU)) < 0)
+    if ((fd = open("bmp", O_RDWR | O_CREAT , S_IRWXU | O_TRUNC)) < 0)
           ("Fd error while saving in .bmp", mlx);
     ft_savebmpheader(mlx, fd);
     ft_savedibheader(mlx, fd);

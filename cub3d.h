@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 14:59:28 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 15:56:14 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,21 @@
 
 typedef struct	s_save
 {
-	unsigned short int  signature;
-    unsigned int        size;
-	unsigned int        reservedid;
-	unsigned int	    offset;
+	unsigned short int	signature;
+	unsigned int		size;
+	unsigned int		reservedid;
+	unsigned int		offset;
 }				t_save;
 
-typedef struct s_dibheader
+typedef struct	s_dibheader
 {
-	unsigned int	    dibsizeheader;
-	unsigned int	    dibmpwidth;
-	unsigned int	    dibbmpheight;
-	unsigned short int  dibcolorplanes;
-	unsigned short int  dibbpp;
-	unsigned char	    diboffset[24];
-}               t_dibheader;
-
+	unsigned int		dibsizeheader;
+	unsigned int		dibmpwidth;
+	unsigned int		dibbmpheight;
+	unsigned short int	dibcolorplanes;
+	unsigned short int	dibbpp;
+	unsigned char		diboffset[24];
+}				t_dibheader;
 
 typedef struct	s_parse
 {
@@ -226,7 +225,7 @@ typedef struct	s_deflibx
 	t_sprite		*sprites_tab;
 	t_parse			parse;
 	t_save			bmp;
-    t_dibheader     bmpdib;
+	t_dibheader		bmpdib;
 }				t_deflibx;
 
 unsigned long	convertrgbtoint(unsigned int r, unsigned int g, unsigned int b);

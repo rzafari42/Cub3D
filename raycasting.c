@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 15:15:31 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 17:00:48 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,16 @@ int		raycasting(t_deflibx *mlx)
 		if (!raycastingsprites(mlx, x))
 			return (0);
 	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);	
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 10, 0x68C800, "Up = Z");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 20.5, 0x68C800, "Down = S");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 30.5, 0x68C800, "Left = Q");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 40.5, 0x68C800, "Rotate Right = Right Arrow");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 50.5, 0x68C800, "Rotate Left = Left Arrow");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 60.5, 0x68C800, "Change mode = E");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 70.5, 0x68C800, "Accelerate = A");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 80.5, 0x68C800, "Decelerate = W");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 90.5, 0x68C800, "Quit = h");
 	mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
 	ft_destroy_textandsprites(mlx);
 	return (0);

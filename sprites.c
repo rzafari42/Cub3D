@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:36:46 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 01:12:08 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/30 20:26:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ void	ft_launch_sprites(t_deflibx *mlx)
 		&mlx->sprites.size_line, &mlx->sprites.endian);
 }
 
-void	ft_sort_sprites(int *order, double *distance, int num)
+void	ft_sort_sprites(t_deflibx *mlx)
 {
 	int		i;
 	int		tmp;
 	double	tmp2;
 
 	i = 0;
-	while (i < num - 1)
+	while (i < mlx->parse.numsprites - 1)
 	{
-		if (distance[i] < distance[i + 1])
+		if (mlx->sprites.spritedistance[i] < mlx->sprites.spritedistance[i + 1])
 		{
-			tmp2 = distance[i + 1];
-			distance[i + 1] = distance[i];
-			distance[i] = tmp2;
-			tmp = order[i + 1];
-			order[i + 1] = order[i];
-			order[i] = tmp;
+			tmp2 = mlx->sprites.spritedistance[i + 1];
+			mlx->sprites.spritedistance[i + 1] = mlx->sprites.spritedistance[i];
+			mlx->sprites.spritedistance[i] = tmp2;
+			tmp = mlx->sprites.spriteorder[i + 1];
+			mlx->sprites.spriteorder[i + 1] = mlx->sprites.spriteorder[i];
+			mlx->sprites.spriteorder[i] = tmp;
 			i = 0;
 		}
 		else

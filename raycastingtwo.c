@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:02:42 by rzafari42         #+#    #+#             */
-/*   Updated: 2020/04/30 20:14:53 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 20:23:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ int		raycastingsprites(t_deflibx *mlx, int x)
 		return (0);
 	ft_locate_sprites(mlx);
 	ft_order_sprites(mlx);
-	ft_sort_sprites(mlx->sprites.spriteorder, mlx->sprites.spritedistance,
-			mlx->parse.numsprites);
+	ft_sort_sprites(mlx);
 	ft_project_sprites(mlx);
 	return (1);
 }

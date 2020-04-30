@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:44:48 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 01:13:25 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/30 18:40:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int	key_deal(t_deflibx *mlx)
 	if (mlx->move.killwindow == 1)
 		killwindow(mlx);
 	raycasting(mlx);
+	ft_helpingbox(mlx);
 	return (0);
 }

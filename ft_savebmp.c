@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 05:15:27 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 05:19:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,15 @@ void ft_savebmpheader(t_deflibx *mlx, int fd)
      mlx->bmp.size = 54 + 4 * mlx->parse.width * mlx->parse.height;
      mlx->bmp.reservedid = 0;
      mlx->bmp.offset = 54;
-     write(fd, &mlx->bmp.signature, 2);
-     write(fd, &mlx->bmp.size, 4);
-     write(fd, &mlx->bmp.reservedid, 4);
-     write(fd, &mlx->bmp.offset, 4);
-}
-
-void ft_savedibheader(t_deflibx *mlx, int fd)
-{
     mlx->bmpdib.dibsizeheader = sizeof(t_dibheader);
     mlx->bmpdib.dibmpwidth = mlx->parse.width;
     mlx->bmpdib.dibbmpheight = mlx->parse.height;
     mlx->bmpdib.dibcolorplanes = 1;
     mlx->bmpdib.dibbpp = 24;
+     write(fd, &mlx->bmp.signature, 2);
+     write(fd, &mlx->bmp.size, 4);
+     write(fd, &mlx->bmp.reservedid, 4);
+     write(fd, &mlx->bmp.offset, 4);
     write(fd, &mlx->bmpdib.dibsizeheader, 4);
     write(fd, &mlx->bmpdib.dibmpwidth, 4);
     write(fd, &mlx->bmpdib.dibbmpheight, 4);
@@ -56,10 +52,13 @@ void ft_savedibheader(t_deflibx *mlx, int fd)
     write(fd, &mlx->bmp.reservedid, 4);
     write(fd, &mlx->bmp.reservedid, 4);
     write(fd, &mlx->bmp.reservedid, 4);
-    //write(fd, &mlx->bmpdib.diboffset,24);
-    //write(fd, &mlx->bmpdib.diboffset,24);
-    //write(fd, &mlx->bmpdib.diboffset,24);
-    //write(fd, &mlx->bmpdib.diboffset,24);
+    ft_savepixelarray(mlx, fd);
+}
+
+void ft_savedibheader(t_deflibx *mlx, int fd)
+{
+
+
     //write(fd, &mlx->bmpdib.diboffset,24);
 }
 
@@ -115,8 +114,8 @@ void    ft_savebmp(t_deflibx *mlx)
     if ((fd = open("bmp", O_RDWR | O_CREAT , S_IRWXU | O_TRUNC)) < 0)
           ("Fd error while saving in .bmp", mlx);
     ft_savebmpheader(mlx, fd);
-    ft_savedibheader(mlx, fd);
-    ft_savepixelarray(mlx, fd);
+   // ft_savedibheader(mlx, fd);
+    //ft_savepixelarray(mlx, fd);
     killwindow(mlx);
 }
 

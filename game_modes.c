@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:47:42 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 01:12:49 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/30 15:10:39 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ void	ft_electro_mode(t_deflibx *mlx)
 	}
 	else
 		ft_electro_modenext(mlx);
-	mlx->color.floorcolor = 0;
-	mlx->color.ceilcolor = 0;
+	mlx->color.effectfcolor = 0;
+	mlx->color.effectccolor = 0;
 }

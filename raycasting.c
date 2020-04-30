@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/29 01:23:25 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 15:15:31 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ void	ft_dda(t_deflibx *mlx)
 	while (mlx->raycast.hit == 0)
 	{
 		if (mlx->move.mode == 0 || mlx->move.mode == 2)
+		{
 			ft_normal_mode(mlx);
+			mlx->color.effectccolor = mlx->color.ceilcolor;
+			mlx->color.effectfcolor = mlx->color.floorcolor;
+		}
 		if (mlx->move.mode == 1)
 			ft_electro_mode(mlx);
 		if (mlx->parse.map[mlx->raycast.mapx][mlx->raycast.mapy] == '1')

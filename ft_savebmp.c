@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 05:19:29 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/30 14:30:06 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void ft_savebmpheader(t_deflibx *mlx, int fd)
      mlx->bmp.size = 54 + 4 * mlx->parse.width * mlx->parse.height;
      mlx->bmp.reservedid = 0;
      mlx->bmp.offset = 54;
-    mlx->bmpdib.dibsizeheader = sizeof(t_dibheader);
+    mlx->bmpdib.dibsizeheader =  sizeof(t_dibheader);
     mlx->bmpdib.dibmpwidth = mlx->parse.width;
     mlx->bmpdib.dibbmpheight = mlx->parse.height;
     mlx->bmpdib.dibcolorplanes = 1;
@@ -64,46 +64,43 @@ void ft_savedibheader(t_deflibx *mlx, int fd)
 
 void ft_savepixelarray(t_deflibx *mlx, int fd)
 {
-   /*unsigned int    i;
+    /*unsigned int    i;
     unsigned int    x;
     unsigned int    y;
     unsigned char   *tab;
 
-    if (!(tab = ft_calloc_cub(3 * mlx->parse.Height * mlx->parse.Height, 1)))
+    if (!(tab = ft_calloc_cub(3 * mlx->parse.width * mlx->parse.height, 1)))
         ft_return("Calloc error while saving in .bmp", mlx);
     i = 0;
-    y = mlx->parse.Height;
-    while (y > 0)
+    y = mlx->parse.height;
+    while (--y > 0)
     {
         x = 0;
-        while (x < mlx->parse.Width)
+        while ((int)x < mlx->parse.width)
         {
-    	    tab[i * 3] =  mlx->img_data[x + y * mlx->parse.Width] >> 0;
-            tab[i * 3 + 1] = mlx->img_data[x + y * mlx->parse.Width] >> 8;
-	    tab[i * 3 + 2] = mlx->img_data[x + y * mlx->parse.Width] >> 16;
+    	    tab[i * 3] =  mlx->img_data[x + y * mlx->parse.width];
+            tab[i * 3 + 1] = mlx->img_data[x + y * mlx->parse.width];
+	    tab[i * 3 + 2] = mlx->img_data[x + y * mlx->parse.width];
             i++;
             x++;
         }
-        y--;
     }
-    write(fd, tab, 3 * mlx->parse.Height * mlx->parse.Width);
+    write(fd, tab, 3 * mlx->parse.height * mlx->parse.width);
     free(tab);*/
-    int		y;
-	int		x;
-	int		line;
-
-	y = 0;
-	while (y < mlx->parse.height)
+	int	x;
+	int	y;
+	int 	line;
+	
+	y = mlx->parse.height;
+	while (y > 0)
 	{
 		x = 0;
-		line = mlx->parse.width * (mlx->parse.height - y);
 		while (x < mlx->parse.width)
 		{
-			write(fd, &mlx->img_data[line * 4], 4);
-			line++;
+			write(fd, &mlx->img_data[y + 4 * x], 4);
 			x++;
 		}
-		y++;
+		y--;
 	}
 }
 

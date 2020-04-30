@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 02:44:29 by marvin           ###   ########.fr       */
+/*   Updated: 2020/04/30 14:59:28 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,9 @@ typedef struct	s_color
 	unsigned int	g;
 	unsigned int	color;
 	unsigned int	ceilcolor;
+	unsigned int	effectccolor;
 	unsigned int	floorcolor;
+	unsigned int	effectfcolor;
 }				t_color;
 
 typedef struct	s_keymove

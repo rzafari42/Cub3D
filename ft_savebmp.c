@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 14:30:06 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 19:50:46 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void   ft_bmpinit(t_deflibx *mlx)
 void ft_savebmpheader(t_deflibx *mlx, int fd)
 {
      mlx->bmp.signature = 19778;
-     mlx->bmp.size = 54 + 4 * mlx->parse.width * mlx->parse.height;
+     mlx->bmp.size = 54 + 3 * mlx->parse.width * mlx->parse.height;
      mlx->bmp.reservedid = 0;
      mlx->bmp.offset = 54;
-    mlx->bmpdib.dibsizeheader =  sizeof(t_dibheader);
+    mlx->bmpdib.dibsizeheader =  40;//sizeof(t_dibheader);
     mlx->bmpdib.dibmpwidth = mlx->parse.width;
     mlx->bmpdib.dibbmpheight = mlx->parse.height;
     mlx->bmpdib.dibcolorplanes = 1;
@@ -52,6 +52,7 @@ void ft_savebmpheader(t_deflibx *mlx, int fd)
     write(fd, &mlx->bmp.reservedid, 4);
     write(fd, &mlx->bmp.reservedid, 4);
     write(fd, &mlx->bmp.reservedid, 4);
+    //write(fd, &mlx->bmpdib.diboffset, 24);
     ft_savepixelarray(mlx, fd);
 }
 
@@ -64,13 +65,15 @@ void ft_savedibheader(t_deflibx *mlx, int fd)
 
 void ft_savepixelarray(t_deflibx *mlx, int fd)
 {
-    /*unsigned int    i;
+    unsigned int    i;
     unsigned int    x;
     unsigned int    y;
-    unsigned char   *tab;
+    unsigned int   *tab;
 
-    if (!(tab = ft_calloc_cub(3 * mlx->parse.width * mlx->parse.height, 1)))
-        ft_return("Calloc error while saving in .bmp", mlx);
+    /*if (!(tab = ft_calloc_cub(3 * mlx->parse.width * mlx->parse.height, 1)))
+        ft_return("Calloc error while saving in .bmp", mlx);*/
+    if (!(tab = malloc(3 * mlx->parse.width * mlx->parse.height)))
+	    ft_return("null", mlx);
     i = 0;
     y = mlx->parse.height;
     while (--y > 0)
@@ -78,16 +81,18 @@ void ft_savepixelarray(t_deflibx *mlx, int fd)
         x = 0;
         while ((int)x < mlx->parse.width)
         {
-    	    tab[i * 3] =  mlx->img_data[x + y * mlx->parse.width];
-            tab[i * 3 + 1] = mlx->img_data[x + y * mlx->parse.width];
-	    tab[i * 3 + 2] = mlx->img_data[x + y * mlx->parse.width];
+		tab[0] = mlx->img_data[0];
+    	    printf("helo\n");
+	    tab[i * 3] =  mlx->img_data[0];
+            tab[i * 3 + 1] = mlx->img_data[0];
+	    tab[i * 3 + 2] = mlx->img_data[0];
             i++;
             x++;
         }
     }
     write(fd, tab, 3 * mlx->parse.height * mlx->parse.width);
-    free(tab);*/
-	int	x;
+    free(tab);
+	/*int	x;
 	int	y;
 	int 	line;
 	
@@ -101,7 +106,7 @@ void ft_savepixelarray(t_deflibx *mlx, int fd)
 			x++;
 		}
 		y--;
-	}
+	}*/
 }
 
 void    ft_savebmp(t_deflibx *mlx)

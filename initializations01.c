@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:47:48 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 17:26:34 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/04/30 20:03:36 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_initialization(t_deflibx *mlx)
 	mlx->move.keyturnright = 0;
 	mlx->move.killwindow = 0;
 	mlx->speed.movespeed = 0.08;
-	mlx->speed.rotspeed = 0.02;
+	mlx->speed.rotspeed = 0.05;
 }
 
 void	window_initialization(t_deflibx *mlx)

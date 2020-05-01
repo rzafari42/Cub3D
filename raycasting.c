@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 00:36:38 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 00:40:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int		raycasting(t_deflibx *mlx)
 		ft_draw_ceil(mlx, x);
 		raycastingtextures(mlx, x);
 		ft_draw_floor(mlx, x);
-			if (!(mlx->sprites.zbuffer = malloc(sizeof(double) * mlx->parse.width)))
+		if (!(mlx->sprites.zbuffer = malloc(sizeof(double) * mlx->parse.width)))
 		return (0);
 		mlx->sprites.zbuffer[x] = mlx->raycast.perpwalldist;
 		if (!(mlx->sprites_tab = malloc(sizeof(t_sprite) * mlx->parse.numsprites)))
@@ -132,12 +132,11 @@ int		raycasting(t_deflibx *mlx)
 		return (0);
 		if (!raycastingsprites(mlx, x))
 			return (0);
-		/*free(mlx->sprites.zbuffer);
+		free(mlx->sprites.zbuffer);
 		free(mlx->sprites_tab);
 		free(mlx->sprites.spritedistance);
-		free(mlx->sprites.spriteorder);*/
+		free(mlx->sprites.spriteorder);
 	}
-	ft_freesprites(mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	ft_destroy_textandsprites(mlx);	
 	if (mlx->parse.save == 1)

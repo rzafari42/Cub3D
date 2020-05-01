@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 02:18:43 by user42            #+#    #+#             */
-/*   Updated: 2020/04/30 21:03:15 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/01 23:01:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,5 @@ void	ft_project_sprites(t_deflibx *mlx)
 		mlx->sprites.stripe = mlx->sprites.drawstart_spritex;
 		ft_project_spritestwo(mlx);
 	}
-	ft_freesprites(mlx);
+//	ft_freesprites(mlx);
 }

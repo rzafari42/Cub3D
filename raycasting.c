@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 00:53:22 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 00:57:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	raycastingprojectcalcul(t_deflibx *mlx)
 {
 	if (mlx->raycast.side == 0 || mlx->raycast.side == 1)
 		mlx->raycast.perpwalldist = ((mlx->raycast.mapx - mlx->raycast.posx +
-				(1 - mlx->raycast.stepx) / 2) / mlx->raycast.raydirx) + 0.5;
+				(1 - mlx->raycast.stepx) / 2) / mlx->raycast.raydirx);
 	else
 		mlx->raycast.perpwalldist = ((mlx->raycast.mapy - mlx->raycast.posy +
-				(1 - mlx->raycast.stepy) / 2) / mlx->raycast.raydiry) + 0.5;
+				(1 - mlx->raycast.stepy) / 2) / mlx->raycast.raydiry);
 	if (mlx->raycast.perpwalldist <= 0)
 		mlx->raycast.perpwalldist *= -1;
 	mlx->raycast.lineheight = (int)(mlx->parse.height /

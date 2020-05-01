@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 00:57:14 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 01:00:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int		raycasting(t_deflibx *mlx)
 		if (!raycastingsprites(mlx, x))
 			return (0);
 	}
-	ft_freesprites(mlx);
+	//ft_freesprites(mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	ft_destroy_textandsprites(mlx);	
 	if (mlx->parse.save == 1)

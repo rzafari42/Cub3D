@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 00:03:06 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/01 23:58:15 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 01:44:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ void	ft_free(t_deflibx *mlx)
 
 int		killwindow(t_deflibx *mlx)
 {
+	int x;
+	x = -1;
+	while (++x < mlx->parse.width)
+	{
+		free(&mlx->sprites.spriteorder[x]);
+	}
 	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 	ft_free_map(mlx);
 	ft_free(mlx);	

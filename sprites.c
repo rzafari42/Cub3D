@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:36:46 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 01:17:08 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 01:22:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ void	ft_freesprites(t_deflibx *mlx)
 {
 	free(&mlx->sprites.spriteorder);
 	free(&mlx->sprites_tab);
-	free(&mlx->sprites.zbuffer);
+	//free(&mlx->sprites.zbuffer);
 	free(&mlx->sprites.spritedistance);
 }

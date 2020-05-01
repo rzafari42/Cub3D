@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:02:42 by rzafari42         #+#    #+#             */
-/*   Updated: 2020/05/02 00:47:53 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 00:50:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		raycastingsprites(t_deflibx *mlx, int x)
 		return (0);
 	if (!(mlx->sprites.spriteorder = malloc(sizeof(int) *
 					mlx->parse.numsprites)))
-		return (0);*/
+		return (0);
 	ft_locate_sprites(mlx);
 	ft_order_sprites(mlx);
 	ft_sort_sprites(mlx);

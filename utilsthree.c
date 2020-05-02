@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 00:03:06 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 02:03:48 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 03:57:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	ft_free(t_deflibx *mlx)
 {
 	int i;
-
+	if (mlx->sprites.zbuffer)
+		free(mlx->sprites.zbuffer);
 	if (mlx->parse.resolutionset == 1)
 		free(mlx->parse.resolution);
 	if (mlx->parse.widthset == 1)

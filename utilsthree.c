@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 00:03:06 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 04:46:45 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 05:49:06 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	ft_free(t_deflibx *mlx)
 {
 	int i;
-	if (mlx->sprites.zbuffer)
+
+	if (mlx->sprites.zbufferset == 1)
 		free(mlx->sprites.zbuffer);
 	if (mlx->parse.resolutionset == 1)
 		free(mlx->parse.resolution);
@@ -33,19 +34,16 @@ void	ft_free(t_deflibx *mlx)
 		free(mlx->parse.easttext);
 	if (mlx->parse.spriteset == 1)
 		free(mlx->parse.sprite);
-	i = 0;
-	while (i <= 5)
-	{
+	i = -1;
+	while (++i <= 5)
 		close(mlx->parse.fd[i]);
-		i++;
-	}
 }
 
 int		killwindow(t_deflibx *mlx)
 {
 	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 	ft_free_map(mlx);
-	ft_free(mlx);	
+	ft_free(mlx);
 	exit(0);
 }
 

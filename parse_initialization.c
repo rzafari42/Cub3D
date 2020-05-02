@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:54:28 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/29 01:11:46 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 05:47:28 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ void	ft_parse_initialization(t_deflibx *mlx)
 	mlx->parse.numsprites = 0;
 	mlx->parse.mapnbline = 0;
 	mlx->parse.mapbiggerline = 0;
+	mlx->sprites.zbufferset = 0;
 }

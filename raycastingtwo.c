@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:02:42 by rzafari42         #+#    #+#             */
-/*   Updated: 2020/05/02 04:48:18 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 04:49:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	raycastingtextures(t_deflibx *mlx, int x)
 
 int		raycastingsprites(t_deflibx *mlx, int x)
 {
-	if (!(mlx->sprites.zbuffer = malloc(sizeof(double) * mlx->parse.width)))
-		return (0);
+	/*if (!(mlx->sprites.zbuffer = malloc(sizeof(double) * mlx->parse.width)))
+		return (0);*/
 	//mlx->sprites.zbuffer[x] = mlx->raycast.perpwalldist;
 	if (!(mlx->sprites_tab = malloc(sizeof(t_sprite) * mlx->parse.numsprites)))
 		return (0);

@@ -27,7 +27,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	$(CC) $(CCFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME)
+	$(CC) $(CCFLAGS) $(OBJ) $(MLXFLAGS) -fsanitize=address -o $(NAME)
 
 clean:
 	/bin/rm -f $(OBJ)

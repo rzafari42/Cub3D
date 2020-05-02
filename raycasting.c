@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 04:41:51 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 04:42:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,6 @@ int		raycasting(t_deflibx *mlx)
 			&mlx->endian);
 	ft_launch_text(mlx);
 	ft_launch_sprites(mlx);
-	if (!(mlx->sprites.zbuffer = malloc(sizeof(double) * mlx->parse.width)))
-		return (0);
 	while (++x < mlx->parse.width)
 	{
 		color_initializatin(mlx);
@@ -125,8 +123,6 @@ int		raycasting(t_deflibx *mlx)
 		if (!raycastingsprites(mlx, x))
 			return (0);
 	}
-	if (mlx->sprites.zbuffer)
-		free(mlx->sprites.zbuffer);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	ft_destroy_textandsprites(mlx);	
 	if (mlx->parse.save == 1)

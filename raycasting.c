@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 04:49:21 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 05:23:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,11 @@ int		raycasting(t_deflibx *mlx)
 		raycastingtextures(mlx, x);
 		ft_draw_floor(mlx, x);
 		mlx->sprites.zbuffer[x] = mlx->raycast.perpwalldist;
-		if (!raycastingsprites(mlx, x))
-			return (0);
+		/*if (!raycastingsprites(mlx, x))
+			return (0);*/
 	}
+	if (!raycastingsprites(mlx, x))
+			return (0);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	ft_destroy_textandsprites(mlx);	
 	if (mlx->parse.save == 1)

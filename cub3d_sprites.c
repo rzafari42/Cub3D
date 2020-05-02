@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:06:43 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 04:49:25 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 05:31:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	main(int argc, char **argv)
 	ft_parse_arguments(&mlx, argc, argv);
 	ft_parsing(&mlx);
 	initialization(&mlx);
-	if (!(mlx.sprites.zbuffer = malloc(sizeof(double) * mlx.parse.width)))
-		return (0);
 	/*if (mlx.parse.save == 1)
 	{
 		key_deal(&mlx);

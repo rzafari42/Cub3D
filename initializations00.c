@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:46:08 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 04:19:42 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/02 04:21:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	east_west_initialization(t_deflibx *mlx)
 
 void	initialization(t_deflibx *mlx)
 {
-	if (!(mlx.sprites.zbuffer = malloc(sizeof(double) * mlx.parse.width)))
+	if (!(mlx->sprites.zbuffer = malloc(sizeof(double) * mlx->parse.width)))
 		return (0);
 	position_initialization(mlx);
 	north_south_initialization(mlx);

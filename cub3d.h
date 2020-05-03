@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/02 03:28:03 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/03 19:33:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include <mlx.h>
+//# include <mlx.h>
 # define TEXTWIDTH 64
 # define TEXTHEIGHT 64
 
@@ -287,6 +287,7 @@ void			ft_check_map(t_deflibx *mlx);
 void			ft_check_mapone(t_deflibx *mlx);
 void			ft_check_maptwo(t_deflibx *mlx);
 void			ft_check_mapthree(t_deflibx *mlx);
+void			ft_check_mapsidethree(t_deflibx *mlx, int i, int j);
 void			ft_check_mapfour(t_deflibx *mlx);
 void			ft_check_mapfournext(t_deflibx *mlx, int i, int j);
 void			ft_getheight_from_resolution(t_deflibx *mlx);

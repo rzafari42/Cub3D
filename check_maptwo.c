@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_maptwo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rzafari42 <marvin@42.fr>                   +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 18:05:36 by rzafari42         #+#    #+#             */
-/*   Updated: 2020/04/29 18:10:21 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/03 20:02:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	ft_check_mapthree(t_deflibx *mlx)
 				ft_free_map(mlx);
 				ft_return("Map not closed", mlx);
 			}
+			ft_check_mapsidethree(mlx, i, j);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 19:17:11 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/29 01:12:02 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/03 23:33:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	ft_catch_positionandnumsprites(t_deflibx *mlx)
 		}
 		i++;
 	}
+	if (mlx->parse.positionset == 0)
+		ft_return("Position missing", mlx);
 }
 
 void	ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)

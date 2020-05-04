@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/04 16:59:44 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/04 23:20:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ typedef struct	s_save
 	unsigned int		size;
 	unsigned int		reservedid;
 	unsigned int		offset;
+	int					pad;
+	int					fd;
+	unsigned char			*file_header;
+	unsigned char			*img_header;
 }				t_save;
 
 typedef struct	s_dibheader

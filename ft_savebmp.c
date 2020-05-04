@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 00:30:23 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/05 00:44:57 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,5 +186,5 @@ void    ft_savebmp(t_deflibx *mlx)
 {
 	raycasting(mlx);
 	ft_write_bmp_file(mlx);
-    killwindow(mlx);
+	killwindow(mlx);
 }

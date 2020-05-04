@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 00:01:11 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/05 00:29:49 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,17 @@ void	raycastingrayandstepcalcul(t_deflibx *mlx, int x)
 	raycastingrayandstepcalcultwo(mlx);
 }
 
-int		ft_disp_screen(t_deflibx *mlx)
+int		raycasting(t_deflibx *mlx)
 {
-	int x;
+	int	x;
 
 	x = -1;
+	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->parse.width,
+			mlx->parse.height);
+	mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_line,
+			&mlx->endian);
+	ft_launch_text(mlx);
+	ft_launch_sprites(mlx);
 	while (++x < mlx->parse.width)
 	{
 		color_initializatin(mlx);
@@ -117,34 +123,6 @@ int		ft_disp_screen(t_deflibx *mlx)
 	}
 	if (!raycastingsprites(mlx, x))
 		return (0);
-}
-
-int		raycasting(t_deflibx *mlx)
-{
-	int	x;
-
-	x = -1;
-	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->parse.width,
-			mlx->parse.height);
-	mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_line,
-			&mlx->endian);
-	ft_launch_text(mlx);
-	ft_launch_sprites(mlx);
-	if (!ft_disp_screen(mlx))
-		return (0);
-	/*while (++x < mlx->parse.width)
-	{
-		color_initializatin(mlx);
-		raycastingrayandstepcalcul(mlx, x);
-		ft_dda(mlx);
-		raycastingprojectcalcul(mlx);
-		ft_draw_ceil(mlx, x);
-		raycastingtextures(mlx, x);
-		ft_draw_floor(mlx, x);
-		mlx->sprites.zbuffer[x] = mlx->raycast.perpwalldist;
-	}
-	if (!raycastingsprites(mlx, x))
-		return (0);*/
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	return (0);
 }

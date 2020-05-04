@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 00:25:24 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/05 00:30:23 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ void		ft_write_texture_bmp_file(t_deflibx *mlx)
 		line = mlx->parse.width * (mlx->parse.height - y);
 		while (x < mlx->parse.width)
 		{
-			write(fd, &mlx->img_data[line * 4], 4);
+			write(mlx->bmp.fd, &mlx->img_data[line * 4], 4);
 			line++;
 			x++;
 		}
@@ -184,7 +184,7 @@ void		ft_write_bmp_file(t_deflibx *mlx)
 }
 void    ft_savebmp(t_deflibx *mlx)
 {
-	ft_disp_screen(mlx);
+	raycasting(mlx);
 	ft_write_bmp_file(mlx);
     killwindow(mlx);
 }

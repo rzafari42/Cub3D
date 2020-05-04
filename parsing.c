@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/03 23:37:25 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/04 15:41:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	ft_linesize(char *line, t_deflibx *mlx)
 		{
 			if (line[0] != ' ' && line[0] != '1')
 				ft_return("Error in Map declaration", mlx);
-			if (j != 0)
-			{
+			//if (j != 0)
+			//{
 				if (line[j] != ' ' && line[j] != '0' &&
 				line[j] != '1' && line[j] != '2' &&
 				line[j] != 'N' && line[j] != 'S' &&
 				line[j] != 'E' && line[j] != 'W')
 					ft_return("Error in Map declaration", mlx);
-			}
+			//}
 			j++;
 		}
 		if (j > mlx->parse.mapbiggerline)
@@ -130,7 +130,7 @@ int		ft_parsing(t_deflibx *mlx)
 	return (1);
 }
 
-
+/*
 int main(int argc, char **argv)
  {
     t_deflibx mlx;
@@ -165,3 +165,4 @@ int main(int argc, char **argv)
     printf("sizeof singed int = %ld\n", sizeof(int));
     printf("sizeof unsigned char = %ld\n", sizeof(unsigned char));
 }
+*/

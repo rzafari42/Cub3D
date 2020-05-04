@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/03 23:36:57 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/04 15:40:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,107 +74,112 @@ void	ft_check_map(t_deflibx *mlx)
 	ft_check_mapfour(mlx);
 }
 */
-static int	check_left_right(t_deflibx *cub, int x, int y)
+int	ft_checksides(t_deflibx *mlx, int x, int y)
 {
-	int n;
-	int l;
-	int r;
+	int a;
+	int b;
+	int mem;
 
-	r = 0;
-	l = 0;
-	n = y;
+	a = 0;
+	b = 0;
+	mem = y;
 	while (y >= 0)
 	{
-		if (cub->parse.map[x][y] == '1' || cub->parse.map[x][y] == ' ')
-			l = 1;
+		if (mlx->parse.map[x][y] == '1' || mlx->parse.map[x][y] == ' ')
+			a = 1;
 		y--;
 	}
-	y = n;
-	while (cub->parse.map[x][y])
+	y = mem;
+	while (y <= mlx->parse.mapbiggerline)
 	{
-		if (cub->parse.map[x][y] == '1' || cub->parse.map[x][y] == ' ')
-			r = 1;
+		if (mlx->parse.map[x][y] == '1' || mlx->parse.map[x][y] == ' ')
+			b = 1;
 		y++;
 	}
-	return (l && r);
+	return (a && b);
 }
 
-static int	check_top_bottom(t_deflibx *cub, int x, int y)
+int	ft_checkupanddown(t_deflibx *mlx, int x, int y)
 {
-	int n;
+	int a;
 	int b;
-	int t;
+	int mem;
 
+	a = 0;
 	b = 0;
-	t = 0;
-	n = x;
-	while (x >= 0 && y < (int)ft_strlen_cub(cub->parse.map[x]))
+	mem = x;
+	while (x >= 0)
 	{
-		if (cub->parse.map[x][y] == '1' || cub->parse.map[x][y] == ' ')
-			t = 1;
+		if (mlx->parse.map[x][y] == '1' || mlx->parse.map[x][y] == ' ')
+			a = 1;
 		x--;
 	}
-	x = n;
-	while (cub->parse.map[x] && y < (int)ft_strlen_cub(cub->parse.map[x]))
+	x = mem;
+	while (x <= mlx->parse.mapnbline)
 	{
-		if (cub->parse.map[x][y] == '1' || cub->parse.map[x][y] == ' ')
+		if (mlx->parse.map[x][y] == '1' || mlx->parse.map[x][y] == ' ')
 			b = 1;
-		x++;
+		x++;	
 	}
-	return (b && t);
+	return (a && b);
 }
 
-static int	check_spaces(t_deflibx *cub, int x, int y)
+int	ft_checkspaces(t_deflibx *mlx, int x, int y)
 {
-	int t;
+	int a;
 	int b;
-	int r;
-	int l;
+	int c;
+	int d;
 
-	if (cub->parse.map[x][y] != ' ')
-		return (1);
-	t = 0;
+	a = 0;
 	b = 0;
-	r = 0;
-	l = 0;
-	if (!y || cub->parse.map[x][y - 1] == '1' || cub->parse.map[x][y - 1] == ' ')
-		l = 1;
-	if (!x || cub->parse.map[x - 1][y] == '1' || cub->parse.map[x - 1][y] == ' ')
-		t = 1;
-	if (!cub->parse.map[x][y + 1]
-		|| cub->parse.map[x][y + 1] == '1' || cub->parse.map[x][y + 1] == ' ')
-		r = 1;
-	if (!cub->parse.map[x + 1]
-		|| cub->parse.map[x + 1][y] == '1' || cub->parse.map[x + 1][y] == ' ')
+	c = 0;
+	d = 0;
+	if (mlx->parse.map[x][y] != ' ')
+		return (1);
+	if (!mlx->parse.map[x][y + 1] || mlx->parse.map[x][y + 1] == '1'
+	|| mlx->parse.map[x][y + 1] == ' ')
+		a = 1;
+	if (!y || mlx->parse.map[x][y - 1] == '1' || mlx->parse.map[x][y - 1] == ' ')
 		b = 1;
-	return (t && b && l && r);
+	if (x < mlx->parse.mapnbline - 1)
+	{
+		if (!mlx->parse.map[x + 1] || mlx->parse.map[x + 1][y] == '1'
+		|| mlx->parse.map[x + 1][y] == ' ')
+			c = 1;
+	}
+	else
+		c = 1;
+	if (!x || mlx->parse.map[x - 1][y] == '1' || mlx->parse.map[x - 1][y] == ' ')
+		d = 1;
+	return (a && b && c && d);
 }
 
-int			check_case(t_deflibx *cub, int x, int y)
+int			ft_check_case(t_deflibx *mlx, int x, int y)
 {
 	int a;
 	int b;
 	int c;
 
-	a = check_top_bottom(cub, x, y);
-	b = check_left_right(cub, x, y);
-	c = check_spaces(cub, x, y);
+	a = ft_checkupanddown(mlx, x, y);
+	b = ft_checksides(mlx, x, y);
+	c = ft_checkspaces(mlx, x, y);
 	return (a && b && c);
 }
 
-void	ft_check_map(t_deflibx *cub)
+void	ft_check_map(t_deflibx *mlx)
 {
 	int i;
 	int j;
 
 	i = -1;
-	while (++i < cub->parse.mapnbline)
+	while (mlx->parse.map[++i] && i <= mlx->parse.mapnbline)
 	{
 		j = -1;
-		while (cub->parse.map[i][++j])
+		while (mlx->parse.map[i][++j])
 		{
-			if ((!check_case(cub, i, j)))
-				ft_return("Map isn't closed\n", cub);
+			if ((!ft_check_case(mlx, i, j)))
+				ft_return("Map isn't closed\n", mlx);
 		}
 	}
 }

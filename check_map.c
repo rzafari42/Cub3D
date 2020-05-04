@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/04 16:04:30 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/04 16:22:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_check_mapone(t_deflibx *mlx)
+/*void	ft_check_mapone(t_deflibx *mlx)
 {
 	int i;
 	int j;
@@ -73,8 +73,8 @@ void	ft_check_map(t_deflibx *mlx)
 	ft_check_mapthree(mlx);
 	ft_check_mapfour(mlx);
 }
+*/
 
-/*
 int	ft_checksides(t_deflibx *mlx, int x, int y)
 {
 	int a;
@@ -138,11 +138,13 @@ int	ft_checkspaces(t_deflibx *mlx, int x, int y)
 	d = 0;
 	if (mlx->parse.map[x][y] != ' ')
 		return (1);
+	if (!y || mlx->parse.map[x][y - 1] == '1' || mlx->parse.map[x][y - 1] == ' ')
+		b = 1;
+	if (!x || mlx->parse.map[x - 1][y] == '1' || mlx->parse.map[x - 1][y] == ' ')
+		d = 1;
 	if (!mlx->parse.map[x][y + 1] || mlx->parse.map[x][y + 1] == '1'
 	|| mlx->parse.map[x][y + 1] == ' ')
 		a = 1;
-	if (!y || mlx->parse.map[x][y - 1] == '1' || mlx->parse.map[x][y - 1] == ' ')
-		b = 1;
 	if (x < mlx->parse.mapnbline - 1)
 	{
 		if (!mlx->parse.map[x + 1] || mlx->parse.map[x + 1][y] == '1'
@@ -151,8 +153,6 @@ int	ft_checkspaces(t_deflibx *mlx, int x, int y)
 	}
 	else
 		c = 1;
-	if (!x || mlx->parse.map[x - 1][y] == '1' || mlx->parse.map[x - 1][y] == ' ')
-		d = 1;
 	return (a && b && c && d);
 }
 
@@ -183,4 +183,4 @@ void	ft_check_map(t_deflibx *mlx)
 				ft_return("Map isn't closed\n", mlx);
 		}
 	}
-}*/
+}

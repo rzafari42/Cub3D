@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/04 15:40:40 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/04 16:04:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/*void	ft_check_mapone(t_deflibx *mlx)
+void	ft_check_mapone(t_deflibx *mlx)
 {
 	int i;
 	int j;
@@ -73,7 +73,8 @@ void	ft_check_map(t_deflibx *mlx)
 	ft_check_mapthree(mlx);
 	ft_check_mapfour(mlx);
 }
-*/
+
+/*
 int	ft_checksides(t_deflibx *mlx, int x, int y)
 {
 	int a;
@@ -182,4 +183,4 @@ void	ft_check_map(t_deflibx *mlx)
 				ft_return("Map isn't closed\n", mlx);
 		}
 	}
-}
+}*/

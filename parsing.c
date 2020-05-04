@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/04 15:41:07 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/04 15:46:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int		ft_read0(int fd, t_deflibx *mlx)
 	ft_map(mlx, line, fd);
 	ft_copy_map(mlx);
 	ft_check_map(mlx);
-	ft_fillspace(mlx);
+	//ft_fillspace(mlx);
 	ft_catch_positionandnumsprites(mlx);
 	return (1);
 }

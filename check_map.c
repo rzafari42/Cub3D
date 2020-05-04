@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/04 16:29:20 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/04 16:50:46 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_checksides(t_deflibx *mlx, int x, int y)
+int		ft_checksides(t_deflibx *mlx, int x, int y)
 {
 	int a;
 	int b;
@@ -37,7 +37,7 @@ int	ft_checksides(t_deflibx *mlx, int x, int y)
 	return (a && b);
 }
 
-int	ft_checkupanddown(t_deflibx *mlx, int x, int y)
+int		ft_checkupanddown(t_deflibx *mlx, int x, int y)
 {
 	int a;
 	int b;
@@ -57,12 +57,12 @@ int	ft_checkupanddown(t_deflibx *mlx, int x, int y)
 	{
 		if (mlx->parse.map[x][y] == '1' || mlx->parse.map[x][y] == ' ')
 			b = 1;
-		x++;	
+		x++;
 	}
 	return (a && b);
 }
 
-int	ft_checkspaces(t_deflibx *mlx, int x, int y)
+int		ft_checkspaces(t_deflibx *mlx, int x, int y)
 {
 	int a;
 	int b;
@@ -75,25 +75,20 @@ int	ft_checkspaces(t_deflibx *mlx, int x, int y)
 	d = 0;
 	if (mlx->parse.map[x][y] != ' ')
 		return (1);
-	if (!y || mlx->parse.map[x][y - 1] == '1' || mlx->parse.map[x][y - 1] == ' ')
+	if (!y || mlx->parse.map[x][y - 1] == '1' ||
+			mlx->parse.map[x][y - 1] == ' ')
 		b = 1;
-	if (!x || mlx->parse.map[x - 1][y] == '1' || mlx->parse.map[x - 1][y] == ' ')
+	if (!x || mlx->parse.map[x - 1][y] == '1' ||
+			mlx->parse.map[x - 1][y] == ' ')
 		d = 1;
 	if (!mlx->parse.map[x][y + 1] || mlx->parse.map[x][y + 1] == '1'
 	|| mlx->parse.map[x][y + 1] == ' ')
 		a = 1;
-	if (x < mlx->parse.mapnbline - 1)
-	{
-		if (!mlx->parse.map[x + 1] || mlx->parse.map[x + 1][y] == '1'
-		|| mlx->parse.map[x + 1][y] == ' ')
-			c = 1;
-	}
-	else
-		c = 1;
+	c = ft_checkspacesnext(mlx, x, y);
 	return (a && b && c && d);
 }
 
-int			ft_checkcase(t_deflibx *mlx, int x, int y)
+int		ft_checkcase(t_deflibx *mlx, int x, int y)
 {
 	int a;
 	int b;

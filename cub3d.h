@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/04 16:22:37 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/04 16:59:44 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -284,12 +284,6 @@ void			ft_spriteswidth(t_deflibx *mlx);
 void			ft_freesprites(t_deflibx *mlx);
 void			keypresstwo(int key, t_deflibx *mlx);
 void			ft_check_map(t_deflibx *mlx);
-void			ft_check_mapone(t_deflibx *mlx);
-void			ft_check_maptwo(t_deflibx *mlx);
-void			ft_check_mapthree(t_deflibx *mlx);
-void			ft_check_mapsidethree(t_deflibx *mlx, int i, int j);
-void			ft_check_mapfour(t_deflibx *mlx);
-void			ft_check_mapfournext(t_deflibx *mlx, int i, int j);
 void			ft_getheight_from_resolution(t_deflibx *mlx);
 void			ft_getwidth_from_resolution(t_deflibx *mlx);
 void			ft_transform_res_in_int(t_deflibx *mlx);
@@ -317,6 +311,11 @@ int				ft_atoi_cub(const char *str);
 int				ft_parsing(t_deflibx *mlx);
 int				ft_check_args(char *line, t_deflibx *mlx);
 int				ft_strncmp_cub(const char *s1, const char *s2, size_t n);
+int				ft_checkspaces(t_deflibx *mlx, int x, int y);
+int				ft_checkspacesnext(t_deflibx *mlx, int x, int y);
+int				ft_checkcase(t_deflibx *mlx, int x, int y);
+int				ft_checkupanddown(t_deflibx *mlx, int x, int y);
+int				ft_checksides(t_deflibx *mlx, int x, int y);
 char			*ft_strdup_cub(const char *s1);
 size_t			ft_strlen_cub(const char *s);
 void			ft_putstr_cub(char *s);

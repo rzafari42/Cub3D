@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/04 16:50:46 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/05 19:59:31 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_checksides(t_deflibx *mlx, int x, int y)
 		y--;
 	}
 	y = mem;
-	while (y <= mlx->parse.mapbiggerline)
+	while (mlx->parse.map[x][y])
 	{
 		if (mlx->parse.map[x][y] == '1' || mlx->parse.map[x][y] == ' ')
 			b = 1;
@@ -46,14 +46,14 @@ int		ft_checkupanddown(t_deflibx *mlx, int x, int y)
 	a = 0;
 	b = 0;
 	mem = x;
-	while (x >= 0)
+	while (x >= 0 && y < (int)ft_strlen_cub(mlx->parse.map[x]))
 	{
 		if (mlx->parse.map[x][y] == '1' || mlx->parse.map[x][y] == ' ')
 			a = 1;
 		x--;
 	}
 	x = mem;
-	while (x <= mlx->parse.mapnbline)
+	while (mlx->parse.map[x] && y < (int)ft_strlen_cub(mlx->parse.map[x]))
 	{
 		if (mlx->parse.map[x][y] == '1' || mlx->parse.map[x][y] == ' ')
 			b = 1;
@@ -69,12 +69,12 @@ int		ft_checkspaces(t_deflibx *mlx, int x, int y)
 	int c;
 	int d;
 
+	if (mlx->parse.map[x][y] != ' ')
+		return (1);
 	a = 0;
 	b = 0;
 	c = 0;
 	d = 0;
-	if (mlx->parse.map[x][y] != ' ')
-		return (1);
 	if (!y || mlx->parse.map[x][y - 1] == '1' ||
 			mlx->parse.map[x][y - 1] == ' ')
 		b = 1;
@@ -106,7 +106,7 @@ void	ft_check_map(t_deflibx *mlx)
 	int j;
 
 	i = -1;
-	while (mlx->parse.map[++i] && i <= mlx->parse.mapnbline)
+	while (mlx->parse.map[++i])
 	{
 		j = -1;
 		while (mlx->parse.map[i][++j])

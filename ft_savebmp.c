@@ -6,171 +6,73 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 13:09:17 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/05 14:04:39 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void   ft_bmpinit(t_deflibx *mlx)
+void	ft_bmpinit(t_deflibx *mlx)
 {
-    if ((mlx->bmp.fd = open("bmp", O_RDWR | O_CREAT , S_IRWXU | O_TRUNC)) < 0)
-          ft_return ("Fd error while saving in .bmp", mlx);
-    mlx->bmp.signature = 19778;
-    mlx->bmp.size = 54 + 3 * mlx->parse.width * mlx->parse.height;
-    mlx->bmp.reservedid = 0;
-    mlx->bmp.offset = 54;
-    mlx->bmpdib.dibsizeheader = 40;
-    mlx->bmpdib.dibmpwidth = mlx->parse.width;
-    mlx->bmpdib.dibbmpheight = mlx->parse.height;
-    mlx->bmpdib.dibcolorplanes = 1;
-    mlx->bmpdib.dibbpp = 32;
-}
-
-void ft_savebmpheader(t_deflibx *mlx)
-{
-    write(mlx->bmp.fd, &mlx->bmp.signature, 2);
-    write(mlx->bmp.fd, &mlx->bmp.size, 4);
-    write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
-    write(mlx->bmp.fd, &mlx->bmp.offset, 4);
-    write(mlx->bmp.fd, &mlx->bmpdib.dibsizeheader, 4);
-    write(mlx->bmp.fd, &mlx->bmpdib.dibmpwidth, 4);
-    write(mlx->bmp.fd, &mlx->bmpdib.dibbmpheight, 4);
-    write(mlx->bmp.fd, &mlx->bmpdib.dibcolorplanes, 2);
-    write(mlx->bmp.fd, &mlx->bmpdib.dibbpp, 2);
-    write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
-    write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
-    write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
-    write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
-    write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
-    write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
-}
-
-void ft_savepixelarray(t_deflibx *mlx)
-{
-   /* unsigned int    i;
-    unsigned int    x;
-    unsigned int    y;
-    unsigned int   *tab;*/
-
-//    if (!(tab = ft_calloc_cub(3 * mlx->parse.width * mlx->parse.height, 1)))
-  //      ft_return("Calloc error while saving in .bmp", mlx);
-   /* if (!(tab = malloc(3 * mlx->parse.width * mlx->parse.height)))
-	    ft_return("null", mlx);
-    i = 0;
-    y = mlx->parse.height;
-    while (--y > 0)
-    {
-        x = 0;
-        while ((int)x < mlx->parse.width)
-        {
-	
-	    tab[i * 3] =  mlx->img_data[x * 4 + y * mlx->parse.width * 4];
-            tab[i * 3 + 1] = mlx->img_data[x * 4 + y * mlx->parse.width * 4 + 1];
-	    tab[i * 3 + 2] = mlx->img_data[x * 4 + y * mlx->parse.width * 4 + 2];
-            //i++;
-            x++;
-        }
-	i++;
- 	printf("hi[%d]\n",y);
-    }
-    write(fd, tab, 3 * mlx->parse.height * mlx->parse.width);
-    free(tab);*/
-	int	x;
-	int	y;
-	int 	line;
-	
-	y = 0;
-	while (y < mlx->parse.height)
-	{
-		x = 0;
-		line = mlx->parse.width * (mlx->parse.height - y);
-		while (x < mlx->parse.width)
-		{
-			write(mlx->bmp.fd, &mlx->img_data[line* 4], 4);
-			line++;
-			x++;
-		}
-		y++;
-	}
-}
-/*
-void    ft_savebmp(t_deflibx *mlx)
-{
-    int fd;
-
-    if ((fd = open("bmp", O_RDWR | O_CREAT , S_IRWXU | O_TRUNC)) < 0)
-          ("Fd error while saving in .bmp", mlx);
-    ft_savebmpheader(mlx, fd);
-	//mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
-    // ft_savedibheader(mlx, fd);
-    //ft_savepixelarray(mlx, fd);
-    close(fd);
-    killwindow(mlx);
-}*/
-
-/*
-void		ft_init_struct_save(t_deflibx *mlx)
-{
-	mlx->bmp.size = 54 + 4 * mlx->parse.height * mlx->parse.width;
+	if ((mlx->bmp.fd = open("bmp", O_RDWR | O_CREAT, S_IRWXU | O_TRUNC)) < 0)
+		ft_return("Fd error while saving in .bmp", mlx);
+	mlx->bmp.signature = 19778;
+	mlx->bmp.size = 54 + 3 * mlx->parse.width * mlx->parse.height;
 	mlx->bmp.reservedid = 0;
 	mlx->bmp.offset = 54;
 	mlx->bmpdib.dibsizeheader = 40;
+	mlx->bmpdib.dibmpwidth = mlx->parse.width;
+	mlx->bmpdib.dibbmpheight = mlx->parse.height;
 	mlx->bmpdib.dibcolorplanes = 1;
 	mlx->bmpdib.dibbpp = 32;
-	mlx->bmp.fd = open("img.bmp", O_RDWR | O_CREAT, S_IRWXU | O_TRUNC);
-	if (mlx->bmp.fd == -1)
-		ft_return("fd error", mlx);
 }
 
-void		ft_write_texture_bmp_file(t_deflibx *mlx)
+void	ft_savebmpheader(t_deflibx *mlx)
 {
-	int		y;
-	int		x;
-	int		line;
+	write(mlx->bmp.fd, &mlx->bmp.signature, 2);
+	write(mlx->bmp.fd, &mlx->bmp.size, 4);
+	write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
+	write(mlx->bmp.fd, &mlx->bmp.offset, 4);
+	write(mlx->bmp.fd, &mlx->bmpdib.dibsizeheader, 4);
+	write(mlx->bmp.fd, &mlx->bmpdib.dibmpwidth, 4);
+	write(mlx->bmp.fd, &mlx->bmpdib.dibbmpheight, 4);
+	write(mlx->bmp.fd, &mlx->bmpdib.dibcolorplanes, 2);
+	write(mlx->bmp.fd, &mlx->bmpdib.dibbpp, 2);
+	write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
+	write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
+	write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
+	write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
+	write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
+	write(mlx->bmp.fd, &mlx->bmp.reservedid, 4);
+}
 
-	y = 0;
-	while (y < mlx->parse.height)
+void	ft_savepixelarray(t_deflibx *mlx)
+{
+	int	i;
+	int	j;
+	int	pos;
+
+	j = 0;
+	while (j < mlx->parse.height)
 	{
-		x = 0;
-		line = mlx->parse.width * (mlx->parse.height - y);
-		while (x < mlx->parse.width)
+		i = 0;
+		pos = mlx->parse.width * (mlx->parse.height - j);
+		while (i < mlx->parse.width)
 		{
-			write(mlx->bmp.fd, &mlx->img_data[line * 4], 4);
-			line++;
-			x++;
+			write(mlx->bmp.fd, &mlx->img_data[4 * pos], 4);
+			i++;
+			pos++;
 		}
-		y++;
+		j++;
 	}
 }
 
-void		ft_write_bmp_file(t_deflibx *mlx)
-{
-	ft_init_struct_save(mlx);
-	write(mlx->bmp.fd, "BM", 2);
-	write(mlx->bmp.fd, &mlx->bmp.size, sizeof(int));
-	write(mlx->bmp.fd, &mlx->bmp.reservedid, sizeof(int));
-	write(mlx->bmp.fd, &mlx->bmp.offset, sizeof(int));
-	write(mlx->bmp.fd, &mlx->bmpdib.dibsizeheader, sizeof(int));
-	write(mlx->bmp.fd, &mlx->parse.width, sizeof(int));
-	write(mlx->bmp.fd, &mlx->parse.height, sizeof(int));
-	write(mlx->bmp.fd, &mlx->bmpdib.dibcolorplanes, sizeof(short int));
-	write(mlx->bmp.fd, &mlx->bmpdib.dibbpp, sizeof(short int));
-	write(mlx->bmp.fd, &mlx->bmp.reservedid, sizeof(int));
-	write(mlx->bmp.fd, &mlx->bmp.reservedid, sizeof(int));
-	write(mlx->bmp.fd, &mlx->bmp.reservedid, sizeof(int));
-	write(mlx->bmp.fd, &mlx->bmp.reservedid, sizeof(int));
-	write(mlx->bmp.fd, &mlx->bmp.reservedid, sizeof(int));
-	write(mlx->bmp.fd, &mlx->bmp.reservedid, sizeof(int));
-	ft_write_texture_bmp_file(mlx);
-	close(mlx->bmp.fd);
-}*/
-
-void    ft_savebmp(t_deflibx *mlx)
+void	ft_savebmp(t_deflibx *mlx)
 {
 	raycasting(mlx);
-    ft_bmpinit(mlx);
+	ft_bmpinit(mlx);
 	ft_savebmpheader(mlx);
-    ft_savepixelarray(mlx);
+	ft_savepixelarray(mlx);
+	mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
 	killwindow(mlx);
 }

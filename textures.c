@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:37:50 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 22:48:08 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/05 22:48:58 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_launch_text(t_deflibx *mlx)
 {
 	mlx->text.img_textptr0 = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			mlx->parse.norttext, &mlx->text.width, &mlx->text.height);
+			mlx->parse.northtext, &mlx->text.width, &mlx->text.height);
 	mlx->text.img_textptr1 = mlx_xpm_file_to_image(mlx->mlx_ptr,
 			mlx->parse.southtext, &mlx->text.width, &mlx->text.height);
 	mlx->text.img_textptr2 = mlx_xpm_file_to_image(mlx->mlx_ptr,

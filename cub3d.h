@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 00:19:04 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/05 13:07:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -276,9 +276,8 @@ void			ft_check_color(t_deflibx *mlx);
 void			ft_savebmp(t_deflibx *mlx);
 void			ft_linesize(char *line, t_deflibx *mlx);
 void			ft_bmpinit(t_deflibx *mlx);
-void			ft_savebmpheader(t_deflibx *mlx, int fd);
-void			ft_savedibheader(t_deflibx *mlx, int fd);
-void			ft_savepixelarray(t_deflibx *mlx, int fd);
+void			ft_savebmpheader(t_deflibx *mlx);
+void			ft_savepixelarray(t_deflibx *mlx);
 void			ft_return(char *s, t_deflibx *mlx);
 void			ft_spritesheight(t_deflibx *mlx);
 void			ft_spriteswidth(t_deflibx *mlx);

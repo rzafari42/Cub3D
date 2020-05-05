@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:03:44 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 15:38:57 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/05 22:37:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,6 @@ void	ft_linesize(char *line, t_deflibx *mlx)
 		if (j > mlx->parse.mapbiggerline)
 			mlx->parse.mapbiggerline = j;
 		mlx->parse.mapnbline++;
-	}
-}
-
-void	ft_check_firstandlast_line(t_deflibx *mlx, char *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		while (s[i] != '1' && i < mlx->parse.mapbiggerline)
-		{
-			if (s[i] != ' ')
-			{
-				ft_free_map(mlx);
-				ft_return("Map not closed: first line or last", mlx);
-			}
-			i++;
-		}
-		i++;
 	}
 }
 

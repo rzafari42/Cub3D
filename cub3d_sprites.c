@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:06:43 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 17:01:35 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/05 17:08:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 			mlx_loop(mlx.mlx_ptr);
 		}
 	}
-	ft_free_map(&mlx);
-	ft_free(&mlx);
+//	ft_free_map(&mlx);
+//	ft_free(&mlx);
 	return (0);
 }

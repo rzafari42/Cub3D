@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:46:14 by marvin            #+#    #+#             */
-/*   Updated: 2020/04/29 01:11:56 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/06 00:03:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	ft_transform_res_in_int(t_deflibx *mlx)
 {
 	mlx->parse.width = ft_atoi_cub(mlx->parse.widthcatch);
 	mlx->parse.height = ft_atoi_cub(mlx->parse.heightcatch);
-	if (mlx->parse.width < 640)
-		mlx->parse.width = 640;
-	if (mlx->parse.height < 480)
-		mlx->parse.height = 480;
+	if (mlx->parse.width < 20)
+		mlx->parse.width = 20;
+	if (mlx->parse.height < 20)
+		mlx->parse.height = 20;
 }
 
 int		ft_line_to_resolution(char *line, int i, int j, t_deflibx *mlx)
@@ -43,7 +43,7 @@ int		ft_line_to_resolution(char *line, int i, int j, t_deflibx *mlx)
 			mlx->parse.resolution[c++] = line[i++];
 	}
 	mlx->parse.resolution[c] = '\0';
-	if ((c = ft_strlen_cub(mlx->parse.resolution)) > 9 || c < 7)
+	if ((c = ft_strlen_cub(mlx->parse.resolution)) > 9 || c < 5)
 		ft_return("Resolution Error: TOO BIG or TOO SMALL", mlx);
 	return (i);
 }

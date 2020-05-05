@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:48:54 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 15:08:31 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/05 22:56:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ int		ft_get_color(char *line, int i, char c, t_deflibx *mlx)
 
 int		ft_get_floor_color(char *line, int i, t_deflibx *mlx)
 {
-	while (!(ft_isdigit_cub(line[i])))
+	while (!(ft_isdigit_cub(line[i])) && line[i])
 		i++;
+	if (!ft_isdigit_cub(line[i]) && !line[i])
+		ft_return("No floor color declared");
 	i = ft_get_color(line, i, 'r', mlx);
 	i++;
 	i = ft_get_color(line, i, 'g', mlx);
@@ -63,8 +65,10 @@ int		ft_get_floor_color(char *line, int i, t_deflibx *mlx)
 
 int		ft_get_ceil_color(char *line, int i, t_deflibx *mlx)
 {
-	while (!(ft_isdigit_cub(line[i])))
+	while (!(ft_isdigit_cub(line[i])) && line[i])
 		i++;
+	if (!ft_isdigit_cub(line[i]) && !line[i])
+		ft_return("No floor color declared");
 	i = ft_get_color(line, i, 'r', mlx);
 	i++;
 	i = ft_get_color(line, i, 'g', mlx);

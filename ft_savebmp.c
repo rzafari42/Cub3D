@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 13:07:11 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/05 13:08:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void ft_savebmpheader(t_deflibx *mlx)
 
 void ft_savepixelarray(t_deflibx *mlx)
 {
-    unsigned int    i;
+   /* unsigned int    i;
     unsigned int    x;
     unsigned int    y;
-    unsigned int   *tab;
+    unsigned int   *tab;*/
 
 //    if (!(tab = ft_calloc_cub(3 * mlx->parse.width * mlx->parse.height, 1)))
   //      ft_return("Calloc error while saving in .bmp", mlx);

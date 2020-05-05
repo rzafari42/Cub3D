@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:47:48 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 20:03:36 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/05 23:20:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ void	window_initialization(t_deflibx *mlx)
 		mlx->parse.width = sizex;
 	if (mlx->parse.height > sizey)
 		mlx->parse.height = sizey;
-	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->parse.width,
-			mlx->parse.height, "cub3d");
+	if (mlx->parse.save == 0)
+		mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->parse.width,
+		mlx->parse.height, "cub3d");
 	mlx->raycast.help = 0;
 }
 

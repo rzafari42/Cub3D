@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 13:54:05 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/05 23:21:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,13 @@ int		raycasting(t_deflibx *mlx)
 	int	x;
 
 	x = -1;
-	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->parse.width,
+	if (mlx->parse.save == 0)
+	{
+		mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->parse.width,
 			mlx->parse.height);
-	mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_line,
+		mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_line,
 			&mlx->endian);
+	]
 	ft_launch_text(mlx);
 	ft_launch_sprites(mlx);
 	while (++x < mlx->parse.width)

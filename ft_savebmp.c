@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 14:42:04 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 13:08:40 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/05 13:09:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void ft_savepixelarray(t_deflibx *mlx)
 		line = mlx->parse.width * (mlx->parse.height - y);
 		while (x < mlx->parse.width)
 		{
-			write(fd, &mlx->img_data[line* 4], 4);
+			write(mlx->bmp.fd, &mlx->img_data[line* 4], 4);
 			line++;
 			x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:06:43 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 14:07:31 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/05 17:01:35 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 	if (mlx.parse.save == 1)
 	{
 		raycasting(&mlx);
+		mlx_destroy_image(mlx.mlx_ptr, mlx.img_ptr);
 		ft_savebmp(&mlx);
 	}
 	else

@@ -4,9 +4,9 @@ SO ./files/03.xpm
 WE ./files/06.xpm
 S ./files/text.xpm
 
-F 145,123,80
+F 125,4,3
 EA ./files/07.xpm
-C 125,45,52
+C 
 
  11111111111111111111
  1S111000000000100211

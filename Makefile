@@ -6,7 +6,7 @@
 #    By: rzafari <rzafari@student.42.fr>              +#+  +:+       +#+       #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/14 13:25:21 by rzafari            #+#    #+#             #
-#    Updated: 2020/05/05 13:55:15 by rzafari42        ###   ########.fr        #
+#    Updated: 2020/05/05 17:11:34 by rzafari42        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ HEADER= cub3d.h get_next_line.h
 CC = gcc
 MLXFLAGS = -L/usr/local/lib -lmlx -lm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp -lbsd
 CCFLAGS = -Wall -Wextra -Werror
-SRC = cub3d_sprites.c parse_initialization.c ft_savebmp.c catching_keys.c\
+SRC = cub3d.c parse_initialization.c ft_savebmp.c catching_keys.c\
 	ceilfloor.c game_modes.c initializations00.c initializations01.c copy_map.c\
 	key_to_functions.c move00.c move01.c parsing.c parsingtwo.c parsingthree.c\
 	raycasting.c raycastingtwo.c sprites.c spritestwo.c path.c pathtwo.c textures.c\

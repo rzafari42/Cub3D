@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:37:50 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 22:44:52 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/05 22:48:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_launch_text(t_deflibx *mlx)
 	mlx->text.img_textptr1 = mlx_xpm_file_to_image(mlx->mlx_ptr,
 			mlx->parse.southtext, &mlx->text.width, &mlx->text.height);
 	mlx->text.img_textptr2 = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			mlx->parse.easttext, &mlx->text.width, &mlx->text.height);
-	mlx->text.img_textptr3 = mlx_xpm_file_to_image(mlx->mlx_ptr,
 			mlx->parse.westtext, &mlx->text.width, &mlx->text.height);
+	mlx->text.img_textptr3 = mlx_xpm_file_to_image(mlx->mlx_ptr,
+			mlx->parse.easttext, &mlx->text.width, &mlx->text.height);
 	mlx->text.img_textdata0 = mlx_get_data_addr(mlx->text.img_textptr0,
 			&mlx->bpp, &mlx->size_line, &mlx->endian);
 	mlx->text.img_textdata1 = mlx_get_data_addr(mlx->text.img_textptr1,

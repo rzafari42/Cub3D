@@ -1,4 +1,4 @@
-R   600 500
+R  150 150
 NO ./files/01.xpm
 SO ./files/03.xpm
 WE ./files/06.xpm
@@ -6,7 +6,7 @@ S ./files/text.xpm
 
 F 125,4,3
 EA ./files/07.xpm
-C 
+C 144,4,8
 
  11111111111111111111
  1S111000000000100211

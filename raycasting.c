@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:34:38 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 23:32:54 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/06 02:23:00 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	raycastingprojectcalcul(t_deflibx *mlx)
 		mlx->raycast.drawstart = 0;
 	mlx->raycast.drawend = mlx->raycast.lineheight / 2 + mlx->parse.height / 2;
 	if (mlx->raycast.drawend >= mlx->parse.height)
-		mlx->raycast.drawend = mlx->parse.height - 1;
+		mlx->raycast.drawend = mlx->parse.height;
 }
 
 void	raycastingrayandstepcalcultwo(t_deflibx *mlx)

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/06 02:50:14 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/06 17:07:44 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	ft_check_map(t_deflibx *mlx)
 		while (mlx->parse.map[i][++j])
 		{
 			if ((!ft_checkcase(mlx, i, j)))
-				ft_return("Map isn't closed\n", mlx);
+				ft_return("Map not closed", mlx);
 		}
 	}
 }

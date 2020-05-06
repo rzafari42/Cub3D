@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:46:14 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/06 02:30:59 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/06 18:56:09 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	ft_transform_res_in_int(t_deflibx *mlx)
 {
 	mlx->parse.width = ft_atoi_cub(mlx->parse.widthcatch);
 	mlx->parse.height = ft_atoi_cub(mlx->parse.heightcatch);
-	if (mlx->parse.width < 120)
-		mlx->parse.width = 120;
-	if (mlx->parse.height < 120)
-		mlx->parse.height = 120;
+	if (mlx->parse.width < 100)
+		mlx->parse.width = 100;
+	if (mlx->parse.height < 100)
+		mlx->parse.height = 100;
 }
 
 int		ft_line_to_resolution(char *line, int i, int j, t_deflibx *mlx)

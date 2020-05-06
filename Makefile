@@ -6,11 +6,11 @@
 #    By: rzafari <rzafari@student.42.fr>              +#+  +:+       +#+       #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/14 13:25:21 by rzafari            #+#    #+#             #
-#    Updated: 2020/05/06 02:39:50 by rzafari42        ###   ########.fr        #
+#    Updated: 2020/05/06 03:22:35 by rzafari42        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Cub3D
+NAME = cub3D
 HEADER= cub3d.h get_next_line.h
 CC = gcc
 MLXFLAGS = -L/usr/local/lib -lmlx -lm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp -lbsd

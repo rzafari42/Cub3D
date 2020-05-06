@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:47:42 by rzafari           #+#    #+#             */
-/*   Updated: 2020/04/30 15:10:39 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/06 03:50:57 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_normal_modenext(t_deflibx *mlx)
 	if (mlx->raycast.side == 1)
 	{
 		mlx->color.r = 208;
-		mlx->color.g = 58;
+		mlx->color.g = 220;
 		mlx->color.b = 8;
 		mlx->text.img_textdata_utils = mlx->text.img_textdata1;
 	}

@@ -4,7 +4,7 @@ SO ./files/03.xpm
 WE ./files/06.xpm
 S ./files/text.xpm
 
-F 125,4,3
+F 124,125,0
 EA ./files/07.xpm
 C 144,4,8
 

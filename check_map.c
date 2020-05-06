@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:51:36 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/05 19:59:31 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/06 02:50:14 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	ft_check_map(t_deflibx *mlx)
 	int j;
 
 	i = -1;
-	while (mlx->parse.map[++i])
+	while (++i <= mlx->parse.mapnbline)
 	{
 		j = -1;
 		while (mlx->parse.map[i][++j])

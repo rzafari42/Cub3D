@@ -6,7 +6,7 @@
 #    By: rzafari <rzafari@student.42.fr>              +#+  +:+       +#+       #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/14 13:25:21 by rzafari            #+#    #+#             #
-#    Updated: 2020/05/05 22:21:20 by rzafari42        ###   ########.fr        #
+#    Updated: 2020/05/06 02:39:50 by rzafari42        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	$(CC) $(CCFLAGS) $(OBJ) $(MLXFLAGS) -fsanitize=address -o $(NAME)
+	$(CC) $(CCFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME)
 
 clean:
 	/bin/rm -f $(OBJ)

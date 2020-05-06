@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 19:17:11 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/05 22:40:30 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/06 03:33:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,19 @@ void	ft_catch_positionandnumsprites(t_deflibx *mlx)
 
 void	ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)
 {
+	int	i;
+
+	i = 0;
 	if (argc < 2)
 		ft_return("Missing arguments", mlx);
 	if (argc > 3)
 		ft_return("Too many arguments", mlx);
-	mlx->parse.files = argv[1];
+	while (argv[1][i] != '.' && i < (int)ft_strlen_cub(argv[1]))
+		i++;
+	if (argv[1][i] == '.' && ft_strncmp_cub(".cub", argv[1][i]))
+		mlx->parse.files = argv[1];
+	else
+		ft_return("File name error", mlx);
 	if (argc == 3)
 	{
 		if (ft_strncmp_cub("--save", argv[2],

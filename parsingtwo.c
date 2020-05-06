@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 19:17:11 by marvin            #+#    #+#             */
-/*   Updated: 2020/05/06 03:33:06 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/06 03:40:04 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	ft_parse_arguments(t_deflibx *mlx, int argc, char **argv)
 		ft_return("Too many arguments", mlx);
 	while (argv[1][i] != '.' && i < (int)ft_strlen_cub(argv[1]))
 		i++;
-	if (argv[1][i] == '.' && ft_strncmp_cub(".cub", argv[1][i]))
+	if (argv[1][i] == '.' && argv[1][++i] == 'c' && argv[1][++i] == 'u' &&
+			argv[1][++i] == 'b' && argv[1][++i] == '\0')
 		mlx->parse.files = argv[1];
 	else
 		ft_return("File name error", mlx);

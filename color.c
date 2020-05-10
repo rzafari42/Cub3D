@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:48:54 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 23:04:32 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/10 13:51:12 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ int		ft_get_color(char *line, int i, char c, t_deflibx *mlx)
 		else
 			ft_return("Color Invalid: not a digit", mlx);
 	}
+	if (line[i] == ',')
+		mlx->parse.nbdot++;
+	if (mlx->parse.nbdot > 2)
+		ft_return("Color error", mlx);
 	if (c == 'r')
 		mlx->parse.red = ft_atoi_cub(res);
 	if (c == 'g')
@@ -49,6 +53,7 @@ int		ft_get_color(char *line, int i, char c, t_deflibx *mlx)
 
 int		ft_get_floor_color(char *line, int i, t_deflibx *mlx)
 {
+	mlx->parse.nbdot = 0;
 	while (!(ft_isdigit_cub(line[i])) && line[i])
 		i++;
 	if (!ft_isdigit_cub(line[i]) && !line[i])
@@ -65,6 +70,7 @@ int		ft_get_floor_color(char *line, int i, t_deflibx *mlx)
 
 int		ft_get_ceil_color(char *line, int i, t_deflibx *mlx)
 {
+	mlx->parse.nbdot = 0;
 	while (!(ft_isdigit_cub(line[i])) && line[i])
 		i++;
 	if (!ft_isdigit_cub(line[i]) && !line[i])

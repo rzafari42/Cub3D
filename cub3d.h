@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:51:16 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/05 15:39:02 by marvin           ###   ########.fr       */
+/*   Updated: 2020/05/10 13:42:30 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_parse
 	unsigned int	red;
 	unsigned int	blue;
 	unsigned int	green;
+	int				nbdot;
 	int				fcolorset;
 	int				ccolorset;
 	int				resolutionset;

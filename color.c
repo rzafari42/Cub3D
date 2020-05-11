@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:48:54 by rzafari           #+#    #+#             */
-/*   Updated: 2020/05/10 13:51:12 by rzafari42        ###   ########.fr       */
+/*   Updated: 2020/05/10 14:18:34 by rzafari42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,12 @@ int		ft_get_color(char *line, int i, char c, t_deflibx *mlx)
 	}
 	if (line[i] == ',')
 		mlx->parse.nbdot++;
-	if (mlx->parse.nbdot > 2)
-		ft_return("Color error", mlx);
 	if (c == 'r')
 		mlx->parse.red = ft_atoi_cub(res);
 	if (c == 'g')
 		mlx->parse.green = ft_atoi_cub(res);
 	if (c == 'b')
 		mlx->parse.blue = ft_atoi_cub(res);
-	ft_check_color(mlx);
 	return (i);
 }
 
@@ -63,6 +60,9 @@ int		ft_get_floor_color(char *line, int i, t_deflibx *mlx)
 	i = ft_get_color(line, i, 'g', mlx);
 	i++;
 	i = ft_get_color(line, i, 'b', mlx);
+	if (mlx->parse.nbdot > 2)
+		ft_return("Bad color declaration for floor", mlx);
+	ft_check_color(mlx);
 	mlx->color.floorcolor = convertrgbtoint(mlx->parse.red,
 			mlx->parse.green, mlx->parse.blue);
 	return (i);
@@ -80,6 +80,9 @@ int		ft_get_ceil_color(char *line, int i, t_deflibx *mlx)
 	i = ft_get_color(line, i, 'g', mlx);
 	i++;
 	i = ft_get_color(line, i, 'b', mlx);
+	if (mlx->parse.nbdot > 2)
+		ft_return("Bad Color declaration for ceil", mlx);
+	ft_check_color(mlx);
 	mlx->color.ceilcolor = convertrgbtoint(mlx->parse.red,
 			mlx->parse.green, mlx->parse.blue);
 	return (i);

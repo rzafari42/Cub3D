@@ -1,12 +1,12 @@
-R  250 250
+R 350 350
 NO ./files/01.xpm
 SO ./files/03.xpm
 WE ./files/06.xpm
 S ./files/text.xpm
 
-F 250,42,20
+F  239,24,24
 EA ./files/07.xpm
-C 40,46,51
+C  65,67,77
 
  11111111111111111111
  1S111000000000100211
